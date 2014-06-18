@@ -15,7 +15,7 @@ namespace LanSysWebGIS.Web
         {
             return this.ObjectContext.tblUsers.Max(i => i.UsersID);
         }
-
+        
         [Invoke]
         public void ChangePmoPassword(int userId, string newPassword)
         {
