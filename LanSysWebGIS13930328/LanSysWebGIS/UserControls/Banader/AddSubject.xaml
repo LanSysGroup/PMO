@@ -1,0 +1,105 @@
+﻿<controls:ChildWindow xmlns:my1="clr-namespace:LanSysWebGIS"  x:Class="LanSysWebGIS.AddSubject"
+            xmlns:ui="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
+           xmlns:my="clr-namespace:SilverlightPersianDatePicker.Views;assembly=SilverlightPersianDatePicker"
+                      xmlns:Views="clr-namespace:SilverlightPersianDatePicker.Views;assembly=Silverlight5PersianDatePicker"
+            xmlns:myBusy="clr-namespace:LanSysWebGIS.Controls"  
+                      Title="پنجره" FlowDirection="RightToLeft" KeyDown="ChildWindow_KeyDown">
+    <myBusy:BusyIndicator IsBusy="{Binding IsLoading}" BusyContent="لطفا شکیبا باشید...">
+        <Grid x:Name="LayoutRoot" Margin="2" MinHeight="300" MinWidth="700" MaxHeight="380">
+            <Grid.Resources>
+                <Style TargetType="Border">
+                    <!--CornerRadius="5" BorderThickness="2"-->
+                    <!--Margin="2" Background="LightBlue"-->
+                    <Setter Property="CornerRadius" Value="5"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Background" Value="LightBlue"/>
+                    <Setter Property="Margin" Value="2"/>
+                </Style>
+                <Style TargetType="ListBox">
+                    <Setter Property="Margin" Value="2"/>
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20*" />
+                <ColumnDefinition Width="20*" />
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="0" />
+                <RowDefinition Height="33" />
+                <RowDefinition/>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <sdk:Label x:Name="title" Margin="4" Grid.ColumnSpan="4" FontWeight="Bold" FontSize="14"/>
+            <sdk:Label Margin="4"  Content="عنوان فارسی" Grid.Row="1"/>
+            <sdk:Label Margin="4"  Content="عنوان انگلیسی" Grid.Row="1" Grid.Column="2"/>
+            <TextBox   Margin="4"  Grid.Row="1" Grid.Column="1" Text="{Binding Path=Current.SubjectFName, Mode=TwoWay}" />
+            <TextBox   Margin="4"  Grid.Row="1" Grid.Column="3" Text="{Binding Path=Current.SubjectEName, Mode=TwoWay}" />
+            <TextBlock Grid.Row="2"  Margin="4"  Text="بازه زمانی گزارش ها از تاریخ:"/>
+
+            <my:PDatePicker Grid.Row="2" Grid.Column="1" Margin="4"  Name="FromDate" SelectedPersianDate="{Binding Current.FromDate}"/>
+            <TextBlock Margin="4"  Text="تا تاریخ:"  Grid.Row="2" Grid.Column="2" />
+            <my:PDatePicker Margin="4"  Name="ToDate" SelectedPersianDate="{Binding Current.ToDate}"  Grid.Row="2" Grid.Column="3" />
+
+            <Border BorderThickness="2" Grid.ColumnSpan="2" Margin="2" Background="LightBlue" Grid.Row="3">
+                <ui:Label Content="انتخاب نوع اطلاعات" FontWeight="Bold" FontSize="15" Margin="2" Foreground="White"/>
+            </Border>
+            <Border BorderThickness="2" Grid.ColumnSpan="3" Margin="2" Background="Transparent" BorderBrush="SkyBlue" Grid.Row="4" Grid.Column="2"/>
+            <Border BorderThickness="2" Grid.ColumnSpan="2" Margin="2" Background="Transparent" BorderBrush="SkyBlue" Grid.Row="4"/>
+            <ListBox Name="infoTypeList" Margin="6,6,4,6" Grid.Row="4" ItemsSource="{Binding InfoTypes}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox Content="{Binding Entity.Name}" IsChecked="{Binding Path=IsSelected, Mode=TwoWay}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <ListBox Name="dataTypeList" Grid.Column="1" Margin="4,6,6,6" Grid.Row="4" ItemsSource="{Binding DataTypes}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox Content="{Binding Entity.Name}" IsChecked="{Binding Path=IsSelected, Mode=TwoWay}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <ListBox Margin="6,6,4,6" Name="provinceList" Grid.Row="4" Grid.Column="2" ItemsSource="{Binding Provinces}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox Content="{Binding Entity.OSTAN_NAM}" IsChecked="{Binding Path=IsSelected, Mode=TwoWay}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <ListBox Grid.Column="3" Margin="4,6,4,6" Name="zoneList" Grid.Row="4" ItemsSource="{Binding Zones}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox Content="{Binding Entity.Name}" IsChecked="{Binding Path=IsSelected, Mode=TwoWay}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <ListBox Margin="4,6,6,6" Name="portList" Grid.Row="4"  Grid.Column="4" ItemsSource="{Binding Ports}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox Content="{Binding Entity.Name}" IsChecked="{Binding Path=IsSelected, Mode=TwoWay}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Border BorderThickness="2" Grid.ColumnSpan="3" Margin="2" Background="LightBlue" Grid.Row="3" Grid.Column="2" >
+                <ui:Label Content="انتخاب موقعیت" FontWeight="Bold" FontSize="15" Margin="2" Foreground="White"/>
+            </Border>
+
+
+            <StackPanel Grid.Row="6" Orientation="Horizontal" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+                <Button x:Name="CancelButton" Content="انصراف" Click="CancelButton_Click" Width="75" Height="23" Margin="4"/>
+                <Button x:Name="OKButton" Content="ثبت" Click="OKButton_Click" Width="75" Height="23"  Grid.Row="5" Margin="4" />
+            </StackPanel>
+        </Grid>
+    </myBusy:BusyIndicator>
+</controls:ChildWindow>

@@ -1,0 +1,17 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:my="clr-namespace:LanSysWebGIS.Resources"
+    xmlns:myHydro="clr-namespace:LanSysWebGIS.Resources.Hydro">
+
+    <my:BoolToVisibilityConverter x:Key="boolToVisibilityConverter"/>
+    <my:MahdodeLayroobiConverter x:Key="mahdodeLayroobiConverter"/>
+    <my:BoolToDataRowColorConverter x:Key="boolToDataRowColorConverter"/>
+    <myHydro:EmtiyazKarhayeAnjamShodeConverter x:Key="emtiyazKarhayeAnjamShodeConverter"/>
+    <myHydro:EmtiyazModiranVaKarkonanConverter x:Key="emtiyazModiranVaKarkonanConverter"/>
+    <myHydro:EmtiyazSalahiyatBilBarjConverter x:Key="emtiyazSalahiyatBilBarjConverter"/>
+    <myHydro:EmtiyazSalahiyatLayroobConverter x:Key="emtiyazSalahiyatLayroobConverter"/>
+    <myHydro:EmtiyazTadavomFaaliyatConverter   x:Key="emtiyazTadavomFaaliyatConverter"/>
+    <myHydro:EmtiyazTakhasosVaTajrobeConverter x:Key="emtiyazTakhasosVaTajrobeConverter"/>
+    <myHydro:EmtiyazTavanMaliConverter x:Key="emtiyazTavanMaliConverter"/>
+</ResourceDictionary>

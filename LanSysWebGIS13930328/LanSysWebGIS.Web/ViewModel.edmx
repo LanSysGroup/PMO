@@ -1,0 +1,505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ViewModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ViewModelStoreContainer">
+          <EntitySet Name="vwJamiat_Block" EntityType="ViewModel.Store.vwJamiat_Block" store:Type="Views" store:Schema="dbo" store:Name="vwJamiat_Block">
+            <DefiningQuery>SELECT 
+      [vwJamiat_Block].[Ident] AS [Ident], 
+      [vwJamiat_Block].[X_Value] AS [X_Value], 
+      [vwJamiat_Block].[Y_Value] AS [Y_Value]
+      FROM [dbo].[vwJamiat_Block] AS [vwJamiat_Block]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwJamiat_Eghamat" EntityType="ViewModel.Store.vwJamiat_Eghamat" store:Type="Views" store:Schema="dbo" store:Name="vwJamiat_Eghamat">
+            <DefiningQuery>SELECT 
+      [vwJamiat_Eghamat].[Y_Value] AS [Y_Value], 
+      [vwJamiat_Eghamat].[X_Value] AS [X_Value]
+      FROM [dbo].[vwJamiat_Eghamat] AS [vwJamiat_Eghamat]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwJamiat_Jensiat" EntityType="ViewModel.Store.vwJamiat_Jensiat" store:Type="Views" store:Schema="dbo" store:Name="vwJamiat_Jensiat">
+            <DefiningQuery>SELECT 
+      [vwJamiat_Jensiat].[Y_Value] AS [Y_Value], 
+      [vwJamiat_Jensiat].[X_Value] AS [X_Value]
+      FROM [dbo].[vwJamiat_Jensiat] AS [vwJamiat_Jensiat]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwJamiat_MahaleKarYaTahsil" EntityType="ViewModel.Store.vwJamiat_MahaleKarYaTahsil" store:Type="Views" store:Schema="dbo" store:Name="vwJamiat_MahaleKarYaTahsil">
+            <DefiningQuery>SELECT 
+      [vwJamiat_MahaleKarYaTahsil].[Y_Value] AS [Y_Value], 
+      [vwJamiat_MahaleKarYaTahsil].[X_Value] AS [X_Value]
+      FROM [dbo].[vwJamiat_MahaleKarYaTahsil] AS [vwJamiat_MahaleKarYaTahsil]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwJamiat_MahaleTavalod" EntityType="ViewModel.Store.vwJamiat_MahaleTavalod" store:Type="Views" store:Schema="dbo" store:Name="vwJamiat_MahaleTavalod">
+            <DefiningQuery>SELECT 
+      [vwJamiat_MahaleTavalod].[Y_Value] AS [Y_Value], 
+      [vwJamiat_MahaleTavalod].[X_Value] AS [X_Value]
+      FROM [dbo].[vwJamiat_MahaleTavalod] AS [vwJamiat_MahaleTavalod]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwJamiat_savad" EntityType="ViewModel.Store.vwJamiat_savad" store:Type="Views" store:Schema="dbo" store:Name="vwJamiat_savad">
+            <DefiningQuery>SELECT 
+      [vwJamiat_savad].[Y_Value] AS [Y_Value], 
+      [vwJamiat_savad].[X_Value] AS [X_Value]
+      FROM [dbo].[vwJamiat_savad] AS [vwJamiat_savad]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwJamiat_ShahrYaDehestan" EntityType="ViewModel.Store.vwJamiat_ShahrYaDehestan" store:Type="Views" store:Schema="dbo" store:Name="vwJamiat_ShahrYaDehestan">
+            <DefiningQuery>SELECT 
+      [vwJamiat_ShahrYaDehestan].[Ident] AS [Ident], 
+      [vwJamiat_ShahrYaDehestan].[Y_Value] AS [Y_Value], 
+      [vwJamiat_ShahrYaDehestan].[X_Value] AS [X_Value]
+      FROM [dbo].[vwJamiat_ShahrYaDehestan] AS [vwJamiat_ShahrYaDehestan]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwJamiat_Shoghl" EntityType="ViewModel.Store.vwJamiat_Shoghl" store:Type="Views" store:Schema="dbo" store:Name="vwJamiat_Shoghl">
+            <DefiningQuery>SELECT 
+      [vwJamiat_Shoghl].[Y_Value] AS [Y_Value], 
+      [vwJamiat_Shoghl].[X_Value] AS [X_Value]
+      FROM [dbo].[vwJamiat_Shoghl] AS [vwJamiat_Shoghl]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwJamiat_Taahol" EntityType="ViewModel.Store.vwJamiat_Taahol" store:Type="Views" store:Schema="dbo" store:Name="vwJamiat_Taahol">
+            <DefiningQuery>SELECT 
+      [vwJamiat_Taahol].[Y_Value] AS [Y_Value], 
+      [vwJamiat_Taahol].[X_Value] AS [X_Value]
+      FROM [dbo].[vwJamiat_Taahol] AS [vwJamiat_Taahol]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwJamiatKol_Sen" EntityType="ViewModel.Store.vwJamiatKol_Sen" store:Type="Views" store:Schema="dbo" store:Name="vwJamiatKol_Sen">
+            <DefiningQuery>SELECT 
+      [vwJamiatKol_Sen].[Y_Value] AS [Y_Value], 
+      [vwJamiatKol_Sen].[X_Value] AS [X_Value]
+      FROM [dbo].[vwJamiatKol_Sen] AS [vwJamiatKol_Sen]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwJamiatMard_Sen" EntityType="ViewModel.Store.vwJamiatMard_Sen" store:Type="Views" store:Schema="dbo" store:Name="vwJamiatMard_Sen">
+            <DefiningQuery>SELECT 
+      [vwJamiatMard_Sen].[Y_Value] AS [Y_Value], 
+      [vwJamiatMard_Sen].[X_Value] AS [X_Value]
+      FROM [dbo].[vwJamiatMard_Sen] AS [vwJamiatMard_Sen]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwJamiatZan_Sen" EntityType="ViewModel.Store.vwJamiatZan_Sen" store:Type="Views" store:Schema="dbo" store:Name="vwJamiatZan_Sen">
+            <DefiningQuery>SELECT 
+      [vwJamiatZan_Sen].[Y_Value] AS [Y_Value], 
+      [vwJamiatZan_Sen].[X_Value] AS [X_Value]
+      FROM [dbo].[vwJamiatZan_Sen] AS [vwJamiatZan_Sen]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwKhanevar_ShahryaDehestan" EntityType="ViewModel.Store.vwKhanevar_ShahryaDehestan" store:Type="Views" store:Schema="dbo" store:Name="vwKhanevar_ShahryaDehestan">
+            <DefiningQuery>SELECT 
+      [vwKhanevar_ShahryaDehestan].[Ident] AS [Ident], 
+      [vwKhanevar_ShahryaDehestan].[Y_Value] AS [Y_Value], 
+      [vwKhanevar_ShahryaDehestan].[X_Value] AS [X_Value]
+      FROM [dbo].[vwKhanevar_ShahryaDehestan] AS [vwKhanevar_ShahryaDehestan]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vwMasahatZirBana" EntityType="ViewModel.Store.vwMasahatZirBana" store:Type="Views" store:Schema="dbo" store:Name="vwMasahatZirBana">
+            <DefiningQuery>SELECT 
+      [vwMasahatZirBana].[Y_Value] AS [Y_Value], 
+      [vwMasahatZirBana].[X_Value] AS [X_Value]
+      FROM [dbo].[vwMasahatZirBana] AS [vwMasahatZirBana]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'AlborzGeoDB.dbo.vwJamiat_Block' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwJamiat_Block">
+          <Key>
+            <PropertyRef Name="Ident" />
+          </Key>
+          <Property Name="Ident" Type="varchar" Nullable="false" MaxLength="101" />
+          <Property Name="X_Value" Type="nvarchar" MaxLength="6" />
+          <Property Name="Y_Value" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'AlborzGeoDB.dbo.vwJamiat_Eghamat' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwJamiat_Eghamat">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="float" />
+          <Property Name="X_Value" Type="varchar" Nullable="false" MaxLength="11" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'AlborzGeoDB.dbo.vwJamiat_Jensiat' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwJamiat_Jensiat">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="float" />
+          <Property Name="X_Value" Type="varchar" Nullable="false" MaxLength="3" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'AlborzGeoDB.dbo.vwJamiat_MahaleKarYaTahsil' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwJamiat_MahaleKarYaTahsil">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="float" />
+          <Property Name="X_Value" Type="varchar" Nullable="false" MaxLength="17" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'AlborzGeoDB.dbo.vwJamiat_MahaleTavalod' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwJamiat_MahaleTavalod">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="float" />
+          <Property Name="X_Value" Type="varchar" Nullable="false" MaxLength="16" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'AlborzGeoDB.dbo.vwJamiat_savad' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwJamiat_savad">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="float" />
+          <Property Name="X_Value" Type="varchar" Nullable="false" MaxLength="17" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'AlborzGeoDB.dbo.vwJamiat_ShahrYaDehestan' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwJamiat_ShahrYaDehestan">
+          <Key>
+            <PropertyRef Name="Ident" />
+          </Key>
+          <Property Name="Ident" Type="varchar" Nullable="false" MaxLength="101" />
+          <Property Name="Y_Value" Type="float" />
+          <Property Name="X_Value" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'AlborzGeoDB.dbo.vwJamiat_Shoghl' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwJamiat_Shoghl">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="float" />
+          <Property Name="X_Value" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'AlborzGeoDB.dbo.vwJamiat_Taahol' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwJamiat_Taahol">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="float" />
+          <Property Name="X_Value" Type="varchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'AlborzGeoDB.dbo.vwJamiatKol_Sen' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwJamiatKol_Sen">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="float" />
+          <Property Name="X_Value" Type="varchar" Nullable="false" MaxLength="17" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'AlborzGeoDB.dbo.vwJamiatMard_Sen' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwJamiatMard_Sen">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="float" />
+          <Property Name="X_Value" Type="varchar" Nullable="false" MaxLength="17" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'AlborzGeoDB.dbo.vwJamiatZan_Sen' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwJamiatZan_Sen">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="float" />
+          <Property Name="X_Value" Type="varchar" Nullable="false" MaxLength="17" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'AlborzGeoDB.dbo.vwKhanevar_ShahryaDehestan' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwKhanevar_ShahryaDehestan">
+          <Key>
+            <PropertyRef Name="Ident" />
+          </Key>
+          <Property Name="Ident" Type="varchar" Nullable="false" MaxLength="101" />
+          <Property Name="Y_Value" Type="float" />
+          <Property Name="X_Value" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'AlborzGeoDB.dbo.vwMasahatZirBana' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vwMasahatZirBana">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="float" />
+          <Property Name="X_Value" Type="varchar" Nullable="false" MaxLength="17" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ViewModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ViewEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="vwJamiat_Block" EntityType="ViewModel.vwJamiat_Block" />
+          <EntitySet Name="vwJamiat_Eghamat" EntityType="ViewModel.vwJamiat_Eghamat" />
+          <EntitySet Name="vwJamiat_Jensiat" EntityType="ViewModel.vwJamiat_Jensiat" />
+          <EntitySet Name="vwJamiat_MahaleKarYaTahsil" EntityType="ViewModel.vwJamiat_MahaleKarYaTahsil" />
+          <EntitySet Name="vwJamiat_MahaleTavalod" EntityType="ViewModel.vwJamiat_MahaleTavalod" />
+          <EntitySet Name="vwJamiat_savad" EntityType="ViewModel.vwJamiat_savad" />
+          <EntitySet Name="vwJamiat_ShahrYaDehestan" EntityType="ViewModel.vwJamiat_ShahrYaDehestan" />
+          <EntitySet Name="vwJamiat_Shoghl" EntityType="ViewModel.vwJamiat_Shoghl" />
+          <EntitySet Name="vwJamiat_Taahol" EntityType="ViewModel.vwJamiat_Taahol" />
+          <EntitySet Name="vwJamiatKol_Sen" EntityType="ViewModel.vwJamiatKol_Sen" />
+          <EntitySet Name="vwJamiatMard_Sen" EntityType="ViewModel.vwJamiatMard_Sen" />
+          <EntitySet Name="vwJamiatZan_Sen" EntityType="ViewModel.vwJamiatZan_Sen" />
+          <EntitySet Name="vwKhanevar_ShahryaDehestan" EntityType="ViewModel.vwKhanevar_ShahryaDehestan" />
+          <EntitySet Name="vwMasahatZirBana" EntityType="ViewModel.vwMasahatZirBana" />
+        </EntityContainer>
+        <EntityType Name="vwJamiat_Block">
+          <Key>
+            <PropertyRef Name="Ident" />
+          </Key>
+          <Property Name="Ident" Type="String" Nullable="false" MaxLength="101" Unicode="false" FixedLength="false" />
+          <Property Name="X_Value" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="Y_Value" Type="Double" />
+        </EntityType>
+        <EntityType Name="vwJamiat_Eghamat">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="Double" />
+          <Property Name="X_Value" Type="String" Nullable="false" MaxLength="11" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="vwJamiat_Jensiat">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="Double" />
+          <Property Name="X_Value" Type="String" Nullable="false" MaxLength="3" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="vwJamiat_MahaleKarYaTahsil">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="Double" />
+          <Property Name="X_Value" Type="String" Nullable="false" MaxLength="17" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="vwJamiat_MahaleTavalod">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="Double" />
+          <Property Name="X_Value" Type="String" Nullable="false" MaxLength="16" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="vwJamiat_savad">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="Double" />
+          <Property Name="X_Value" Type="String" Nullable="false" MaxLength="17" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="vwJamiat_ShahrYaDehestan">
+          <Key>
+            <PropertyRef Name="Ident" />
+          </Key>
+          <Property Name="Ident" Type="String" Nullable="false" MaxLength="101" Unicode="false" FixedLength="false" />
+          <Property Name="Y_Value" Type="Double" />
+          <Property Name="X_Value" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="vwJamiat_Shoghl">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="Double" />
+          <Property Name="X_Value" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="vwJamiat_Taahol">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="Double" />
+          <Property Name="X_Value" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="vwJamiatKol_Sen">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="Double" />
+          <Property Name="X_Value" Type="String" Nullable="false" MaxLength="17" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="vwJamiatMard_Sen">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="Double" />
+          <Property Name="X_Value" Type="String" Nullable="false" MaxLength="17" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="vwJamiatZan_Sen">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="Double" />
+          <Property Name="X_Value" Type="String" Nullable="false" MaxLength="17" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="vwKhanevar_ShahryaDehestan">
+          <Key>
+            <PropertyRef Name="Ident" />
+          </Key>
+          <Property Name="Ident" Type="String" Nullable="false" MaxLength="101" Unicode="false" FixedLength="false" />
+          <Property Name="Y_Value" Type="Double" />
+          <Property Name="X_Value" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="vwMasahatZirBana">
+          <Key>
+            <PropertyRef Name="X_Value" />
+          </Key>
+          <Property Name="Y_Value" Type="Double" />
+          <Property Name="X_Value" Type="String" Nullable="false" MaxLength="17" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ViewModelStoreContainer" CdmEntityContainer="ViewEntities">
+          <EntitySetMapping Name="vwJamiat_Block">
+            <EntityTypeMapping TypeName="ViewModel.vwJamiat_Block">
+              <MappingFragment StoreEntitySet="vwJamiat_Block">
+                <ScalarProperty Name="Ident" ColumnName="Ident" />
+                <ScalarProperty Name="X_Value" ColumnName="X_Value" />
+                <ScalarProperty Name="Y_Value" ColumnName="Y_Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwJamiat_Eghamat">
+            <EntityTypeMapping TypeName="ViewModel.vwJamiat_Eghamat">
+              <MappingFragment StoreEntitySet="vwJamiat_Eghamat">
+                <ScalarProperty Name="Y_Value" ColumnName="Y_Value" />
+                <ScalarProperty Name="X_Value" ColumnName="X_Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwJamiat_Jensiat">
+            <EntityTypeMapping TypeName="ViewModel.vwJamiat_Jensiat">
+              <MappingFragment StoreEntitySet="vwJamiat_Jensiat">
+                <ScalarProperty Name="Y_Value" ColumnName="Y_Value" />
+                <ScalarProperty Name="X_Value" ColumnName="X_Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwJamiat_MahaleKarYaTahsil">
+            <EntityTypeMapping TypeName="ViewModel.vwJamiat_MahaleKarYaTahsil">
+              <MappingFragment StoreEntitySet="vwJamiat_MahaleKarYaTahsil">
+                <ScalarProperty Name="Y_Value" ColumnName="Y_Value" />
+                <ScalarProperty Name="X_Value" ColumnName="X_Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwJamiat_MahaleTavalod">
+            <EntityTypeMapping TypeName="ViewModel.vwJamiat_MahaleTavalod">
+              <MappingFragment StoreEntitySet="vwJamiat_MahaleTavalod">
+                <ScalarProperty Name="Y_Value" ColumnName="Y_Value" />
+                <ScalarProperty Name="X_Value" ColumnName="X_Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwJamiat_savad">
+            <EntityTypeMapping TypeName="ViewModel.vwJamiat_savad">
+              <MappingFragment StoreEntitySet="vwJamiat_savad">
+                <ScalarProperty Name="Y_Value" ColumnName="Y_Value" />
+                <ScalarProperty Name="X_Value" ColumnName="X_Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwJamiat_ShahrYaDehestan">
+            <EntityTypeMapping TypeName="ViewModel.vwJamiat_ShahrYaDehestan">
+              <MappingFragment StoreEntitySet="vwJamiat_ShahrYaDehestan">
+                <ScalarProperty Name="Ident" ColumnName="Ident" />
+                <ScalarProperty Name="Y_Value" ColumnName="Y_Value" />
+                <ScalarProperty Name="X_Value" ColumnName="X_Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwJamiat_Shoghl">
+            <EntityTypeMapping TypeName="ViewModel.vwJamiat_Shoghl">
+              <MappingFragment StoreEntitySet="vwJamiat_Shoghl">
+                <ScalarProperty Name="Y_Value" ColumnName="Y_Value" />
+                <ScalarProperty Name="X_Value" ColumnName="X_Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwJamiat_Taahol">
+            <EntityTypeMapping TypeName="ViewModel.vwJamiat_Taahol">
+              <MappingFragment StoreEntitySet="vwJamiat_Taahol">
+                <ScalarProperty Name="Y_Value" ColumnName="Y_Value" />
+                <ScalarProperty Name="X_Value" ColumnName="X_Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwJamiatKol_Sen">
+            <EntityTypeMapping TypeName="ViewModel.vwJamiatKol_Sen">
+              <MappingFragment StoreEntitySet="vwJamiatKol_Sen">
+                <ScalarProperty Name="Y_Value" ColumnName="Y_Value" />
+                <ScalarProperty Name="X_Value" ColumnName="X_Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwJamiatMard_Sen">
+            <EntityTypeMapping TypeName="ViewModel.vwJamiatMard_Sen">
+              <MappingFragment StoreEntitySet="vwJamiatMard_Sen">
+                <ScalarProperty Name="Y_Value" ColumnName="Y_Value" />
+                <ScalarProperty Name="X_Value" ColumnName="X_Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwJamiatZan_Sen">
+            <EntityTypeMapping TypeName="ViewModel.vwJamiatZan_Sen">
+              <MappingFragment StoreEntitySet="vwJamiatZan_Sen">
+                <ScalarProperty Name="Y_Value" ColumnName="Y_Value" />
+                <ScalarProperty Name="X_Value" ColumnName="X_Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwKhanevar_ShahryaDehestan">
+            <EntityTypeMapping TypeName="ViewModel.vwKhanevar_ShahryaDehestan">
+              <MappingFragment StoreEntitySet="vwKhanevar_ShahryaDehestan">
+                <ScalarProperty Name="Ident" ColumnName="Ident" />
+                <ScalarProperty Name="Y_Value" ColumnName="Y_Value" />
+                <ScalarProperty Name="X_Value" ColumnName="X_Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwMasahatZirBana">
+            <EntityTypeMapping TypeName="ViewModel.vwMasahatZirBana">
+              <MappingFragment StoreEntitySet="vwMasahatZirBana">
+                <ScalarProperty Name="Y_Value" ColumnName="Y_Value" />
+                <ScalarProperty Name="X_Value" ColumnName="X_Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

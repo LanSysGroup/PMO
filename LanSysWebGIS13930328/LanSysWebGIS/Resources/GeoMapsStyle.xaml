@@ -1,0 +1,300 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:slPrimitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Data"
+    xmlns:slData="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+
+    <Style x:Key="MyCustomRow" TargetType="slData:DataGridRow">
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="slData:DataGridRow">
+                    <slPrimitives:DataGridFrozenGrid Name="Root">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0" />
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Normal" >
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" Duration="0" To=".5"/>
+                                        <ColorAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                                            <SplineColorKeyFrame KeyTime="0" Value="#ebf4fa"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Normal AlternatingRow">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" Duration="0" To="0"/>
+                                        <ColorAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                                            <SplineColorKeyFrame KeyTime="0" Value="#bbd9ee"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" Duration="0" To=".5"/>
+                                        <ColorAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                                            <SplineColorKeyFrame KeyTime="0" Value="#8800FFFF"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Normal Selected">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+                                        <ColorAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                                            <SplineColorKeyFrame KeyTime="0" Value="#8800FFFF"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver Selected">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+                                        <ColorAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                                            <SplineColorKeyFrame KeyTime="0" Value="#8800FFFF"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unfocused Selected">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" Duration="0" To="1"/>
+                                        <ColorAnimationUsingKeyFrames BeginTime="0" Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                                            <SplineColorKeyFrame KeyTime="0" Value="#8800FFFF"/>
+                                        </ColorAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.Resources>
+                            <Storyboard x:Key="DetailsVisibleTransition">
+                                <DoubleAnimation Storyboard.TargetName="DetailsPresenter" Storyboard.TargetProperty="ContentHeight" 
+                                           Duration="00:00:0.1" />
+                            </Storyboard>
+                        </Grid.Resources>
+
+                        <Rectangle x:Name="BackgroundRectangle" Grid.RowSpan="2" Grid.ColumnSpan="2" Opacity="0" 
+                                           Fill="#FFFFCC00"/>
+
+                        <slPrimitives:DataGridRowHeader Grid.RowSpan="3" Name="RowHeader" 
+                                           slPrimitives:DataGridFrozenGrid.IsFrozen="True" />
+                        <slPrimitives:DataGridCellsPresenter Grid.Column="1" Name="CellsPresenter" 
+                                           slPrimitives:DataGridFrozenGrid.IsFrozen="True" />
+                        <slPrimitives:DataGridDetailsPresenter Grid.Row="1" Grid.Column="1" Name="DetailsPresenter" />
+                        <Rectangle Grid.Row="2" Grid.Column="1" Name="BottomGridLine" HorizontalAlignment="Stretch" 
+                                           Height="1" />
+                    </slPrimitives:DataGridFrozenGrid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <esri:FillSymbol x:Key="ResultsFillSymbol">
+        <esri:FillSymbol.ControlTemplate>
+            <ControlTemplate x:Name="CustomPolygonTemplate">
+                <Grid>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="Element"
+                                                Storyboard.TargetProperty="(Fill).(Color)"
+                                                To="#880000FF" Duration="0:0:0.1" />
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState x:Name="MouseOver">
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="Element"
+                                                Storyboard.TargetProperty="(Fill).(Color)"
+                                                To="#8800FFFF" Duration="0:0:0.1" />
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="Element"
+                                                Storyboard.TargetProperty="(Fill).(Color)"
+                                                To="#8800FFFF" Duration="0:0:0.1" />
+                                </Storyboard>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                    <Path x:Name="Element" Stroke="Blue" Fill="#880000FF"
+                                StrokeStartLineCap="Round" StrokeThickness="2" 
+                                StrokeLineJoin="Round" StrokeEndLineCap="Round" />
+                </Grid>
+            </ControlTemplate>
+        </esri:FillSymbol.ControlTemplate>
+    </esri:FillSymbol>
+
+    <esri:SimpleMarkerSymbol x:Name="DefaultMarkerSymbol" Color="Red" Size="12" Style="Circle" />
+    <esri:SimpleLineSymbol x:Name="DefaultLineSymbol" Color="Red" Width="4" />
+    <esri:SimpleFillSymbol x:Name="DefaultFillSymbol" Fill="#66FF0000" BorderBrush="Red" BorderThickness="1" />
+
+    <!-- Data Availability Fill Symbols -->
+    <esri:FillSymbol x:Key="GEODataAvailabilityFillSymbol">
+        <esri:FillSymbol.ControlTemplate>
+            <ControlTemplate x:Name="GEOCustomPolygonTemplate">
+                <Grid>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="Element"
+                                                Storyboard.TargetProperty="(Fill).(Color)"
+                                                To="#880000FF" Duration="0:0:0.1" />
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState x:Name="MouseOver">
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="Element"
+                                                Storyboard.TargetProperty="(Fill).(Color)"
+                                                To="#8800FFFF" Duration="0:0:0.1" />
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="Element"
+                                                Storyboard.TargetProperty="(Fill).(Color)"
+                                                To="#8800FFFF" Duration="0:0:0.1" />
+                                </Storyboard>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                    <Path x:Name="Element" Stroke="Blue" Fill="#880000FF"
+                                StrokeStartLineCap="Round" StrokeThickness="2" 
+                                StrokeLineJoin="Round" StrokeEndLineCap="Round" />
+                </Grid>
+            </ControlTemplate>
+        </esri:FillSymbol.ControlTemplate>
+    </esri:FillSymbol>
+    <esri:FillSymbol x:Key="SHPDataAvailabilityFillSymbol">
+        <esri:FillSymbol.ControlTemplate>
+            <ControlTemplate x:Name="SHPCustomPolygonTemplate">
+                <Grid>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="Element"
+                                                Storyboard.TargetProperty="(Fill).(Color)"
+                                                To="#8000F82C" Duration="0:0:0.1" />
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState x:Name="MouseOver">
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="Element"
+                                                Storyboard.TargetProperty="(Fill).(Color)"
+                                                To="#8800FFFF" Duration="0:0:0.1" />
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="Element"
+                                                Storyboard.TargetProperty="(Fill).(Color)"
+                                                To="#8800FFFF" Duration="0:0:0.1" />
+                                </Storyboard>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                    <Path x:Name="Element" Stroke="Green" Fill="#8000F82C"
+                                StrokeStartLineCap="Round" StrokeThickness="2" 
+                                StrokeLineJoin="Round" StrokeEndLineCap="Round" />
+                </Grid>
+            </ControlTemplate>
+        </esri:FillSymbol.ControlTemplate>
+    </esri:FillSymbol>
+    <esri:FillSymbol x:Key="SCANDataAvailabilityFillSymbol">
+        <esri:FillSymbol.ControlTemplate>
+            <ControlTemplate x:Name="SCANCustomPolygonTemplate">
+                <Grid>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="Element"
+                                                Storyboard.TargetProperty="(Fill).(Color)"
+                                                To="#80880000" Duration="0:0:0.1" />
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState x:Name="MouseOver">
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="Element"
+                                                Storyboard.TargetProperty="(Fill).(Color)"
+                                                To="#8800FFFF" Duration="0:0:0.1" />
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <Storyboard>
+                                    <ColorAnimation Storyboard.TargetName="Element"
+                                                Storyboard.TargetProperty="(Fill).(Color)"
+                                                To="#8800FFFF" Duration="0:0:0.1" />
+                                </Storyboard>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                    <Path x:Name="Element" Stroke="Red" Fill="#80880000"
+                                StrokeStartLineCap="Round" StrokeThickness="2" 
+                                StrokeLineJoin="Round" StrokeEndLineCap="Round" />
+                </Grid>
+            </ControlTemplate>
+        </esri:FillSymbol.ControlTemplate>
+    </esri:FillSymbol>
+    
+    <!-- Show Documents -->
+    <!-- DataGrid -->
+    <Style x:Key="DocumentsDataGridStyle" TargetType="sdk:DataGrid">
+        <Setter Property="Width" Value="500"/>
+        <Setter Property="Height" Value="350"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected" />
+        <Setter Property="RowBackground" Value="#D1D7D4" />
+        <Setter Property="AlternatingRowBackground" Value="#B0B1B1" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <!--<Setter Property="gro"-->
+        <!--<Setter Property="AlternatingRowBackground" >
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                    <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                    <GradientStop Color="#FF718597" Offset="0.375"/>
+                    <GradientStop Color="#FF617584" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>-->
+        <!--<Setter Property="Background" Value="#3E88B4" />-->
+        <!--<Setter Property="HeadersVisibility" Value="Column" />-->
+        
+        <!--<Setter Property="ColumnHeaderStyle" Value=""/>-->
+        
+        <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="SelectionMode" Value="Single" />
+        <Setter Property="CanUserReorderColumns" Value="False" />
+        <Setter Property="CanUserResizeColumns" Value="False" />
+        <Setter Property="CanUserSortColumns" Value="True" />
+        <Setter Property="AutoGenerateColumns" Value="True" />
+        
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA3AEB9" Offset="0"/>
+                    <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                    <GradientStop Color="#FF718597" Offset="0.375"/>
+                    <GradientStop Color="#FF617584" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style >
+</ResourceDictionary>

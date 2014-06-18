@@ -1,0 +1,145 @@
+﻿<UserControl    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
+                x:Class="LanSysWebGIS.UserControls.Hydro.FormNo200"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                xmlns:mc="http://schemas.openxmlformats.org/markup/2006"
+                xmlns:dataprimitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Data"
+                xmlns:my="clr-namespace:SilverlightPersianDatePicker.Views;assembly=SilverlightPersianDatePicker"
+                FlowDirection="RightToLeft" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="LightBlue"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="نام کامل پیمانکار:" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
+            <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" IsReadOnly="True" Text="{Binding  CurrentPeymankar.NameKamelePeymankar, Mode=TwoWay}"/>
+            <!--<TextBlock Grid.Row="0" Grid.Column="4" Text="تاریخ ارسال فرم:" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
+            <my:PDatePicker Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1" SelectedDate="{Binding  TarikhErsalForm, Mode=TwoWay}" VerticalAlignment="Center" IsEnabled="False"/>
+
+            <TextBlock Grid.Row="0" Grid.Column="5" Text="شماره صفحه پرسش نامه"  HorizontalAlignment="Left"/>
+            <StackPanel Grid.Row="1" Grid.Column="5" Orientation="Horizontal" Margin="1">
+                <TextBox Width="23" VerticalAlignment="Center" MinWidth="10" Text="{Binding  ShomareSafePorseshName, Mode=TwoWay, ValidatesOnExceptions=True}" IsEnabled="False"/>
+                <TextBlock Text="از"  VerticalAlignment="Center" Margin="2,0" />
+                <TextBox Width="23"  VerticalAlignment="Center" MinWidth="10" Text="{Binding  TedadSafehayePorseshName, Mode=TwoWay, ValidatesOnExceptions=True}" IsEnabled="False"/>
+            </StackPanel>-->
+            <TextBlock Grid.Row="0" Grid.Column="6" Text="کد شرکت:" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
+            <TextBox Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="1" IsReadOnly="True" Text="{Binding  CurrentPeymankar.KodeSherkat, Mode=TwoWay}"/>
+        </Grid>
+        <sdk:DataGrid Grid.Row="1" AutoGenerateColumns="False" HorizontalAlignment="Stretch" Margin="2" Name="dataGrid" VerticalAlignment="Stretch"
+                      ItemsSource="{Binding}" DataContext="{Binding CurrentPeymankar.Persons}">
+            <sdk:DataGrid.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="Margin" Value="0"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                </Style>
+            </sdk:DataGrid.Resources>
+            <sdk:DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <Grid DataContext="{Binding}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="نام پدر:"/>
+                        <TextBox Name="namepedarTextbox" Grid.Row="0" Grid.Column="1" Text="{Binding NamePedar, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                        <TextBlock Grid.Row="0" Grid.Column="2" Text="شماره شناسنامه:"/>
+                        <TextBox Grid.Row="0" Grid.Column="3" Text="{Binding ShomareShenasname, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="مبلغ سهام (هزار ریال):"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding MablagSahm, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="2" Text="تعداد سهم:"/>
+                        <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding TedadeSahm, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                       
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="تجربه سنواتی (حداکثر 10)"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding TajrobeSanavati, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                        <TextBlock Grid.Row="2" Grid.Column="2" Text="ارتباط رشته:"/>
+                        <ComboBox Grid.Row="2" Grid.Column="3" SelectedValue="{Binding IsMortabet, Mode=TwoWay, ValidatesOnExceptions=True}" SelectedValuePath="Content">
+                            <ComboBoxItem>رشته مرتبط</ComboBoxItem>
+                            <ComboBoxItem>رشته غیر مرتبط</ComboBoxItem>
+                        </ComboBox>
+                    </Grid>
+                </DataTemplate>
+            </sdk:DataGrid.RowDetailsTemplate>
+            <sdk:DataGrid.Columns>
+                <!--<sdk:DataGridTemplateColumn>
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button VerticalAlignment="Center">-</Button>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>-->
+                <sdk:DataGridTextColumn Header="نام" Binding="{Binding Nam, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                <sdk:DataGridTextColumn Header="نام خانوادگی" Binding="{Binding NameKhanevadegi, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                <sdk:DataGridTextColumn Header="کد ملی" Binding="{Binding KodeMelli, Mode=TwoWay, ValidatesOnExceptions=True}" 
+                                        CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto"/>
+                <sdk:DataGridTemplateColumn Header="سمت" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox SelectedValue="{Binding Semat, Mode=TwoWay, ValidatesOnExceptions=True}" SelectedValuePath="Content">
+                                <ComboBoxItem>مدیر عامل</ComboBoxItem>
+                                <ComboBoxItem>اعضاء هیئت مدیره</ComboBoxItem>
+                                <ComboBoxItem>کارکنان</ComboBoxItem>
+                            </ComboBox>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTextColumn Header="درصد سهام" Binding="{Binding DarsadSahm, Mode=TwoWay, ValidatesOnExceptions=True}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto"/>
+                <sdk:DataGridTextColumn Header="شماره پرسنلی" Binding="{Binding ShomarePerseneli, Mode=TwoWay, ValidatesOnExceptions=True}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto"/>
+                <sdk:DataGridTemplateColumn Header="مدک تحصیلی" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto">
+                    <sdk:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox SelectedValue="{Binding MadrakTahsili, Mode=TwoWay, ValidatesOnExceptions=True}" SelectedValuePath="Content">
+                                <ComboBoxItem>سیکل</ComboBoxItem>
+                                <ComboBoxItem>دیپلم</ComboBoxItem>
+                                <ComboBoxItem>فوق دیپلم</ComboBoxItem>
+                                <ComboBoxItem>لیسانس</ComboBoxItem>
+                                <ComboBoxItem>فوق لیسانس</ComboBoxItem>
+                                <ComboBoxItem>دکترا</ComboBoxItem>
+                            </ComboBox>
+                        </DataTemplate>
+                    </sdk:DataGridTemplateColumn.CellTemplate>
+                </sdk:DataGridTemplateColumn>
+                <sdk:DataGridTextColumn Header="رشته تحصیلی" Binding="{Binding ReshteyeTahsili, Mode=TwoWay, ValidatesOnExceptions=True}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto"/>
+                <sdk:DataGridTextColumn Header="دانشگاه" Binding="{Binding Daneshgah, Mode=TwoWay, ValidatesOnExceptions=True}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto"/>
+                <sdk:DataGridTextColumn Header="سال اخذ" Binding="{Binding SaleAkhz, Mode=TwoWay, ValidatesOnExceptions=True}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto"/>
+                <sdk:DataGridTextColumn Header="کشور" Binding="{Binding Keshvar, Mode=TwoWay, ValidatesOnExceptions=True}" CanUserReorder="True" CanUserResize="True" CanUserSort="True" Width="Auto"/>
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+    </Grid>
+</UserControl>

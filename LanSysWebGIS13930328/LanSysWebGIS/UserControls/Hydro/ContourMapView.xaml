@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="LanSysWebGIS.UserControls.Hydro.ContourMapView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    
+    <Grid x:Name="LayoutRoot" FlowDirection="RightToLeft">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="27"/>
+            <RowDefinition Height="27"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="120"/>
+        </Grid.ColumnDefinitions>
+        <!--<StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" FlowDirection="RightToLeft">-->
+        <TextBlock Text="نام تصویر" Grid.Row="0" Grid.Column="0"/>
+        <TextBlock x:Name="txbRasterName" Grid.Row="0" Grid.Column="1" Width="120" />
+        <!--</StackPanel>-->
+        <!--<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" FlowDirection="RightToLeft">-->
+        <TextBlock Text="فاصله منحنی میزان ها" Grid.Row="1" Grid.Column="0" Margin="0,5,0,0"/>
+        <TextBox x:Name="txtContourInterval" Grid.Row="1" Grid.Column="1" Width="120" Height="22" Text="{Binding ContourInterval, Mode=TwoWay}"/>
+        <!--</StackPanel>-->
+        <!--<StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" FlowDirection="RightToLeft">-->
+        <TextBlock Text="فاکتور ارتفاعی" Grid.Row="2" Grid.Column="0" Margin="0,5,0,0"/>
+        <TextBox x:Name="txtZFactor" Grid.Row="2" Grid.Column="1" Width="120" Height="22" Text="{Binding ContourZFactor, Mode=TwoWay}"/>
+        <!--</StackPanel>-->
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" FlowDirection="RightToLeft" Margin="0,15,0,0">
+            <Button x:Name="btnCreateContour" Click="btnCreateContour_Click"  Content="ایجاد منحنی میزان" Width="80" Margin="0,0,10,0"/>
+            <Button x:Name="btnCancel" Click="btnCancel_Click"  Content="انصراف" Width="80"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

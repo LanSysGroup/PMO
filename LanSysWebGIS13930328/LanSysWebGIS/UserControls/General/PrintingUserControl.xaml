@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="LanSysWebGIS.UserControls.PrintingUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             xmlns:controls="clr-namespace:ESRI.ArcGIS.Client.Samples.MapPrinting;assembly=MapPrintingControls"
+             mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400"
+             FlowDirection="LeftToRight" Unloaded="UserControl_Unloaded">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" HorizontalAlignment="Center" Grid.Row="0">
+            <TextBlock FontSize="12" Text="قالب صفحه" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="2,0,0,0" />
+            <ComboBox Name="comboPrintStyle" SelectionChanged="comboPrintStyle_SelectionChanged" Margin="5,2" MinWidth="80" SelectedIndex="0" VerticalAlignment="Center">
+                <ComboBox.Items>
+                    <!--<sys:String>Basic</sys:String>-->
+                    <sys:String>ساده</sys:String>
+                    <sys:String>همراه با لژاندر</sys:String>
+                    <sys:String>همراه با لژاندر نقشه زمین شناسی</sys:String>
+                    <!--<sys:String>WithOverview</sys:String>
+                                            <sys:String>WithClonedMapAsOverview</sys:String>
+                                            
+                                            <sys:String>WithText</sys:String>-->
+                </ComboBox.Items>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel x:Name="GeoMapsLegendStackPanel" Orientation="Horizontal" FlowDirection="RightToLeft" HorizontalAlignment="Center" Grid.Row="1" Visibility="Visible" Height="0">
+            <TextBlock FontSize="12" Text="لژاندر نقشه زمین شناسی" TextWrapping="NoWrap" VerticalAlignment="Center" Margin="2,0,0,0" />
+            <ComboBox Name="GeoMapsLegendComboBox" FlowDirection="LeftToRight" SelectionChanged="GeoMapsLegendComboBox_SelectionChanged" Margin="5,2" MinWidth="80" SelectedIndex="0" VerticalAlignment="Center">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding SheetName}" >
+                            <ToolTipService.ToolTip>  
+                                <ToolTip>
+                                    <StackPanel>
+                                        <Image x:Name="GeologyMapsPrintLegend" Source="{Binding LegendURI}" Height="150" Stretch="Fill">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="ImageFailed">
+                                                    <ei:ChangePropertyAction PropertyName="Source" TargetName="GeologyMapsPrintLegend">
+                                                        <ei:ChangePropertyAction.Value>
+                                                            <ImageSource>
+                                                                /LanSysWebGIS;component/Pictures/Icon/legend.jpg
+                                                            </ImageSource>
+                                                        </ei:ChangePropertyAction.Value>
+                                                    </ei:ChangePropertyAction>
+                                                </i:EventTrigger>
+                                           </i:Interaction.Triggers>
+                                        </Image>
+                                    </StackPanel>
+                                </ToolTip>
+                            </ToolTipService.ToolTip>
+                        </TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+        <controls:MapPrinterDialog x:Name="MapPrinterDialog" Grid.Row="2">
+            <controls:MapPrinter x:Name="mapPrinterWithDialog" PageChanged="mapPrinter_PageChanged" DefinedExtentChanged="mapPrinter_DefinedExtentChanged" Title="Map Title" 
+                                          IsScaleFixed="True" Scale="10000000" Loaded="mapPrinterWithDialog_Loaded"/>
+        </controls:MapPrinterDialog>
+        <!--<controls:MapPrinterDialog x:Name="MapPrinterDialog" FlowDirection="LeftToRight" Grid.Row="1">
+            <controls:MapPrinter x:Name="mapPrinterWithDialog" Loaded="mapPrinterWithDialog_Loaded" 
+						                     IsScaleFixed="False" />
+        </controls:MapPrinterDialog>-->
+        <!--IsActive="{Binding ElementName=btnToggleMapPrinterDialogPanel, Path=IsChecked }"-->
+    </Grid>
+</UserControl>

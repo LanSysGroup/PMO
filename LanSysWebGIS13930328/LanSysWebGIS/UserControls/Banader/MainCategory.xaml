@@ -1,0 +1,178 @@
+﻿<UserControl xmlns:my="clr-namespace:LanSysWebGIS.Controls"  
+             xmlns:ui="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
+             x:Class="LanSysWebGIS.MainCategory"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"    
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="clr-namespace:System.Windows;assembly=System.Windows.Controls"
+    xmlns:model="clr-namespace:LanSysWebGIS.Models"
+    xmlns:tk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+    xmlns:cit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+    xmlns:ci="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"             
+             Width="800" Height="380"
+             FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan">
+    <UserControl.Resources>
+        <sdk:HierarchicalDataTemplate x:Key="ChildDocTitle" ItemsSource="{Binding Path=Children}">
+            <TextBlock Text="{Binding Path=TitleFName}" MouseRightButtonDown="title_MouseRightButtonDown"/>
+        </sdk:HierarchicalDataTemplate>
+        <sdk:HierarchicalDataTemplate x:Key="FirstLevelDocTitle" 
+            ItemsSource="{Binding Path=Children}" ItemTemplate="{StaticResource ChildDocTitle}">
+            <TextBlock Text="{Binding Path=TitleFName}" Foreground="DarkBlue" MouseRightButtonDown="title_MouseRightButtonDown"/>
+        </sdk:HierarchicalDataTemplate>
+        <sdk:HierarchicalDataTemplate x:Key="ZeroLevelDocTitle" 
+            ItemsSource="{Binding Path=Children}" ItemTemplate="{StaticResource FirstLevelDocTitle}">
+            <TextBlock Text="{Binding Path=TitleFName}" Foreground="DarkBlue"  MouseRightButtonDown="title_MouseRightButtonDown"/>
+        </sdk:HierarchicalDataTemplate>
+
+        <sdk:HierarchicalDataTemplate x:Key="ChildDocSubject" ItemsSource="{Binding Path=Children}">
+            <TextBlock  Text="{Binding Path=SubjectFName}" MouseRightButtonDown="subject_MouseRightButtonDown"/>
+        </sdk:HierarchicalDataTemplate>
+        <sdk:HierarchicalDataTemplate x:Key="FirstLevelDocSubject" 
+            ItemsSource="{Binding Path=Children}" ItemTemplate="{StaticResource ChildDocSubject}">
+            <TextBlock Text="{Binding Path=SubjectFName}" Foreground="DarkBlue"  MouseRightButtonDown="subject_MouseRightButtonDown"/>
+        </sdk:HierarchicalDataTemplate>
+        <sdk:HierarchicalDataTemplate x:Key="ZeroLevelDocSubject" 
+            ItemsSource="{Binding Path=Children}" ItemTemplate="{StaticResource FirstLevelDocSubject}">
+            <TextBlock Text="{Binding Path=SubjectFName}" Foreground="DarkBlue"   MouseRightButtonDown="subject_MouseRightButtonDown"/>
+        </sdk:HierarchicalDataTemplate>
+
+        <Style TargetType="Border">
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Background" Value="LightBlue"/>
+            <Setter Property="Margin" Value="2"/>
+        </Style>
+    </UserControl.Resources>
+    <my:BusyIndicator IsBusy="{Binding Path=IsLoadingData}" BusyContent="لطفا شکیبا باشید...">
+        <Grid x:Name="LayoutRoot" Background="White" Loaded="LayoutRoot_Loaded" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.ColumnSpan="3" Background="SkyBlue">
+                <ui:Label Content="آرشیو مستندات" FontWeight="Bold" FontSize="22" Margin="2" Foreground="White"/>
+            </Border>
+            <Grid Grid.Row="1" Margin="4,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border BorderThickness="2" Grid.ColumnSpan="2" Margin="2" Background="LightBlue">
+                    <ui:Label Content="دسته بندی کلان" FontWeight="Bold" FontSize="16" Margin="2" Foreground="White"/>
+                </Border>
+                <ui:TreeView Name="docTitleTree" Margin="4" Grid.Row="1" ItemTemplate="{StaticResource ZeroLevelDocTitle}"
+                    ItemsSource="{Binding DocTitleCollection}" SelectedItemChanged="docTitleTree_SelectedItemChanged">
+                    <ui:TreeView.Resources>
+                        <Style TargetType="ui:TreeViewItem">
+                            <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                        </Style>
+                    </ui:TreeView.Resources>
+                    <cit:ContextMenuService.ContextMenu>
+                        <cit:ContextMenu FlowDirection="RightToLeft" Visibility="{Binding IsAdmin, Converter={StaticResource boolToVisibilityConverter}}">
+                            <tk:MenuItem Name="addMenuContext" Header="افزودن دسته بندی..." Click="addMenu_Click" FlowDirection="RightToLeft" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan"/>
+                            <tk:MenuItem Name="removeMenuContext" Header="حذف دسته بندی" Click="removeMenu_Click" FlowDirection="RightToLeft" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan"/>
+                            <tk:MenuItem Name="editMenuContext" Header="ویرایش" Click="editTitle_Click" FlowDirection="RightToLeft" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan"/>
+                            <tk:MenuItem Name="cutMenuContext" Header="انتقال از" Click="cutMenuContext_Click" FlowDirection="RightToLeft" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan"  Visibility="{Binding IsAdmin, Converter={StaticResource boolToVisibilityConverter}}"/>
+                            <tk:MenuItem Name="pasteMenuContext" Header="انتقال به اینجا" Click="pasteMenuContext_Click"  FlowDirection="RightToLeft" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan"  IsEnabled="{Binding IsPasteTitleEnabled, Mode=TwoWay}"  Visibility="{Binding IsAdmin, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        </cit:ContextMenu>
+                    </cit:ContextMenuService.ContextMenu>
+                </ui:TreeView>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="1" Margin="4,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.ColumnSpan="2">
+                    <ui:Label Content="دسته بندی موضوعی / مکانی" FontWeight="Bold" FontSize="16" Margin="2" Foreground="White"/>
+                </Border>
+                <ui:TreeView Name="docSubjectTree" Margin="4" Grid.Row="1"
+                     ItemTemplate="{StaticResource ZeroLevelDocSubject}"
+                     ItemsSource="{Binding DocSubjectCollection}"
+                     SelectedItemChanged="docSubjectTree_SelectedItemChanged">
+                    <ui:TreeView.Resources>
+                        <Style TargetType="ui:TreeViewItem">
+                            <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                        </Style>
+                    </ui:TreeView.Resources>
+                    <cit:ContextMenuService.ContextMenu>
+                        <cit:ContextMenu FlowDirection="RightToLeft" >
+                            <tk:MenuItem Name="addSubject" Header="افزودن دسته بندی..." Click="addSubject_Click"  FlowDirection="RightToLeft" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan" Visibility="{Binding IsAdmin, Converter={StaticResource boolToVisibilityConverter}}"/>
+                            <tk:MenuItem Name="removeSubject" Header="حذف دسته بندی" Click="removeSubject_Click"  FlowDirection="RightToLeft" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan" Visibility="{Binding IsAdmin, Converter={StaticResource boolToVisibilityConverter}}"/>
+                            <tk:MenuItem Name="addFileContext" Header="افزودن فایل..."  Click="addFile_Click" FlowDirection="RightToLeft" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan"/>
+                            <tk:MenuItem Name="subjectAdminAcept" Header="تایید فایل های زیرمجموعه"  Click="subjectAdminAccept_Click" FlowDirection="RightToLeft" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan" Visibility="{Binding IsAdmin, Converter={StaticResource boolToVisibilityConverter}}"/>
+                            <tk:MenuItem Name="editSubject" Header="ویرایش"  Click="editSubject_Click"  FlowDirection="RightToLeft" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan" Visibility="{Binding IsAdmin, Converter={StaticResource boolToVisibilityConverter}}"/>
+                            <tk:MenuItem Name="cutSubject" Header="انتقال از" Click="cutSubject_Click" FlowDirection="RightToLeft" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan"  Visibility="{Binding IsAdmin, Converter={StaticResource boolToVisibilityConverter}}"/>
+                            <tk:MenuItem Name="pasteSubject" Header="انتقال به اینجا" Click="pasteSubject_Click"  FlowDirection="RightToLeft" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan" IsEnabled="{Binding IsPasteSubjectEnabled, Mode=TwoWay}"  Visibility="{Binding IsAdmin, Converter={StaticResource boolToVisibilityConverter}}"/>
+                            <tk:MenuItem Name="subjectStamp" Header="استمپ مکانی-زمانی" Click="subjectStamp_Click" FlowDirection="RightToLeft" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan"/>
+
+                        </cit:ContextMenu>
+                    </cit:ContextMenuService.ContextMenu>
+                </ui:TreeView>
+            </Grid>
+            <Grid Grid.Column="2" Grid.Row="1" Margin="0,0,4,0" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Border BorderThickness="2" Grid.ColumnSpan="2" Margin="2" Background="LightBlue">
+                    <ui:Label Content="لیست فایل ها" FontWeight="Bold" FontSize="16" Margin="2" Foreground="White"/>
+                </Border>
+                <ui:DataGrid Grid.Column="1" Name="docFileList" ItemsSource="{Binding DocFileList}"
+                         AutoGenerateColumns="False" Grid.Row="1" Margin="0,0,4,0" IsReadOnly="True"
+                             SelectionChanged="docFileList_SelectionChanged"
+                             MouseLeftButtonUp="docFileList_MouseLeftButtonUp"
+                             LoadingRow="dg_LoadingRow">
+                    <ui:DataGrid.RowStyle>
+                        <Style TargetType="ui:DataGridRow">
+                            <Setter Property="Foreground" Value="{Binding Flag, Converter={StaticResource boolToDataRowColorConverter}}"/>
+                        </Style>
+                    </ui:DataGrid.RowStyle>
+                    <ui:DataGrid.Columns>
+                        <ui:DataGridTextColumn Binding="{Binding FileName}" Header="نام فایل" ToolTipService.ToolTip="{Binding FileToolTip}"/>
+                        <ui:DataGridTextColumn Binding="{Binding FileExt}" Header="نوع فایل" ToolTipService.ToolTip="{Binding FileToolTip}">
+                            <ui:DataGridTextColumn.CellStyle>
+                                <Style TargetType="ui:DataGridCell">
+                                    <Setter Property="FlowDirection" Value="LeftToRight"/>
+                                </Style>
+                            </ui:DataGridTextColumn.CellStyle>
+                        </ui:DataGridTextColumn>
+                    </ui:DataGrid.Columns>
+                    <cit:ContextMenuService.ContextMenu>
+                        <cit:ContextMenu FlowDirection="RightToLeft" >
+                            <tk:MenuItem Name="fileDetails" Header="مشاهده سوابق فایل..."  Click="fileDetails_Click" FlowDirection="RightToLeft" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan"
+                                         Visibility="{Binding IsAdmin, Converter={StaticResource boolToVisibilityConverter}}"/>
+                            <tk:MenuItem Name="adminAccept" Header="تایید ادمین..."  Click="adminAccept_Click" FlowDirection="RightToLeft" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan"
+                                         Visibility="{Binding IsAdminAndNotAccepted, Mode=OneWay, Converter={StaticResource boolToVisibilityConverter}}"/>
+                            <tk:MenuItem Name="deleteByOwner" Header="حذف..." Click="removeFile_Click" FlowDirection="RightToLeft" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan"
+                                         Visibility="{Binding IsOwnerAndNotAccepted, Mode=OneWay, Converter={StaticResource boolToVisibilityConverter}}"/>
+                            <tk:MenuItem Name="fileStamp" Header="استمپ مکانی-زمانی" Click="fileStamp_Click" FlowDirection="RightToLeft" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan"/>
+                        </cit:ContextMenu>
+                    </cit:ContextMenuService.ContextMenu>
+                </ui:DataGrid>
+                <Border Grid.Row="2">
+                    <Border.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Margin" Value="1,2,0,2"/>
+                            <Setter Property="Width" Value="82"/>
+                        </Style>
+                    </Border.Resources>
+                    <StackPanel Orientation="Horizontal" >
+                        <Button Content="دریافت" Width="60" Height="23" Name="viewFile" Click="viewFile_Click"/>
+                        <Button Content="افزودن فایل"  Width="60" Height="23" Name="addFile" Click="addFile_Click"/>
+                        <Button Content="حذف"  Width="45" Height="23" Name="removeFile" Click="removeFile_Click" Visibility="{Binding IsAdmin, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <Button Content="سطح دسترسی"  Width="Auto" Height="23" Name="setAccess" Click="setAccess_Click" Visibility="{Binding IsAdmin, Converter={StaticResource boolToVisibilityConverter}}"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </my:BusyIndicator>
+</UserControl>

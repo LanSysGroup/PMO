@@ -1,0 +1,82 @@
+﻿<controls:ChildWindow xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="LanSysWebGIS.Views.UserManagement.UserManagementWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Title="{Binding Path=Strings.UserManagement, Source={StaticResource ApplicationResources}}"
+           Style="{StaticResource UserManagementWindowStyle}"
+                      KeyDown="ChildWindow_KeyDown">
+    <!--<controls:ChildWindow.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Offset="0.0" Color="WhiteSmoke" />
+            <GradientStop Offset="1.0" Color="LightBlue" />
+        </LinearGradientBrush>
+    </controls:ChildWindow.Background>-->
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <!--<Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Offset="0.0" Color="WhiteSmoke" />
+                <GradientStop Offset="1.0" Color="LightBlue" />
+            </LinearGradientBrush>
+        </Grid.Background>-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+
+            <StackPanel x:Name="UsersStackPanel" Orientation="Vertical">
+                <!--<StackPanel.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0.0" Color="WhiteSmoke" />
+                        <GradientStop Offset="1.0" Color="LightBlue" />
+                    </LinearGradientBrush>
+                </StackPanel.Background>-->
+                <sdk:Label Content="{Binding Path=Strings.Users, Source={StaticResource ApplicationResources}}" Style="{StaticResource UserManagementLabelStyle}"/>
+                <HyperlinkButton x:Name="createNewUserHButton" Style="{StaticResource hyperButtonStyle}" Content="{Binding Path=Strings.CreateNewUser, Source={StaticResource ApplicationResources}}" Click="createNewUserHButton_Click" />
+                <HyperlinkButton x:Name="manageUsersHButton" Style="{StaticResource hyperButtonStyle}" Content="{Binding Path=Strings.ManageUsers, Source={StaticResource ApplicationResources}}" Click="manageUsersHButton_Click" />
+            </StackPanel>
+            <StackPanel x:Name="RolesStackPanel" Orientation="Vertical" Grid.Row="1">
+                <!--<StackPanel.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0.0" Color="WhiteSmoke" />
+                        <GradientStop Offset="1.0" Color="LightBlue" />
+                    </LinearGradientBrush>
+                </StackPanel.Background>-->
+                <sdk:Label Content="{Binding Path=Strings.Roles, Source={StaticResource ApplicationResources}}" Style="{StaticResource UserManagementLabelStyle}"/>
+                <HyperlinkButton x:Name="manageRolesHButton" Content="{Binding Path=Strings.ManageRoles, Source={StaticResource ApplicationResources}}"
+                                 Style="{StaticResource hyperButtonStyle}"
+                                 Click="manageRolesHButton_Click" />
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0 5 0 0">
+            <StackPanel x:Name="LogStackPanel" Orientation="Vertical">
+                <!--<StackPanel.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0.0" Color="WhiteSmoke" />
+                        <GradientStop Offset="1.0" Color="LightBlue" />
+                    </LinearGradientBrush>
+                </StackPanel.Background>-->
+                <sdk:Label Content="{Binding Path=Strings.UsersStatusLabel, Source={StaticResource ApplicationResources}}" Style="{StaticResource UserManagementLabelStyle}"/>
+                <HyperlinkButton x:Name="showOnlineUsersHButton" Style="{StaticResource hyperButtonStyle}" Content="{Binding Path=Strings.ShowOnlineUsers, Source={StaticResource ApplicationResources}}" Click="showOnlineUsersHButton_Click"  />
+                <HyperlinkButton x:Name="showLogHButton" Style="{StaticResource hyperButtonStyle}" Content="{Binding Path=Strings.ShowLog, Source={StaticResource ApplicationResources}}" Click="showLogHButton_Click" Visibility="Collapsed"/>
+            </StackPanel>
+            <StackPanel x:Name="FormsAndAccessStackPanel" Orientation="Vertical" Grid.Row="1" Visibility="Collapsed">
+                <!--<StackPanel.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0.0" Color="WhiteSmoke" />
+                        <GradientStop Offset="1.0" Color="LightBlue" />
+                    </LinearGradientBrush>
+                </StackPanel.Background>-->
+                <sdk:Label Content="{Binding Path=Strings.CreateForms, Source={StaticResource ApplicationResources}}" Style="{StaticResource UserManagementLabelStyle}"/>
+                <HyperlinkButton x:Name="createFroms" Content="{Binding Path=Strings.CreateForms, Source={StaticResource ApplicationResources}}"
+                                 Style="{StaticResource hyperButtonStyle}"
+                                 Click="CreateFormsHButton_Click" />
+            </StackPanel>
+        </StackPanel>
+
+
+        <!--<Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />-->
+        <!--<Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />-->
+    </Grid>
+</controls:ChildWindow>

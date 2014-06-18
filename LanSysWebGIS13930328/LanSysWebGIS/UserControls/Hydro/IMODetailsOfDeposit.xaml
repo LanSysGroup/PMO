@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="LanSysWebGIS.UserControls.Hydro.IMODetailsOfDeposit"
+             xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:my="clr-namespace:SilverlightPersianDatePicker.Views;assembly=SilverlightPersianDatePicker"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+    <Grid x:Name="LayoutRoot" Background="White">
+        <sdk:DataGrid Grid.Row="1" Name="dataGrid" ItemsSource="{Binding }" DataContext="{Binding CurrentPeymankar.Peymanha}" AutoGenerateColumns="False">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridTextColumn Header="Deposit Site" Binding="{Binding DepositSite, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                <sdk:DataGridTextColumn Header="Dredged Material" Binding="{Binding DredgedMaterial, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                <sdk:DataGridTextColumn Header="Inert Material" Binding="{Binding InertMaterial, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                <sdk:DataGridTextColumn Header="Fish Waste" Binding="{Binding FishWaste, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                <sdk:DataGridTextColumn Header="Vessel" Binding="{Binding Vessel, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                <sdk:DataGridTextColumn Header="Platforms" Binding="{Binding Platforms, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                <sdk:DataGridTextColumn Header="Sewage" Binding="{Binding Sewage, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                <sdk:DataGridTextColumn Header="Organic Material" Binding="{Binding OrganicMaterial, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                <sdk:DataGridTextColumn Header="Bulky Waste" Binding="{Binding BulkyWaste, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                <sdk:DataGridTextColumn Header="Carbon Dioxide" Binding="{Binding CarbonDioxide, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                <sdk:DataGridTextColumn Header="Origin Name Of Water System" Binding="{Binding OriginNameOfWaterSystem, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                <sdk:DataGridTextColumn Header="Operation Type Capital" Binding="{Binding OperationTypeCapital, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                <sdk:DataGridTextColumn Header="Operation Type Maintanance" Binding="{Binding OperationTypeMaintanance, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                <sdk:DataGridTextColumn Header="Total Quantity DryWeight" Binding="{Binding TotalQuantityDryWeight, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                <sdk:DataGridTextColumn Header="Total Quantity Number" Binding="{Binding TotalQuantityNumber, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                <sdk:DataGridTextColumn Header="Latitude" Binding="{Binding Latitude, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                <sdk:DataGridTextColumn Header="Longitude" Binding="{Binding Longitude, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                <sdk:DataGridTextColumn Header="Is Active" Binding="{Binding IsActive, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+                <sdk:DataGridTextColumn Header="Notes" Binding="{Binding Notes, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,200 @@
+﻿<UserControl xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices"
+             xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="LanSysWebGIS.UserControls.ImageMetadataUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Service="clr-namespace:LanSysWebGIS.Web"
+    mc:Ignorable="d"  Height="480" Width="505" 
+    d:DesignHeight="480" d:DesignWidth="505"
+             FlowDirection="RightToLeft"
+             FontFamily="Tahoma">
+    
+    <Grid x:Name="LayoutRoot" Background="White">
+        <StackPanel Orientation="Vertical">
+            <!-- Operators -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5,5,5,0">
+                
+                <sdk:Label Content="عملگر:" Margin="0 0 10 0">
+                    <sdk:Label.Effect>
+                        <DropShadowEffect ShadowDepth="1" />
+                    </sdk:Label.Effect>
+                </sdk:Label>
+                <RadioButton x:Name="AndOperator" GroupName="Operators" Margin="0 0 20 0"
+                                                Content="&quot;و&quot; منطقی" IsChecked="True"
+                             Checked="AndOperator_Checked"> 
+                    <RadioButton.Effect>
+                        <DropShadowEffect ShadowDepth="1" />
+                    </RadioButton.Effect>
+                </RadioButton>
+                <RadioButton x:Name="OrOperator" GroupName="Operators" 
+                                                Content="&quot;یا&quot; منطقی"
+                             Checked="OrOperator_Checked">
+                    <RadioButton.Effect>
+                        <DropShadowEffect ShadowDepth="1" />
+                    </RadioButton.Effect>
+                </RadioButton>
+            </StackPanel>
+            <!-- ComboBox -->
+            <Border BorderBrush="White" BorderThickness="0.8" CornerRadius="5" Margin="5,0,5,0">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0" HorizontalAlignment="Center">
+                        <!-- Image ID -->
+                        <sdk:Label Content="شناسه تصویر" Width="120" Margin="2,0,0,0"/>
+                        <ComboBox Name="ImageIDComboBox" Width="100"  FontSize="12"
+                                      SelectionChanged="ComboBox_SelectionChanged">
+                        </ComboBox>
+                        <!-- Format -->
+                        <sdk:Label Content="فرمت تصویر" Width="120" Margin="40,0,0,0"/>
+                        <ComboBox Name="ImageFormatComboBox" Width="100" FontSize="12"
+                                      SelectionChanged="ComboBox_SelectionChanged">
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0" HorizontalAlignment="Center">
+                        <!-- Proj. EPSG -->
+                        <sdk:Label Content="سیستم تصویر EPSG" Width="120" Margin="2,0,0,0" />
+                        <ComboBox Name="ProjEPSGComboBox" Width="100" FontSize="12"
+                                      SelectionChanged="ComboBox_SelectionChanged">
+                        </ComboBox>
+                        <!-- Proj. system: -->
+                        <sdk:Label Content="سیستم تصویر" Width="120" Margin="40,0,0,0"/>
+                        <ComboBox Name="ProjSystemComboBox" Width="100" FontSize="12"
+                                      SelectionChanged="ComboBox_SelectionChanged">
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0" HorizontalAlignment="Center">
+                        <!-- Proj. zone -->
+                        <sdk:Label Content="زون سیستم تصویر" Width="120" Margin="2,0,0,0"/>
+                        <ComboBox Name="ProjZoneComboBox" Width="100" FontSize="12"
+                                      SelectionChanged="ComboBox_SelectionChanged">
+                        </ComboBox>
+                        <!-- Proj. elipse -->
+                        <sdk:Label Content="بیضوی سیستم تصویر" Width="120" Margin="40,0,0,0"/>
+                        <ComboBox Name="ProjElipseComboBox" Width="100" FontSize="12"
+                                      SelectionChanged="ComboBox_SelectionChanged">
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0" HorizontalAlignment="Center">
+                        <!-- Proj. datum -->
+                        <sdk:Label Content="دیتوم سیستم تصویر" Width="120" Margin="2,0,0,0"/>
+                        <ComboBox Name="ProjDatumComboBox" Width="100" FontSize="12"
+                                      SelectionChanged="ComboBox_SelectionChanged">
+                        </ComboBox>
+                        <!-- Cent. Scale -->
+                        <sdk:Label Content="مقیاس" Width="120" Margin="40,0,0,0"/>
+                        <ComboBox Name="CentScaleComboBox" Width="100" FontSize="12"
+                                      SelectionChanged="ComboBox_SelectionChanged">
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0" HorizontalAlignment="Center">
+                        <!-- Lat. 1st: -->
+                        <sdk:Label Content="عرض جغرافیایی ابتدایی" Width="120" Margin="2,0,0,0"/>
+                        <ComboBox Name="Lat1stComboBox" Width="100" FontSize="12"
+                                      SelectionChanged="ComboBox_SelectionChanged">
+                        </ComboBox>
+                        <!-- Lat. 2nd -->
+                        <sdk:Label Content="عرض جغرافیایی انتهایی" Width="120" Margin="40,0,0,0"/>
+                        <ComboBox Name="Lat2ndComboBox" Width="100" FontSize="12"
+                                      SelectionChanged="ComboBox_SelectionChanged">
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0" HorizontalAlignment="Center">
+                        <!-- Cent. Meridian -->
+                        <sdk:Label Content="نصف النهار مرکزی" Width="120" Margin="2,0,0,0"/>
+                        <ComboBox Name="CentMeridianComboBox" Width="100"  FontSize="12" 
+                                      SelectionChanged="ComboBox_SelectionChanged">
+                        </ComboBox>
+                        <!-- Lat. Origin -->
+                        <sdk:Label Content="عرض جغرافیایی مرکز" Width="120" Margin="40,0,0,0"/>
+                        <ComboBox Name="LatOriginComboBox" Width="100" FontSize="12"
+                                      SelectionChanged="ComboBox_SelectionChanged">
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0" HorizontalAlignment="Center">
+                        <!-- False easting -->
+                        <sdk:Label Content="False Easting" Width="120" Margin="2,0,0,0"/>
+                        <ComboBox Name="FalseEastingComboBox" Width="100"  FontSize="12"
+                                      SelectionChanged="ComboBox_SelectionChanged">
+                        </ComboBox>
+                        <!-- False northing -->
+                        <sdk:Label Content="False Northing" Width="120" Margin="40,0,0,0"/>
+                        <ComboBox Name="FalseNorthingComboBox" Width="100" FontSize="12"
+                                      SelectionChanged="ComboBox_SelectionChanged">
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,5,0,0" HorizontalAlignment="Center">
+                        <!-- Img. Final pixel size_x -->
+                        <sdk:Label Content="طول پیکسل سایز" Width="120" Margin="2,0,0,0"/>
+                        <ComboBox Name="PixelSize_XComboBox" Width="100"  FontSize="12"
+                                      SelectionChanged="ComboBox_SelectionChanged">
+                        </ComboBox>
+                        <!-- Img. Final pixel size_y -->
+                        <sdk:Label Content="عرض پیکسل سایز" Width="120" Margin="40,0,0,0"/>
+                        <ComboBox Name="PixelSize_YComboBox" Width="100" FontSize="12"
+                                      SelectionChanged="ComboBox_SelectionChanged">
+                        </ComboBox>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <!-- Data Table -->
+            
+            <riaControls:DomainDataSource AutoLoad="True"
+                                            LoadedData="ImageMetadataDomainDataSource_LoadedData" 
+                                            Name="ImageMetadataDomainDataSource" PageSize="10" 
+                                              QueryName="GetImageMetadatasQuery">
+                <riaControls:DomainDataSource.DomainContext>
+                    <Service:DBDomainContext/>
+                </riaControls:DomainDataSource.DomainContext>
+            </riaControls:DomainDataSource>
+            <Border BorderBrush="White" BorderThickness="0.8" CornerRadius="2" Margin="5">
+                <StackPanel >
+                    <sdk:DataGrid Name="ImageMetadataDataGrid" AutoGenerateColumns="True" Height="200" HorizontalAlignment="Left" CanUserSortColumns="False"
+                          ItemsSource="{Binding Path=Data, ElementName=ImageMetadataDomainDataSource}" HorizontalScrollBarVisibility="Auto"
+                          AutoGeneratingColumn="ImageMetadataDataGrid_AutoGeneratingColumn"  />
+
+                    <!--<sdk:DataPager Height="25" HorizontalAlignment="Stretch" Margin="0,-2,0,0" Source="{Binding Path=Data, ElementName=ImageMetadataDomainDataSource}"
+                           Name="ImageMetadataDataPager" PageSize="10" VerticalAlignment="Top" Width="Auto" DisplayMode="FirstLastPreviousNextNumeric"/>-->
+                </StackPanel>
+            </Border>
+            <!-- Buttons -->
+            <StackPanel Orientation="Horizontal" Margin="0 -2 0 0" FlowDirection="LeftToRight">
+                <Button Name="Export2ExcelImageMetadataButton" Width="70" Height="24" Margin="20 0 0 0" FlowDirection="RightToLeft"
+                        Click="Export2ExcelImageMetadataButton_Click">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal" Width="58">
+                            <Image Source="../Pictures/Icon32/excel.png" HorizontalAlignment="Left"/>
+                            <sdk:Label Content="خروجی" Margin="5,0,0,0"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button Name="ImageMetadataDeleteRecordButton" Width="70" Height="24" Margin="10 0 0 0" FlowDirection="RightToLeft"
+                        Click="temporary_Click">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal" Width="58">
+                            <Image Source="../Pictures/Icon32/delete_item.png" HorizontalAlignment="Left"/>
+                            <sdk:Label Content="حذف" Margin="5,0,0,0"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button Name="ImageMetadataEditRecordButton" Width="70" Height="24" Margin="10 0 0 0" FlowDirection="RightToLeft"
+                        Click="temporary_Click">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal" Width="58">
+                            <Image Source="../Pictures/Icon32/edit_item.png" HorizontalAlignment="Left"/>
+                            <sdk:Label Content="ویرایش" Margin="5,0,0,0"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button Name="ImageMetadataNewRecordButton" Width="70" Height="24" Margin="10 0 0 0" FlowDirection="RightToLeft"
+                        Click="temporary_Click">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal" Width="58">
+                            <Image Source="../Pictures/Icon32/add_item.png" HorizontalAlignment="Left"/>
+                            <sdk:Label Content="جدید" Margin="5,0,0,0"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

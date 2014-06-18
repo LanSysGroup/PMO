@@ -1,0 +1,93 @@
+﻿<controls:ChildWindow x:Class="LanSysWebGIS.Views.UserManagement.ShowOnlineUsersWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+                      xmlns:local="clr-namespace:LanSysWebGIS.Controls"
+                      xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices"
+                      xmlns:service="clr-namespace:LanSysWebGIS.Web"
+           Title="{Binding Path=Strings.ShowOnlineUsers, Source={StaticResource ApplicationResources}}"
+           Style="{StaticResource ManageRolesWindowStyle}"
+                      KeyDown="ChildWindow_KeyDown">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <!--<Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>-->
+
+        <!--<Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />-->
+
+        <local:BusyIndicator x:Name="busyIndicator5" BusyContent="{Binding Path=Strings.BusyIndicatorLoadingUser, Source={StaticResource ApplicationResources}}"
+                             IsBusy="{Binding IsLoadingData, ElementName=OnlineUsersDomainDataSource, Mode=OneWay}">
+            <StackPanel x:Name="UsersStackPanel" Style="{StaticResource ManageUsersStackPanelStyle}" >
+                <!--<sdk:Label Content="{Binding Path=Strings.SearchForUsers, Source={StaticResource ApplicationResources}}" Style="{StaticResource ManageUsersLabelStyle}"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
+                <sdk:Label Content="{Binding Path=Strings.SearchBy, Source={StaticResource ApplicationResources}}" Style="{StaticResource NormalLabelStyle}"/>
+                <ComboBox x:Name="SearchByComboBox" Width="110"/>
+                <TextBox x:Name="UsersManagementTextBox" Width="100" Margin="5 0 5 0"/>
+                <Button x:Name="UsersManagementSearchButton" Content="{Binding Path=Strings.Search, Source={StaticResource ApplicationResources}}" Style="{StaticResource ManageUsersButtonStyle}" Click="UsersManagementSearchButton_Click"/>
+            </StackPanel>-->
+                <!--<local:SearchUserForm />-->
+                <sdk:Label Content="{Binding Path=Strings.SearchOnlineUsersByRole, Source={StaticResource ApplicationResources}}" Style="{StaticResource ManageUsersLabelStyle}"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
+                    <sdk:Label Content="{Binding Path=Strings.Role, Source={StaticResource ApplicationResources}}" Style="{StaticResource NormalLabelStyle}" Width="60"/>
+                    <ComboBox x:Name="SearchByRoleComboBox" Width="130" SelectionChanged="SearchByRoleComboBox_SelectionChanged"/>
+                    <!--<TextBox x:Name="UsersManagementTextBox" Width="100" Margin="5 0 5 0"/>-->
+                    <!--<Button x:Name="UsersManagementSearchButton" Content="{Binding Path=Strings.Search, Source={StaticResource ApplicationResources}}" Style="{StaticResource ManageUsersButtonStyle}" Click="UsersManagementSearchButton_Click" IsEnabled="False"/>-->
+                </StackPanel>
+                <riaControls:DomainDataSource AutoLoad="False"
+                                            LoadedData="OnlineUsersDomainDataSource_LoadedData"
+                                              
+                                            Name="OnlineUsersDomainDataSource" PageSize="0" 
+                                              QueryName="GetOnlineUsersQuery"
+                                              
+                                              >
+                    <riaControls:DomainDataSource.DomainContext>
+                        <service:AuthenticationContext/>
+                    </riaControls:DomainDataSource.DomainContext>
+                </riaControls:DomainDataSource>
+
+                <StackPanel Orientation="Vertical" Margin="0 5 0 0">
+                    <sdk:DataGrid Name="OnlineUsersDataGrid" AutoGenerateColumns="True" Width="500" Height="140" CanUserSortColumns="True"
+                          ItemsSource="{Binding Path=Data, ElementName=OnlineUsersDomainDataSource}" HorizontalScrollBarVisibility="Auto"
+                          IsReadOnly="True" />
+
+                    <!--<sdk:DataPager Height="25" HorizontalAlignment="Stretch" Margin="0,-2,0,0" Source="{Binding Path=Data, ElementName=OnlineUsersDomainDataSource}"
+                           x:Name="OnlineUsersDataPager" PageSize="4" VerticalAlignment="Top" Width="Auto" DisplayMode="FirstLastPreviousNextNumeric"/>-->
+                </StackPanel>
+                
+                <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBlock Text="تعداد کاربران آنلاین : "/>
+                        <!--<TextBlock x:Name="roleName"/>
+                        <TextBlock Text=" : "/>-->
+                        <TextBlock x:Name="numberOfOnlineUsers"/>
+                    </StackPanel>
+                    <Button x:Name="RefreshButton" Click="RefreshButton_Click" Margin="370 0 0 0">
+                        <Button.Content>
+                            <Image Source="/LanSysWebGIS;component/Pictures/Icon32/accept_item.png" Width="16" Height="16"/>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+
+
+                <!--<StackPanel Orientation="Horizontal" Margin="0 5 0 0" FlowDirection="LeftToRight">
+                    <Button x:Name="DeleteUserButton" Content="{Binding Path=Strings.Delete, Source={StaticResource ApplicationResources}}" Style="{StaticResource ManageUsersButtonStyle}" Click="DeleteUserButton_Click"/>
+                    <Button x:Name="EditUserButton" Content="{Binding Path=Strings.Edit, Source={StaticResource ApplicationResources}}" Style="{StaticResource ManageUsersButtonStyle}" Click="EditUserButton_Click"/>
+                    <Button x:Name="NewUserButton" Content="{Binding Path=Strings.New, Source={StaticResource ApplicationResources}}" Style="{StaticResource ManageUsersButtonStyle}" Click="NewUserButton_Click"/>
+                </StackPanel>-->
+                <!--<riaControls:DomainDataSource AutoLoad="False"
+                                            LoadedData="testDomainDataSource_LoadedData"
+                                            Name="testDomainDataSource" PageSize="0" 
+                                            >
+                <riaControls:DomainDataSource.DomainContext>
+                    <service:AuthenticationContext/>
+                </riaControls:DomainDataSource.DomainContext>
+            </riaControls:DomainDataSource>-->
+                <!--<HyperlinkButton x:Name="createNewUserHButton" Content="{Binding Path=Strings.CreateNewUser, Source={StaticResource ApplicationResources}}" Click="createNewUserHButton_Click" />-->
+                <!--<HyperlinkButton x:Name="manageUsersHButton" Content="{Binding Path=Strings.ManageUsers, Source={StaticResource ApplicationResources}}" Click="manageUsersHButton_Click" />-->
+            </StackPanel>
+        </local:BusyIndicator>
+    </Grid>
+</controls:ChildWindow>

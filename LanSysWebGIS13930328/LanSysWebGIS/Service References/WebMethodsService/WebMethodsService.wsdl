@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="DeleteFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDate">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetDateResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AccessFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="path" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AccessFileResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="dateTime" type="s:dateTime" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DeleteFileSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteFile" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFileSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDate" />
+  </wsdl:message>
+  <wsdl:message name="GetDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AccessFileSoapIn">
+    <wsdl:part name="parameters" element="tns:AccessFile" />
+  </wsdl:message>
+  <wsdl:message name="AccessFileSoapOut">
+    <wsdl:part name="parameters" element="tns:AccessFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFileHttpGetIn">
+    <wsdl:part name="path" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFileHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDateHttpGetIn" />
+  <wsdl:message name="GetDateHttpGetOut">
+    <wsdl:part name="Body" element="tns:dateTime" />
+  </wsdl:message>
+  <wsdl:message name="AccessFileHttpGetIn">
+    <wsdl:part name="path" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AccessFileHttpGetOut" />
+  <wsdl:message name="DeleteFileHttpPostIn">
+    <wsdl:part name="path" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFileHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDateHttpPostIn" />
+  <wsdl:message name="GetDateHttpPostOut">
+    <wsdl:part name="Body" element="tns:dateTime" />
+  </wsdl:message>
+  <wsdl:message name="AccessFileHttpPostIn">
+    <wsdl:part name="path" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AccessFileHttpPostOut" />
+  <wsdl:portType name="WebMethodsServiceSoap">
+    <wsdl:operation name="DeleteFile">
+      <wsdl:input message="tns:DeleteFileSoapIn" />
+      <wsdl:output message="tns:DeleteFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDate">
+      <wsdl:input message="tns:GetDateSoapIn" />
+      <wsdl:output message="tns:GetDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AccessFile">
+      <wsdl:input message="tns:AccessFileSoapIn" />
+      <wsdl:output message="tns:AccessFileSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebMethodsServiceHttpGet">
+    <wsdl:operation name="DeleteFile">
+      <wsdl:input message="tns:DeleteFileHttpGetIn" />
+      <wsdl:output message="tns:DeleteFileHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDate">
+      <wsdl:input message="tns:GetDateHttpGetIn" />
+      <wsdl:output message="tns:GetDateHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AccessFile">
+      <wsdl:input message="tns:AccessFileHttpGetIn" />
+      <wsdl:output message="tns:AccessFileHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WebMethodsServiceHttpPost">
+    <wsdl:operation name="DeleteFile">
+      <wsdl:input message="tns:DeleteFileHttpPostIn" />
+      <wsdl:output message="tns:DeleteFileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDate">
+      <wsdl:input message="tns:GetDateHttpPostIn" />
+      <wsdl:output message="tns:GetDateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AccessFile">
+      <wsdl:input message="tns:AccessFileHttpPostIn" />
+      <wsdl:output message="tns:AccessFileHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebMethodsServiceSoap" type="tns:WebMethodsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DeleteFile">
+      <soap:operation soapAction="http://tempuri.org/DeleteFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDate">
+      <soap:operation soapAction="http://tempuri.org/GetDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccessFile">
+      <soap:operation soapAction="http://tempuri.org/AccessFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebMethodsServiceSoap12" type="tns:WebMethodsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DeleteFile">
+      <soap12:operation soapAction="http://tempuri.org/DeleteFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDate">
+      <soap12:operation soapAction="http://tempuri.org/GetDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccessFile">
+      <soap12:operation soapAction="http://tempuri.org/AccessFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebMethodsServiceHttpGet" type="tns:WebMethodsServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="DeleteFile">
+      <http:operation location="/DeleteFile" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDate">
+      <http:operation location="/GetDate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccessFile">
+      <http:operation location="/AccessFile" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebMethodsServiceHttpPost" type="tns:WebMethodsServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="DeleteFile">
+      <http:operation location="/DeleteFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDate">
+      <http:operation location="/GetDate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccessFile">
+      <http:operation location="/AccessFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebMethodsService">
+    <wsdl:port name="WebMethodsServiceSoap" binding="tns:WebMethodsServiceSoap">
+      <soap:address location="http://localhost:2128/WebMethodsService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebMethodsServiceSoap12" binding="tns:WebMethodsServiceSoap12">
+      <soap12:address location="http://localhost:2128/WebMethodsService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebMethodsServiceHttpGet" binding="tns:WebMethodsServiceHttpGet">
+      <http:address location="http://localhost:2128/WebMethodsService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebMethodsServiceHttpPost" binding="tns:WebMethodsServiceHttpPost">
+      <http:address location="http://localhost:2128/WebMethodsService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

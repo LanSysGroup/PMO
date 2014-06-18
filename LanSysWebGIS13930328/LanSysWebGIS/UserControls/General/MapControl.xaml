@@ -1,0 +1,328 @@
+﻿<UserControl 
+    x:Class="LanSysWebGIS.UserControls.MapControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dxd="clr-namespace:DevExpress.Xpf.Docking;assembly=DevExpress.Xpf.Docking.v11.1"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009"
+    xmlns:toolkitControls="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+    xmlns:slData="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:liquidPopup="clr-namespace:Liquid;assembly=Liquid.Popup"
+    xmlns:bing="clr-namespace:ESRI.ArcGIS.Client.Bing;assembly=ESRI.ArcGIS.Client.Bing"
+    xmlns:uc="clr-namespace:LanSysWebGIS.UserControls"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="800" 
+    FontFamily="Tahoma">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.Resources>
+            <esri:SimpleRenderer x:Name="LineRenderer">
+                <esri:SimpleLineSymbol Color="Green" Width="3" Style="Solid" />
+            </esri:SimpleRenderer>
+            <esri:SimpleRenderer x:Name="PointRenderer">
+                <esri:SimpleMarkerSymbol Size="28" Color="Red">
+                    <esri:MarkerSymbol.ControlTemplate>
+                        <ControlTemplate>
+                            <Grid Width="{Binding Symbol.Size}" Height="{Binding Symbol.Size}" RenderTransformOrigin="0.5,0.5">
+                                <Rectangle Height="3" Fill="{Binding Symbol.Color}" VerticalAlignment="Center" />
+                                <Rectangle Width="3" Fill="{Binding Symbol.Color}" HorizontalAlignment="Center" />
+                            </Grid>
+                        </ControlTemplate>
+                    </esri:MarkerSymbol.ControlTemplate>
+                </esri:SimpleMarkerSymbol>
+            </esri:SimpleRenderer>
+        </Grid.Resources>
+
+        <esri:Map Name="Map1" IsLogoVisible="False" ExtentChanged="Map1_ExtentChanged" MouseMove="Map1_MouseMove" MouseClick="Map1_MouseClick"
+                  Cursor="Hand">
+
+            <esri:Map.Extent>
+                <!--<esri:Envelope XMin="44.04" YMin="25.06" XMax="63.31" YMax="39.77">
+                    <esri:Envelope.SpatialReference>
+                        <esri:SpatialReference WKID="4326"/>
+                    </esri:Envelope.SpatialReference>
+                </esri:Envelope>-->
+                <esri:Envelope XMin="4859769.3822" YMin="2660630.3666" XMax="6482550.4895" YMax="5285417.5494">
+                    <esri:Envelope.SpatialReference>
+                        <esri:SpatialReference WKID="102100"/>
+                    </esri:Envelope.SpatialReference>
+                </esri:Envelope>
+            </esri:Map.Extent>
+
+            <esri:Map.Layers>
+                <!--<bing:TileLayer ID="BingMap" LayerStyle="Aerial" ServerType="Production" 
+                                Token="AjCj9_pvUd9QLnUypsd8SnYyAo7G7mL_F399ZUEDY6LJjtm4hR9pP8sjlHVz8c5S"
+                                Visible="True"
+                                />-->
+                <uc:GoogleMapsTiles ID="GoogleMap" Visible="True">
+                    </uc:GoogleMapsTiles>
+
+                <esri:GraphicsLayer ID="testGraphic1"/>
+                <esri:GraphicsLayer ID="testGraphic2"/>
+                <esri:GraphicsLayer ID="testGraphic3"/>
+                <esri:GraphicsLayer ID="testGraphic4"/>
+                <esri:GraphicsLayer ID="testGraphic5"/>
+                <esri:GraphicsLayer ID="testGraphic6"/>
+                <esri:GraphicsLayer ID="testGraphic7"/>
+                <esri:GraphicsLayer ID="testGraphic8"/>
+                <esri:GraphicsLayer ID="testGraphic9"/>
+                <esri:GraphicsLayer ID="testGraphic10"/>
+                <esri:GraphicsLayer ID="testGraphic11"/>
+                <esri:GraphicsLayer ID="testGraphic12"/>
+                <esri:GraphicsLayer ID="testGraphic13"/>
+                <esri:GraphicsLayer ID="testGraphic14"/>
+                <esri:GraphicsLayer ID="testGraphic15"/>
+                <esri:GraphicsLayer ID="testGraphic16"/>
+                <esri:GraphicsLayer ID="testGraphic17"/>
+
+                <esri:GraphicsLayer ID="LineGraphicsLayer" Renderer="{StaticResource LineRenderer}"/>
+                <esri:GraphicsLayer ID="PointGraphicsLayer" Renderer="{StaticResource PointRenderer}"/>
+                
+                <!--<esri:GraphicsLayer ID="graphicsLayer"/>
+                <esri:GraphicsLayer ID="gLayersSelection" MouseLeftButtonUp="GraphicsLayer_MouseLeftButtonUp"/>
+                <esri:GraphicsLayer ID="gLayerDraw" MouseLeftButtonUp="GraphicsLayer_MouseLeftButtonUp_1"/>
+                <esri:GraphicsLayer ID="gLayerMeas"/>
+                <esri:GraphicsLayer ID="gLayerQueryBuilder"/>
+                <esri:GraphicsLayer ID="gLayerIdentify"/>
+                <esri:GraphicsLayer ID="gLayerBuffer"/>
+
+                <esri:GraphicsLayer ID="MySelectionGraphicsLayer"/>
+                <esri:GraphicsLayer ID="XYGraphicsLayer"/>
+                <esri:GraphicsLayer ID="DataCheckingSHPGraphicsLayer"/>
+                <esri:GraphicsLayer ID="DataCheckingGEOGraphicsLayer"/>
+                <esri:GraphicsLayer ID="DataCheckingSCANGraphicsLayer"/>
+                <esri:GraphicsLayer ID="gLayerQueryBuilder"/>-->
+            </esri:Map.Layers>
+        </esri:Map>
+
+
+
+        <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="left"  VerticalAlignment="Bottom">
+            <Image x:Name="logo" Source="/LanSysWebGIS;component/Pictures/logo.png" Stretch="None" Margin="20,0,20,20" Opacity="0.6" MouseEnter="Image_MouseEnter" MouseLeave="logo_MouseLeave"></Image>
+        </StackPanel>-->
+
+
+        <StackPanel x:Name="expanderStack" Orientation="Vertical" VerticalAlignment="Top" Margin="10,10,0,10" Height="Auto" HorizontalAlignment="left" Width="Auto" MinWidth="200">
+
+            <toolkitControls:Expander x:Name="vectorExpander" Header="داده های برداری" VerticalAlignment="Top" IsExpanded="False" Style="{StaticResource LightExpanderStyle}" 
+                                      Foreground="White" FontSize="12" Expanded="Expander_Expanded">
+                <toolkitControls:Expander.Effect>
+                    <DropShadowEffect ShadowDepth="0"/>
+                </toolkitControls:Expander.Effect>
+
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" Margin="0 5 0 5">
+                        <TextBlock Margin="2 0 10 0"  FontFamily="Tahoma" FontSize="12" Foreground="#414141">لایه فعال:</TextBlock>
+                        <ComboBox x:Name="cmbActiveLayer" Width="120" HorizontalAlignment="Center" SelectionChanged="cmbActiveLayer_SelectionChanged" 
+                                      FontFamily="Tahoma" FontSize="11" Foreground="#414141"/>
+                    </StackPanel>
+
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" BorderBrush="{x:Null}" >
+                        <esri:Legend x:Name="MyLegend" Map="{Binding ElementName=Map1}" Style="{StaticResource HRDTOC}" LayerIDs="Atlas" FontFamily="Tahoma" FontSize="13" 
+                                     Background="#EEEEEE" MaxHeight="400" Refreshed="MyLegend_Refreshed" MouseLeftButtonUp="MyLegend_MouseLeftButtonUp" MouseLeftButtonDown="MyLegend_MouseLeftButtonDown" MouseLeave="MyLegend_MouseLeave" />
+                    </ScrollViewer>
+
+                    <!--<esri:Legend Map="{Binding ElementName=Map1}" LayerItemsMode="Tree" LayerIDs="Atlas" />-->
+                    <!--<toc:TOC x:Name="TOC" Map="{Binding ElementName=Map1}" LegendServiceUrl=""/>-->
+
+                </StackPanel>
+
+            </toolkitControls:Expander>
+
+            <toolkitControls:Expander x:Name="rasterExpander" Header="داده های رستری" VerticalAlignment="Top" IsExpanded="False" Style="{StaticResource LightExpanderStyle}" 
+                                      Foreground="White" FontSize="12" Expanded="Expander_Expanded">
+                <toolkitControls:Expander.Effect>
+                    <DropShadowEffect ShadowDepth="0"/>
+                </toolkitControls:Expander.Effect>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" BorderBrush="{x:Null}" >
+                    <esri:Legend x:Name="MyLegend2" Map="{Binding ElementName=Map1}" Style="{StaticResource HRDTOCRaster}" LayerIDs="GoogleMap" FontFamily="Tahoma" FontSize="13" 
+                                     Background="#EEEEEE" MaxHeight="400" Refreshed="MyRasterLegend_Refreshed"/>
+                </ScrollViewer>
+            </toolkitControls:Expander>
+
+            <toolkitControls:Expander x:Name="identifyExpander" Header="شناسایی" VerticalAlignment="Top" IsExpanded="False" Style="{StaticResource LightExpanderStyle}" 
+                                      Foreground="White" FontSize="12" Expanded="Expander_Expanded">
+                <toolkitControls:Expander.Effect>
+                    <DropShadowEffect ShadowDepth="0"/>
+                </toolkitControls:Expander.Effect>
+                <Grid x:Name="IdentifyGrid" HorizontalAlignment="Right" VerticalAlignment="Top" Loaded="IdentifyGrid_Loaded">
+                    <Grid.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontFamily" Value="Tahoma" />
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <!--<TextBlock x:Name="DataDisplayTitleBottom" Text="برای شناسایی عوارض روی نقشه کلیک کنید" 
+                Foreground="Black" FontSize="11" Grid.Row="0"                      
+                Margin="15,5,15,1" HorizontalAlignment="Center" >
+                    </TextBlock>-->
+                    <!-- Result -->
+                    <Grid x:Name="IdentifyResultsPanel" Margin="5,1,5,5" HorizontalAlignment="Center" 
+                    VerticalAlignment="Top" Visibility="Visible" Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <ComboBox x:Name="IdentifyComboBox" SelectionChanged="IdentifyComboBox_SelectionChanged"
+                    Margin="5,1,5,5" Grid.Row="0" Foreground="Black" FontSize="10" HorizontalAlignment="Center" FontFamily="Tahoma"  Width="200">
+                        </ComboBox>
+                        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"  
+                    Width="310" MinHeight="200" MaxHeight="300" Grid.Row="1" HorizontalAlignment="Center" BorderBrush="{x:Null}">
+                            <slData:DataGrid x:Name="IdentifyDetailsDataGrid" AutoGenerateColumns="False" HeadersVisibility="None" 
+                        Background="White" Foreground="Black" FontSize="9" FontFamily="Tahoma">
+                                <slData:DataGrid.Columns>
+                                    <slData:DataGridTextColumn FontWeight="Bold" Binding="{Binding Key}" />
+                                    <slData:DataGridTextColumn Binding="{Binding Value}"/>
+                                </slData:DataGrid.Columns>
+                            </slData:DataGrid>
+                        </ScrollViewer>
+                    </Grid>
+                </Grid>
+
+            </toolkitControls:Expander>
+        </StackPanel>
+
+        <StackPanel>
+            <esri:Navigation x:Name="navigationControl" Map="{Binding ElementName=Map1}" HorizontalAlignment="Right" Margin="4,4,4,10"/>
+
+            <esri:Bookmark x:Name="bookmark" Map="{Binding ElementName=Map1}" HorizontalAlignment="Right" VerticalAlignment="Top" 
+                           Visibility="Collapsed" Title="بوک مارک" FontFamily="Tahoma" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Grid x:Name="mapOverviewBox" HorizontalAlignment="Right" Width="200" Height="150" Canvas.ZIndex="100" FlowDirection="LeftToRight" Margin="0 0 0 2">
+                <Border BorderBrush="WhiteSmoke" BorderThickness="1" CornerRadius="6,6,6,6" Background="#BB919191">
+                    <esri:OverviewMap x:Name="MyOverviewMap" 
+                                  Margin="2,2,2,2" 
+                                  Map="{Binding ElementName=Map1}">
+                        <esri:OverviewMap.Layer>
+                            <!--<bing:TileLayer ID="BingMap" LayerStyle="Aerial" ServerType="Production" 
+                                Token="AjCj9_pvUd9QLnUypsd8SnYyAo7G7mL_F399ZUEDY6LJjtm4hR9pP8sjlHVz8c5S"
+                                Visible="True"
+                                />-->
+                            <esri:ArcGISDynamicMapServiceLayer x:Name="Atlas_Preview"
+                                               Url="http://cpedsrv/ArcGIS/rest/services/PMO/Base/MapServer"
+                                               />
+                            <!--<esri:ArcGISDynamicMapServiceLayer x:Name="Atlas_Preview"
+                                               Url="http://91.98.96.231/ArcGIS/rest/services/PMO/Iran/MapServer"
+                                               />-->
+                            
+                        </esri:OverviewMap.Layer>
+                    </esri:OverviewMap>
+                </Border>
+            </Grid>
+            <toolkitControls:Expander ExpandDirection="Left" IsExpanded="True" Height="40" >
+                <Border CornerRadius="6,6,6,6" Background="WhiteSmoke" BorderBrush="WhiteSmoke"  Opacity="0.8">
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBlock x:Name="txtX" Margin="5,12,0,0"></TextBlock>
+                        <TextBlock Text=" :Y  " Margin="0,12,0,0" FontWeight="Bold"></TextBlock>
+                        <TextBlock x:Name="txtY" Margin="2,12,0,0"></TextBlock>
+                        <TextBlock Text=" :X  " Margin="0,12,0,0" FontWeight="Bold"></TextBlock>
+                        <TextBlock Text="|" Margin="5,12,5,0"></TextBlock>
+                        <TextBlock x:Name="txtScale" Margin="0,12,0,0"></TextBlock>
+                        <TextBlock Text=": 1" Margin="3,12,5,0"></TextBlock>
+                        <!--<TextBlock Text="مقیاس" Margin="5,12,5,0"></TextBlock>-->
+                        <esri:ScaleLine Name="ScaleLine" Map="{Binding ElementName=Map1}" Margin="0 0 5 0"/>
+
+                    </StackPanel>
+                </Border>
+            </toolkitControls:Expander>
+        </StackPanel>
+
+        <!-- QueryBuilder -->
+        <!--<liquidPopup:Dialog x:Name="QueryBuilderDialog" Width="310" Height="385" Title="پرس و جوی توصیفی" ButtonsVisibility="Collapsed" 
+                            ShadowBrush="Black" IsResizable="False" TitleBarBackground="#6E6E6E" IsOpen="False" 
+                            Closed="QueryBuilderDialog_Closed" Opened="QueryBuilderDialog_Opened"
+                            Margin="0 0 10 0" FlowDirection="RightToLeft" IsMaximizeEnabled="False">-->
+        
+        <!--</liquidPopup:Dialog>-->
+
+        <esri:FeatureDataGrid x:Name="QueryBuilderFeatureDataGrid" CanUserResizeColumns="True" Visibility="Collapsed"
+                                  Map="{Binding ElementName=Map1}" Height="180" IsReadOnly="True"
+                                  Margin="0,0,0,0" VerticalAlignment="Bottom" FlowDirection="LeftToRight" />
+
+        <!-- Query Builder End -->
+
+        <esri:MapProgressBar Map="{Binding ElementName=Map1}" FlowDirection="LeftToRight" UseLayoutRounding="True" HorizontalAlignment="Center" 
+                             VerticalAlignment="Bottom" Width="150" Height="20" Margin="25"/>
+
+        <!--<uc:Measuring/>-->
+
+        <!-- Attachment Editor -->
+
+        <liquidPopup:Dialog x:Name="AttachmentDialog" Width="300" Height="300" Title="تعریف پیوند" ButtonsVisibility="Collapsed" 
+                            ShadowBrush="Black" IsResizable="False" TitleBarBackground="#6E6E6E" IsMaximizeEnabled="False"
+                            FlowDirection="RightToLeft" Opacity="0.7" IsOpen="False"
+                            MouseEnter="AttachmentDialog_MouseEnter" MouseLeave="AttachmentDialog_MouseLeave"
+                            Closed="AttachmentDialog_Closed"
+                            Opened="AttachmentDialog_Opened">
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="بر روی یک عارضه از لایه فعال کلیک کرده و با کلیک بر روی دکمه 'اضافه کردن' فایل ضمیمه مورد نظر را آپلود کنید" 
+                       Width="250" TextAlignment="Left" Margin="20,20,20,5" TextWrapping="Wrap" FontWeight="Bold"/>
+                <esri:AttachmentEditor x:Name="MyAttachmentEditor" VerticalAlignment="Top" Margin="20,5,20,20" 
+                             Background="WhiteSmoke" Width="250" Height="190" HorizontalAlignment="Right"                            
+                             FeatureLayer="{Binding Layers[currentFeatureLayer], ElementName=Map1}" 
+                             Filter="All Files (*.*)|*.*|Image Files|*.tif;*.jpg;*.gif;*.png;*.bmp|Text Files (.txt)|*.txt" 
+                             FilterIndex="1" Multiselect="True"
+                             UploadFailed="MyAttachmentEditor_UploadFailed">
+                </esri:AttachmentEditor>
+            </StackPanel>
+
+        </liquidPopup:Dialog>
+
+        <!-- END Attachment Editor -->
+
+        <!-- Query Raster -->
+        <!--<liquidPopup:Dialog x:Name="RasterDialog" Width="505" Height="480" Title="جستجو بر اساس متادیتای تصاویر" ButtonsVisibility="Collapsed" 
+                            ShadowBrush="Black" IsResizable="False" TitleBarBackground="#6E6E6E" IsOpen="False" FontFamily="Tahoma" IsMaximizeEnabled="False"
+                            Margin="0 0 10 0" FlowDirection="RightToLeft">
+            <uc:ImageMetadataUserControl HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </liquidPopup:Dialog>-->
+
+        <!--MapPrinter Dialog Panel-->
+        <!--<liquidPopup:Dialog x:Name="PrintDialog" Width="300" Height="400" Title="پرینت" Buttons="None" IsMaximizeEnabled="False"
+                            ShadowBrush="Black" IsResizable="False" TitleBarBackground="#6E6E6E" IsOpen="False" FontFamily="Tahoma"
+                            Margin="0 0 10 0" FlowDirection="RightToLeft">
+            <uc:PrintingUserControl/>
+        </liquidPopup:Dialog>-->
+        
+        <!--Buffer Dialog Panel-->
+        <liquidPopup:Dialog x:Name="BufferDialog" Width="460" Height="200" Title="بافر" Buttons="None" IsMaximizeEnabled="False"
+                            ShadowBrush="Black" IsResizable="False" TitleBarBackground="#6E6E6E" IsOpen="False" FontFamily="Tahoma"
+                            Margin="0 0 10 0" FlowDirection="RightToLeft"
+                            Closed="BufferDialog_Closed"
+                            Opened="BufferDialog_Opened">
+            <uc:Buffer x:Name="buffer"/>
+        </liquidPopup:Dialog>
+
+        <!--Upload Dialog Panel-->
+        <!--<liquidPopup:Dialog x:Name="UploadDialog" Width="320" Height="120" Title="آپلود" Buttons="None" IsMaximizeEnabled="False"
+                            ShadowBrush="Black" IsResizable="False" TitleBarBackground="#6E6E6E" IsOpen="False" FontFamily="Tahoma"
+                            Margin="0 0 10 0" FlowDirection="RightToLeft">
+            <uc:FileUpload x:Name="FileUpload"/>
+        </liquidPopup:Dialog>-->
+
+        <!-- About Us -->
+        <liquidPopup:Dialog x:Name="aboutUs" Title="درباره ما" Width="350" Height="200" ShadowBrush="Black" IsResizable="False" 
+                            TitleBarBackground="#6E6E6E" IsOpen="False" FontFamily="Tahoma" Buttons="None" IsMaximizeEnabled="False"
+                            Margin="0 0 10 0" FlowDirection="RightToLeft">
+            <Image Source="../Pictures/Lansys.png"/>
+        </liquidPopup:Dialog>
+        
+        <!-- DataFrom -->
+
+        <!--<uc:DataFormViewEdit x:Name="dataFormViewEdit"/>-->
+        
+        <!--<uc:DataFormNew x:Name="dataFormNew" />-->
+        
+        <!--<uc:Report x:Name="report"/>-->
+
+    </Grid>
+</UserControl>

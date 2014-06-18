@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CurrentPasswordLabel" xml:space="preserve">
+    <value>رمز عبور فعلی</value>
+  </data>
+  <data name="EmailBodyPasswordChangedSuccessfully" xml:space="preserve">
+    <value>کاربر گرامی،&lt;br&gt; &lt;br&gt;
+
+رمز عبور شما در سامانه WebGIS استانداری البرز با موفقیت تغییر یافت.</value>
+  </data>
+  <data name="EmailBodyPasswordResetSuccessfully" xml:space="preserve">
+    <value>کاربر گرامی،&lt;br&gt;&lt;br&gt;
+رمز عبور شما در سامانه WebGIS استانداری البرز مجددا تنظیم شده است.&lt;br&gt;&lt;br&gt;
+رمز عبور جدید شما: &lt;b&gt;{0}&lt;/b&gt;
+&lt;br&gt;&lt;br&gt;
+
+لطفا در اولین ورود به سامانه، نسبت به تغییر رمز عبور خود اقدام نمائید.</value>
+    <comment>{0} = tempPassword</comment>
+  </data>
+  <data name="EmailLabel" xml:space="preserve">
+    <value>پست الکترونیک</value>
+  </data>
+  <data name="EmailSubjectPasswordChangedSuccessfully" xml:space="preserve">
+    <value>تغییر رمز عبور</value>
+  </data>
+  <data name="EmailSubjectPasswordResetSuccessfully" xml:space="preserve">
+    <value>تنظیم مجدد رمز عبور</value>
+  </data>
+  <data name="EmailTemplate" xml:space="preserve">
+    <value>&lt;html&gt;
+&lt;header&gt;&lt;/header&gt;
+&lt;body&gt;
+	&lt;table style="border:4px solid #015b9d;margin:0 auto;width:600px" dir="rtl" border="0" cellspacing="0" cellpadding="0" width="600" align="center"&gt;
+		&lt;tbody&gt;
+			&lt;tr&gt;
+				&lt;td height="60" align="center" bgcolor="#015b9d"&gt;&lt;a style="text-decoration:none;color:#ffffff" href="http://webgis.p-alb.com" target="_blank"&gt;&lt;img src="http://91.98.96.246/header.gif" style="padding-bottom: 20px;"&gt; &lt;/a&gt; &lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td bgcolor="#e0e0e0"&gt;
+					&lt;table style="padding:3px;border:3px solid #015b9d" border="0" width="100%"&gt;
+						&lt;tbody&gt;
+							&lt;tr&gt;
+								&lt;td style="line-height:1.8em;font-size:11px!important;font-family:Tahoma!important;border:1px solid #ddd;padding:10px" bgcolor="#ffffff"&gt;
+									&lt;div dir="rtl"&gt;
+										&lt;p&gt;
+											&lt;span style="font-size:small;font-family:tahoma,arial,helvetica,sans-serif"&gt;
+											{0}
+											&lt;/span&gt;
+										&lt;/p&gt;
+									&lt;/div&gt;
+								&lt;/td&gt;
+							&lt;/tr&gt;
+							&lt;tr&gt;
+								&lt;td style="font-family:Tahoma!important;font-size:11px!important;color:#663300;line-height:1.8em;text-align:center"&gt;&lt;a href="http://webgis.p-alb.com" target="_blank"&gt;http://webgis.p-alb.com&lt;/a&gt;&lt;/td&gt;
+							&lt;/tr&gt;
+						&lt;/tbody&gt;
+					&lt;/table&gt;
+				&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+			&lt;td height="30" bgcolor="#015b9d"&gt;
+			&lt;p style="color:#eee;font:11px Tahoma;padding:5px;text-align:center"&gt;&lt;a style="color:#fff;text-decoration:none" href="http://webgis.p-alb.com" target="_blank"&gt;.:: &lt;strong&gt;سامانه هوشمند اطلاع رسانی سامانه WebGIS استانداری البرز&lt;/strong&gt; ::.&lt;/a&gt;&lt;/p&gt;
+			&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/tbody&gt;
+	&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</value>
+  </data>
+  <data name="FirstNameLabel" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="FriendlyNameDescription" xml:space="preserve">
+    <value>نام دلخواهی که می خواهید در این سیستم نمایش داده شود</value>
+  </data>
+  <data name="FriendlyNameLabel" xml:space="preserve">
+    <value>نام دلخواه</value>
+  </data>
+  <data name="LastNameLabel" xml:space="preserve">
+    <value>نام خانوادگی</value>
+  </data>
+  <data name="NewPasswordConfirmationLabel" xml:space="preserve">
+    <value>تائید رمز عبور جدید</value>
+  </data>
+  <data name="NewPasswordLabel" xml:space="preserve">
+    <value>رمز عبور جدید</value>
+  </data>
+  <data name="OrganizationNameLabel" xml:space="preserve">
+    <value>اداره</value>
+  </data>
+  <data name="PasswordConfirmationLabel" xml:space="preserve">
+    <value>تائید رمز عبور</value>
+  </data>
+  <data name="PasswordDescription" xml:space="preserve">
+    <value>رمز عبور باید حداقل 6 کاراکتر باشد</value>
+    <comment>Change this if you change your password length and strength policies</comment>
+  </data>
+  <data name="PasswordLabel" xml:space="preserve">
+    <value>رمز عبور</value>
+  </data>
+  <data name="ResetPasswordSuccessfullyMessage" xml:space="preserve">
+    <value>تنظیم مجدد رمز عبور کاربر مورد نظر با موفقیت انجام شد</value>
+  </data>
+  <data name="ResetPasswordUnSuccessfullyMessage" xml:space="preserve">
+    <value>تنظیم مجدد رمز عبور کاربر مورد نظر با مشکل مواجه شد.
+لطفا مجددا سعی نمائید</value>
+  </data>
+  <data name="RoleNameLabel" xml:space="preserve">
+    <value>نقش</value>
+  </data>
+  <data name="SecurityAnswerLabel" xml:space="preserve">
+    <value>پاسخ امنیتی</value>
+  </data>
+  <data name="SecurityQuestionLabel" xml:space="preserve">
+    <value>سوال امنیتی</value>
+  </data>
+  <data name="UserCommentLabel" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="UserIDLabel" xml:space="preserve">
+    <value>شناسه</value>
+  </data>
+  <data name="UserNameLabel" xml:space="preserve">
+    <value>نام کاربری</value>
+  </data>
+</root>

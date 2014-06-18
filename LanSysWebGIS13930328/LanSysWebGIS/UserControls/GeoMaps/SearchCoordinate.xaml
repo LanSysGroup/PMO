@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="LanSysWebGIS.UserControls.GeoMaps.SearchCoordinate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:uc="clr-namespace:LanSysWebGIS.UserControls.GeoMaps"
+             xmlns:input="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input"
+             xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400"
+             FlowDirection="RightToLeft">
+    <Border  BorderThickness="1" CornerRadius="5" Margin="2" BorderBrush="Silver" Padding="0 10 0 0" HorizontalAlignment="Stretch">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <sdk:Label Name="CoorSys" Height="20" HorizontalAlignment="Right" Foreground="Black"   
+                                                    VerticalAlignment="Top" Content="سیستم مختصات" FontSize="10" Margin="2,5,0,0" Padding="2">
+                    </sdk:Label>
+                    <ComboBox Name="coordinateSpatialReferenceComboBox" HorizontalAlignment="Right" Width="130" Height="20" Margin="0 5 0 0" 
+                                                          SelectedIndex="0" SelectionChanged="coordinateSpatialReferenceComboBox_SelectionChanged">
+                        <!--<ComboBoxItem Content="LCC Iran"/>-->
+                        <ComboBoxItem Content="Geographic"/>
+                        <ComboBoxItem Content="UTM 38N WGS84"/>
+                        <ComboBoxItem Content="UTM 39N WGS84"/>
+                        <ComboBoxItem Content="UTM 40N WGS84"/>
+                        <ComboBoxItem Content="UTM 41N WGS84"/>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,2,0,0">
+                    <sdk:Label Name="xCoordinateLabel" Height="20" HorizontalAlignment="Right" Foreground="Black"   
+                                                    VerticalAlignment="Top" Content="Lon:" FontSize="10" Margin="2,0" Padding="2">
+                    </sdk:Label>
+                    <TextBox Name="xSearchTextBox" Width="130" Height="18" FontSize="9">
+                    </TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <sdk:Label Name="yCoordinateLabel" Height="20" HorizontalAlignment="Right" Foreground="Black"   
+                                                    VerticalAlignment="Top" Content="Lat:" FontSize="10" Margin="2,0" Padding="3">
+                    </sdk:Label>
+                    <TextBox Name="ySearchTextBox" Width="130" Height="18" FontSize="9">
+                    </TextBox>
+                </StackPanel>
+                <!-- Search Button -->
+            </StackPanel>
+
+            <!-- Search Button -->
+            <Button Height="23" Name="searchCoordinateButton" Margin="0,10,0,5" Width="75" 
+                                                        Click="searchCoordinateButton_Click" FontSize="10">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <sdk:Label Content="جستجو"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <TextBlock Height="20" HorizontalAlignment="Center" Name="messageTextBlock01" Width="135" FontSize="11" Foreground="Black" VerticalAlignment="Center" TextAlignment="Center" />
+        </StackPanel>
+    </Border>
+</UserControl>

@@ -1,0 +1,1074 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6ADBB616-7BD1-465D-B731-DC7242B3428E}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LanSysWebGIS</RootNamespace>
+    <AssemblyName>LanSysWebGIS</AssemblyName>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>LanSysWebGIS.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>LanSysWebGIS.App</SilverlightAppEntry>
+    <TestPageFileName>TestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>..\LanSysWebGIS.Web\LanSysWebGIS.Web.csproj</LinkedServerProject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v11.1">
+      <HintPath>..\..\..\..\..\Desktop\SLWebGIS\SLWebGIS\Bin\Debug\DevExpress.Data.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v11.1">
+      <HintPath>..\..\..\..\..\Desktop\SLWebGIS\SLWebGIS\Bin\Debug\DevExpress.Xpf.Core.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Docking.v11.1">
+      <HintPath>..\..\..\..\..\Desktop\SLWebGIS\SLWebGIS\Bin\Debug\DevExpress.Xpf.Docking.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Layout.v11.1.Core">
+      <HintPath>..\..\..\..\..\Desktop\SLWebGIS\SLWebGIS\Bin\Debug\DevExpress.Xpf.Layout.v11.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Ribbon.v11.1">
+      <HintPath>..\..\..\..\..\Desktop\SLWebGIS\SLWebGIS\Bin\Debug\DevExpress.Xpf.Ribbon.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.LightGray.v11.1">
+      <HintPath>..\..\..\..\..\Desktop\SLWebGIS\SLWebGIS\Bin\Debug\DevExpress.Xpf.Themes.LightGray.v11.1.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Client, Version=3.0.0.388, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\SLWebGIS\SLWebGIS\Bin\Debug\ESRI.ArcGIS.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Client.Bing, Version=3.0.0.388, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\SLWebGIS\SLWebGIS\Bin\Debug\ESRI.ArcGIS.Client.Bing.dll</HintPath>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Client.Toolkit, Version=3.0.0.388, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\SLWebGIS\SLWebGIS\Bin\Debug\ESRI.ArcGIS.Client.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="FloatableWindow">
+      <HintPath>..\..\..\..\..\Desktop\FloatableWindow.dll</HintPath>
+    </Reference>
+    <Reference Include="Liquid">
+      <HintPath>..\..\..\..\..\Desktop\SLWebGIS\SLWebGIS\Bin\Debug\Liquid.dll</HintPath>
+    </Reference>
+    <Reference Include="Liquid.Components">
+      <HintPath>..\..\..\..\..\Desktop\SLWebGIS\SLWebGIS\Bin\Debug\Liquid.Components.dll</HintPath>
+    </Reference>
+    <Reference Include="Liquid.Popup">
+      <HintPath>..\..\..\..\..\Desktop\SLWebGIS\SLWebGIS\Bin\Debug\Liquid.Popup.dll</HintPath>
+    </Reference>
+    <Reference Include="Lite.ExcelLibrary">
+      <HintPath>..\..\..\..\..\Desktop\SLWebGIS\SLWebGIS\Bin\Debug\Lite.ExcelLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Lite.Library">
+      <HintPath>H:\LanSys\Lite.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="MapPrintingControls, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MapPrintingControls.dll</HintPath>
+    </Reference>
+    <Reference Include="MDIWindow">
+      <HintPath>..\..\..\..\..\Desktop\MDIWindow.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Windows.Data.DomainServices">
+      <HintPath>..\..\..\..\..\..\..\Downloads\Microsoft.Windows.Data.DomainServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\portable-net40+sl5+wp80+win8+monotouch+monoandroid\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ProjNet.Silverlight">
+      <HintPath>..\packages\ProjNet.1.2\lib\sl2\ProjNet.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="SilverlightPersianDatePicker, Version=1.5.0.0, Culture=neutral, PublicKeyToken=f68c1bbd00102e3d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\.Net Codes\Silverlight Projects\SilverlightPersianDatePicker.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Json, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\SLWebGIS\SLWebGIS\Bin\Debug\System.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.DataForm.Toolkit, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\System.Windows.Controls.Data.DataForm.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Data.Input" />
+    <Reference Include="System.ServiceModel.DomainServices.Client" />
+    <Reference Include="System.ServiceModel.DomainServices.Client.Web" />
+    <Reference Include="System.ServiceModel.Web.Extensions" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit">
+      <HintPath>..\..\..\LanSysWebGIS13921110\LanSysWebGIS\Bin\Debug\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.DomainServices, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit">
+      <HintPath>..\..\..\LanSysWebGIS13921110\LanSysWebGIS\Bin\Debug\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Toolkit">
+      <HintPath>..\..\..\LanSysWebGIS13921110\LanSysWebGIS\Bin\Debug\System.Windows.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Windows.Controls" />
+    <Reference Include="System.Windows.Controls.Navigation" />
+    <Reference Include="System.Xml.Linq, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Serialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Vishcious.ArcGIS.SLContrib">
+      <HintPath>..\..\..\..\..\Desktop\SLWebGIS\SLWebGIS\Bin\Debug\Vishcious.ArcGIS.SLContrib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\LanSysWebGIS.Web\Resources\RegistrationDataResources.Designer.cs">
+      <Link>Web\Resources\RegistrationDataResources.Designer.cs</Link>
+      <DependentUpon>RegistrationDataResources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="..\LanSysWebGIS.Web\Resources\ValidationErrorResources.Designer.cs">
+      <Link>Web\Resources\ValidationErrorResources.Designer.cs</Link>
+      <DependentUpon>ValidationErrorResources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Resources\ApplicationResources.cs" />
+    <Compile Include="Assets\Resources\ApplicationStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Resources\GeoMapsStrings.Designer.cs">
+      <DependentUpon>GeoMapsStrings.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Assets\Resources\ErrorResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErrorResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Resources\SecurityQuestions.Designer.cs">
+      <DependentUpon>SecurityQuestions.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Controls\BusyIndicator.cs" />
+    <Compile Include="Controls\VisualStates.cs" />
+    <Compile Include="Controls\YesNoQuestion.xaml.cs">
+      <DependentUpon>YesNoQuestion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\PredicateBuilder.cs" />
+    <Compile Include="Models\Banader\DocFileViewModel.cs" />
+    <Compile Include="Models\Banader\DocSubjectTreeViewModel.cs" />
+    <Compile Include="Models\Banader\DocTitleTreeViewModel.cs" />
+    <Compile Include="Models\Banader\FileLogModel.cs" />
+    <Compile Include="Models\Banader\UserModel.cs" />
+    <Compile Include="Models\General\FileUploader.cs" />
+    <Compile Include="Models\Hydro\FormNo100Model.cs" />
+    <Compile Include="Models\Hydro\FormNo200ItemModel.cs" />
+    <Compile Include="Models\Hydro\ProjectIdentificationModel.cs" />
+    <Compile Include="Models\General\TitleToSubjectConverter.cs" />
+    <Compile Include="Presenter\Banader\AddFilePresenter.cs" />
+    <Compile Include="Presenter\Banader\AddSubjectPresenter.cs" />
+    <Compile Include="Presenter\Banader\DocTitlePresenter.cs" />
+    <Compile Include="Presenter\Banader\EmployeesFormPresenter.cs" />
+    <Compile Include="Presenter\Banader\GenericViewModel.cs" />
+    <Compile Include="Presenter\Banader\MainCategoryPresenter.cs" />
+    <Compile Include="Presenter\Banader\SetAccessLevelPresenter.cs" />
+    <Compile Include="Presenter\Banader\YesNoQuestionPresenter.cs" />
+    <Compile Include="Presenter\Hydro\AreaVolumeViewModel.cs" />
+    <Compile Include="Presenter\Hydro\ContourMapViewModel.cs" />
+    <Compile Include="Presenter\Hydro\FormNo100Presenter.cs" />
+    <Compile Include="Presenter\Hydro\FormNo200Presenter.cs" />
+    <Compile Include="Presenter\Hydro\HydrographyToolsViewModel.cs" />
+    <Compile Include="Presenter\Hydro\IMOPresenter.cs" />
+    <Compile Include="Presenter\Hydro\ProfileViewModel.cs" />
+    <Compile Include="Presenter\Hydro\ProjectIdentificationPresenter.cs" />
+    <Compile Include="Presenter\Hydro\RasterComparisonViewModel.cs" />
+    <Compile Include="Presenter\Hydro\SalahiyatPeymankaranPresenter.cs" />
+    <Compile Include="Resources\BoolToDataRowColorConverter.cs" />
+    <Compile Include="Resources\BoolToVisibilityConverter.cs" />
+    <Compile Include="Resources\Hydro\EmtiyazKarhayeAnjamShodeConverter.cs" />
+    <Compile Include="Resources\Hydro\EmtiyazModiranVaKarkonanConverter.cs" />
+    <Compile Include="Resources\Hydro\EmtiyazSalahiyatBilBarjConverter.cs" />
+    <Compile Include="Resources\Hydro\EmtiyazSalahiyatLayroobConverter.cs" />
+    <Compile Include="Resources\Hydro\EmtiyazTadavomFaaliyatConverter.cs" />
+    <Compile Include="Resources\Hydro\EmtiyazTakhasosVaTajrobeConverter.cs" />
+    <Compile Include="Resources\Hydro\EmtiyazTavanMaliConverter.cs" />
+    <Compile Include="Resources\Hydro\HydroConverterHelper.cs" />
+    <Compile Include="Resources\MahdodeLayroobiConverter.cs" />
+    <Compile Include="Service References\WebMethodsService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Banader\AddFile.xaml.cs">
+      <DependentUpon>AddFile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Banader\AddSubject.xaml.cs">
+      <DependentUpon>AddSubject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Banader\AddTitle.xaml.cs">
+      <DependentUpon>AddTitle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Banader\EditWindow.xaml.cs">
+      <DependentUpon>EditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Banader\EmployeesForm.xaml.cs">
+      <DependentUpon>EmployeesForm.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserControls\Banader\FileLog.xaml.cs">
+      <DependentUpon>FileLog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Banader\GlobalSuppressions.cs" />
+    <Compile Include="Helpers\AccessLevelChecker.cs" />
+    <Compile Include="Helpers\CoordinateTransformer.cs" />
+    <Compile Include="Helpers\DataFieldExtensions.cs" />
+    <Compile Include="Helpers\NotOperatorValueConverter.cs" />
+    <Compile Include="Helpers\TargetNullValueConverter.cs" />
+    <Compile Include="Helpers\VisualElementHelper.cs" />
+    <Compile Include="Models\General\ArcGISLayerInfo.cs" />
+    <Compile Include="Models\General\ChangePasswordInfo.cs" />
+    <Compile Include="Models\General\CloneExtension.cs" />
+    <Compile Include="Models\General\Constants.cs" />
+    <Compile Include="Models\General\CustomizedProfile.partial.cs" />
+    <Compile Include="Models\General\FileDetails.partial.cs" />
+    <Compile Include="Models\General\FilesDGItemSource.cs" />
+    <Compile Include="Models\General\GeoMapsLegendItem.cs" />
+    <Compile Include="Models\General\GeoMapsOperations.cs" />
+    <Compile Include="Models\General\GeometryTool.cs" />
+    <Compile Include="Models\General\GraphicFeatureDetails.cs" />
+    <Compile Include="Models\General\LoginInfo.cs" />
+    <Compile Include="Models\General\MapOperations.cs" />
+    <Compile Include="Models\General\MouseButtonHelper.cs" />
+    <Compile Include="Models\General\RegistrationData.partial.cs" />
+    <Compile Include="Models\General\ScaleConverter.cs" />
+    <Compile Include="Models\General\User.partial.cs" />
+    <Compile Include="Notifier.cs" />
+    <Compile Include="UserControls\Banader\MainCategory.xaml.cs">
+      <DependentUpon>MainCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Banader\ObservableObjectCollection.cs" />
+    <Compile Include="UserControls\Banader\ReportDocFiles.xaml.cs">
+      <DependentUpon>ReportDocFiles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Banader\SetAccessLevels.xaml.cs">
+      <DependentUpon>SetAccessLevels.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Banader\Stamp.xaml.cs">
+      <DependentUpon>Stamp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\General\Attachment.xaml.cs">
+      <DependentUpon>Attachment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Banader\ArchiveSearch.xaml.cs">
+      <DependentUpon>ArchiveSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\General\Buffer.xaml.cs">
+      <DependentUpon>Buffer.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserControls\General\ChildWin.xaml.cs">
+      <DependentUpon>ChildWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GeoMaps\DataAvailability.xaml.cs">
+      <DependentUpon>DataAvailability.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GeoMaps\SearchBottomPortion.xaml.cs">
+      <DependentUpon>SearchBottomPortion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GeoMaps\SearchCoorArea.xaml.cs">
+      <DependentUpon>SearchCoorArea.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GeoMaps\SearchCoordinate.xaml.cs">
+      <DependentUpon>SearchCoordinate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GeoMaps\SearchGraphics.xaml.cs">
+      <DependentUpon>SearchGraphics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GeoMaps\SearchName.xaml.cs">
+      <DependentUpon>SearchName.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GeoMaps\SearchPanel.xaml.cs">
+      <DependentUpon>SearchPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GeoMaps\ShowFiles.xaml.cs">
+      <DependentUpon>ShowFiles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\General\GoogleMapsTiles.cs" />
+    <Compile Include="UserControls\General\MapControl.xaml.cs">
+      <DependentUpon>MapControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\General\Measuring.xaml.cs">
+      <DependentUpon>Measuring.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\General\PrintingUserControl.xaml.cs">
+      <DependentUpon>PrintingUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\General\QueryBuilder.xaml.cs">
+      <DependentUpon>QueryBuilder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\General\RibbonBar.xaml.cs">
+      <DependentUpon>RibbonBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GeoMaps\SearchByClick.xaml.cs">
+      <DependentUpon>SearchByClick.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\General\TableOfContent.xaml.cs">
+      <DependentUpon>TableOfContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\Hydro\AreaVolumeView.xaml.cs">
+      <DependentUpon>AreaVolumeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Hydro\ArzyabiVaTashkisSalahiyat.xaml.cs">
+      <DependentUpon>ArzyabiVaTashkisSalahiyat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Hydro\ContourMapView.xaml.cs">
+      <DependentUpon>ContourMapView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Hydro\FormNo100.xaml.cs">
+      <DependentUpon>FormNo100.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Hydro\FormNo200.xaml.cs">
+      <DependentUpon>FormNo200.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Hydro\FormNo300.xaml.cs">
+      <DependentUpon>FormNo300.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Hydro\FormNo400.xaml.cs">
+      <DependentUpon>FormNo400.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Hydro\FormNo500.xaml.cs">
+      <DependentUpon>FormNo500.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Hydro\HydrographyTools.xaml.cs">
+      <DependentUpon>HydrographyTools.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Hydro\IMO.xaml.cs">
+      <DependentUpon>IMO.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Hydro\IMOCO2Details.xaml.cs">
+      <DependentUpon>IMOCO2Details.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Hydro\IMOSummaryOfPermits.xaml.cs">
+      <DependentUpon>IMOSummaryOfPermits.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Hydro\ProfileView.xaml.cs">
+      <DependentUpon>ProfileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Hydro\ProjectIdentification.xaml.cs">
+      <DependentUpon>ProjectIdentification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Hydro\RasterComparisonView.xaml.cs">
+      <DependentUpon>RasterComparisonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Hydro\SalahiyatPeymankaran.xaml.cs">
+      <DependentUpon>SalahiyatPeymankaran.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Hydro\SpatialQuery.xaml.cs">
+      <DependentUpon>SpatialQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\LoginForm.xaml.cs">
+      <DependentUpon>LoginForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\LoginStatus.xaml.cs">
+      <DependentUpon>LoginStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserManagement\ChangePasswordForm.xaml.cs">
+      <DependentUpon>ChangePasswordForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserManagement\ChangePasswordWindow.xaml.cs">
+      <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserManagement\CreateUserForm.xaml.cs">
+      <DependentUpon>CreateUserForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserManagement\CreateUserWindow.xaml.cs">
+      <DependentUpon>CreateUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserManagement\EditUserForm.xaml.cs">
+      <DependentUpon>EditUserForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserManagement\EditUserWindow.xaml.cs">
+      <DependentUpon>EditUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserManagement\ManageRolesWindow.xaml.cs">
+      <DependentUpon>ManageRolesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserManagement\ManageUsersWindow.xaml.cs">
+      <DependentUpon>ManageUsersWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserManagement\MessageWindow.xaml.cs">
+      <DependentUpon>MessageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserManagement\SearchUserForm.xaml.cs">
+      <DependentUpon>SearchUserForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserManagement\ShowOnlineUsersWindow.xaml.cs">
+      <DependentUpon>ShowOnlineUsersWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserManagement\UserManagementWindow.xaml.cs">
+      <DependentUpon>UserManagementWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Assets\FlatStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Assets\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\BusyIndicator.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\YesNoQuestion.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Converters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\GeoMapsStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\HnrStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\HRDExpanderStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\SmoothExpanderStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Banader\AddFile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Banader\AddSubject.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Banader\AddTitle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Banader\EditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Banader\EmployeesForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Banader\FileLog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Banader\MainCategory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Banader\ReportDocFiles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Banader\SetAccessLevels.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Banader\Stamp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\General\Attachment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Banader\ArchiveSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\General\Buffer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\General\ChildWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\GeoMaps\DataAvailability.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\GeoMaps\SearchBottomPortion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\GeoMaps\SearchCoorArea.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\GeoMaps\SearchCoordinate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\GeoMaps\SearchGraphics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\GeoMaps\SearchName.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\GeoMaps\SearchPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\GeoMaps\ShowFiles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\General\MapControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\General\Measuring.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\General\PrintingUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\General\QueryBuilder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\General\RibbonBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\GeoMaps\SearchByClick.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\General\TableOfContent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Hydro\AreaVolumeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Hydro\ArzyabiVaTashkisSalahiyat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Hydro\ContourMapView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Hydro\FormNo100.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Hydro\FormNo200.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Hydro\FormNo300.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Hydro\FormNo400.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Hydro\FormNo500.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Hydro\HydrographyTools.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Hydro\IMO.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Hydro\IMOCO2Details.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Hydro\IMOSummaryOfPermits.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Hydro\ProfileView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Hydro\ProjectIdentification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Hydro\RasterComparisonView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Hydro\SalahiyatPeymankaran.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Hydro\SpatialQuery.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\About.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Home.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Login\LoginForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Login\LoginStatus.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Login\LoginWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserManagement\ChangePasswordForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserManagement\ChangePasswordWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserManagement\CreateUserForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserManagement\CreateUserWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserManagement\EditUserForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserManagement\EditUserWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserManagement\ManageRolesWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserManagement\ManageUsersWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserManagement\MessageWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserManagement\SearchUserForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserManagement\ShowOnlineUsersWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserManagement\UserManagementWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebMethodsService\WebMethodsService.wsdl" />
+    <Resource Include="Pictures\Icon32\water.png" />
+    <Resource Include="Pictures\Icon32\checklist.png" />
+    <Resource Include="Pictures\Icon32\kchart.png" />
+    <Content Include="ServiceReferences.ClientConfig" />
+    <Resource Include="Font\BYekan.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Libs\System.Windows.Controls.Data.DataForm.Toolkit.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\LanSysWebGIS.Web\Resources\RegistrationDataResources.resx">
+      <Link>Web\Resources\RegistrationDataResources.resx</Link>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>RegistrationDataResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\LanSysWebGIS.Web\Resources\ValidationErrorResources.resx">
+      <Link>Web\Resources\ValidationErrorResources.resx</Link>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ValidationErrorResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Resources\ApplicationStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ApplicationStrings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Resources\GeoMapsStrings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GeoMapsStrings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Resources\ErrorResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\Resources\SecurityQuestions.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SecurityQuestions.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\LanSysWebGIS.Web.EntityDomainContext.datasource" />
+    <None Include="Properties\OutOfBrowserSettings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Icon\AlignJustify_16x16.png" />
+    <Resource Include="Pictures\Icon\AlignJustify_32x32.png" />
+    <Resource Include="Pictures\Icon\Attach_32x32.png" />
+    <Resource Include="Pictures\Icon\center-align-16x16.png" />
+    <Resource Include="Pictures\Icon\close-16x16.png" />
+    <Resource Include="Pictures\Icon\close-32x32.png" />
+    <Resource Include="Pictures\Icon\copy-16x16.png" />
+    <Resource Include="Pictures\Icon\copy-32x32.png" />
+    <Resource Include="Pictures\Icon\cut-16x16.png" />
+    <Resource Include="Pictures\Icon\cut-32x32.png" />
+    <Resource Include="Pictures\Icon\DeepBlue_16x16.png" />
+    <Resource Include="Pictures\Icon\DeepBlue_48x48.png" />
+    <Resource Include="Pictures\Icon\Delete_16x16.png" />
+    <Resource Include="Pictures\Icon\EditHeight-16x16.png" />
+    <Resource Include="Pictures\Icon\EditWidth-16x16.png" />
+    <Resource Include="Pictures\Icon\find-16x16.png" />
+    <Resource Include="Pictures\Icon\Find_32x32.png" />
+    <Resource Include="Pictures\Icon\IndentDecrease_16x16.png" />
+    <Resource Include="Pictures\Icon\IndentDecrease_32x32.png" />
+    <Resource Include="Pictures\Icon\IndentIncrease_16x16.png" />
+    <Resource Include="Pictures\Icon\IndentIncrease_32x32.png" />
+    <Resource Include="Pictures\Icon\info-16x16.png" />
+    <Resource Include="Pictures\Icon\info-32x32.png" />
+    <Resource Include="Pictures\Icon\InsertPicture-32x32.png" />
+    <Resource Include="Pictures\Icon\iran_round_pin_icon_64.png" />
+    <Resource Include="Pictures\Icon\iran_square_pin_icon_64.png" />
+    <Resource Include="Pictures\Icon\i_draw_freeline.png" />
+    <Resource Include="Pictures\Icon\i_draw_freepoly.png" />
+    <Resource Include="Pictures\Icon\i_draw_line.png" />
+    <Resource Include="Pictures\Icon\i_draw_point.png" />
+    <Resource Include="Pictures\Icon\i_draw_poly.png" />
+    <Resource Include="Pictures\Icon\i_draw_rect.png" />
+    <Resource Include="Pictures\Icon\i_draw_text.png" />
+    <Resource Include="Pictures\Icon\LightGray_16x16.png" />
+    <Resource Include="Pictures\Icon\LightGray_48x48.png" />
+    <Resource Include="Pictures\Icon\new-16x16.png" />
+    <Resource Include="Pictures\Icon\new-32x32.png" />
+    <Resource Include="Pictures\Icon\Office2007Black_16x16.png" />
+    <Resource Include="Pictures\Icon\Office2007Black_48x48.png" />
+    <Resource Include="Pictures\Icon\Office2007Blue_16x16.png" />
+    <Resource Include="Pictures\Icon\Office2007Blue_48x48.png" />
+    <Resource Include="Pictures\Icon\Office2007Silver_16x16.png" />
+    <Resource Include="Pictures\Icon\Office2007Silver_48x48.png" />
+    <Resource Include="Pictures\Icon\open-16x16.png" />
+    <Resource Include="Pictures\Icon\open-32x32.png" />
+    <Resource Include="Pictures\Icon\Pinned.png" />
+    <Resource Include="Pictures\Icon\print-16x16.png" />
+    <Resource Include="Pictures\Icon\print-32x32.png" />
+    <Resource Include="Pictures\Icon\redo-16x16.png" />
+    <Resource Include="Pictures\Icon\redo-32x32.png" />
+    <Resource Include="Pictures\Icon\replace-16x16.png" />
+    <Resource Include="Pictures\Icon\Replace_32x32.png" />
+    <Resource Include="Pictures\Icon\ribbon-application-32x32.png" />
+    <Resource Include="Pictures\Icon\right-align-16x16.png" />
+    <Resource Include="Pictures\Icon\save-16x16.png" />
+    <Resource Include="Pictures\Icon\save-32x32.png" />
+    <Resource Include="Pictures\Icon\save-as-16x16.png" />
+    <Resource Include="Pictures\Icon\save-as-32x32.png" />
+    <Resource Include="Pictures\Icon\Scaling_16x16.png" />
+    <Resource Include="Pictures\Icon\SelectAll_16x16.png" />
+    <Resource Include="Pictures\Icon\SelectAll_32x32.png" />
+    <Resource Include="Pictures\Icon\Thickness_16x16.png" />
+    <Resource Include="Pictures\Icon\undo-16x16.png" />
+    <Resource Include="Pictures\Icon\undo-32x32.png" />
+    <Resource Include="Pictures\Icon\Unpinned.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\btn_expand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Icon32\accept_item.png" />
+    <Resource Include="Pictures\Icon32\AddAttachment.png" />
+    <Resource Include="Pictures\Icon32\AddLayer.png" />
+    <Resource Include="Pictures\Icon32\AddServer.png" />
+    <Resource Include="Pictures\Icon32\add_item.png" />
+    <Resource Include="Pictures\Icon32\AerialPhoto.png" />
+    <Resource Include="Pictures\Icon32\attachment.png" />
+    <Resource Include="Pictures\Icon32\BingMap.png" />
+    <Resource Include="Pictures\Icon32\calculator.png" />
+    <Resource Include="Pictures\Icon32\chart.png" />
+    <Resource Include="Pictures\Icon32\Comment.png" />
+    <Resource Include="Pictures\Icon32\comment_bubble.png" />
+    <Resource Include="Pictures\Icon32\CoordinateTools.png" />
+    <Resource Include="Pictures\Icon32\CopyLayer.png" />
+    <Resource Include="Pictures\Icon32\Countor.png" />
+    <Resource Include="Pictures\Icon32\delete_item.png" />
+    <Resource Include="Pictures\Icon32\edit_item.png" />
+    <Resource Include="Pictures\Icon32\edit_item2.png" />
+    <Resource Include="Pictures\Icon32\Email.png" />
+    <Resource Include="Pictures\Icon32\email_send.png" />
+    <Resource Include="Pictures\Icon32\excel.png" />
+    <Resource Include="Pictures\Icon32\ExpGeoTiff.png" />
+    <Resource Include="Pictures\Icon32\ExpMap.png" />
+    <Resource Include="Pictures\Icon32\ExpPDF.png" />
+    <Resource Include="Pictures\Icon32\favorite.png" />
+    <Resource Include="Pictures\Icon32\fullscreen1.png" />
+    <Resource Include="Pictures\Icon32\HideLabel.png" />
+    <Resource Include="Pictures\Icon32\home.png" />
+    <Resource Include="Pictures\Icon32\info.png" />
+    <Resource Include="Pictures\Icon32\info_image.png" />
+    <Resource Include="Pictures\Icon32\layers.png" />
+    <Resource Include="Pictures\Icon32\left_arrow.png" />
+    <Resource Include="Pictures\Icon32\MapOverView.png" />
+    <Resource Include="Pictures\Icon32\MeasAngle.png" />
+    <Resource Include="Pictures\Icon32\note_accept.png" />
+    <Resource Include="Pictures\Icon32\overview.png" />
+    <Resource Include="Pictures\Icon32\pan.png" />
+    <Resource Include="Pictures\Icon32\photo.png" />
+    <Resource Include="Pictures\Icon32\photo1.png" />
+    <Resource Include="Pictures\Icon32\printer.png" />
+    <Resource Include="Pictures\Icon32\printer3.png" />
+    <Resource Include="Pictures\Icon32\printer4.png" />
+    <Resource Include="Pictures\Icon32\promotion.png" />
+    <Resource Include="Pictures\Icon32\promotion2.png" />
+    <Resource Include="Pictures\Icon32\RemoveAttachment.png" />
+    <Resource Include="Pictures\Icon32\RemoveLayer.png" />
+    <Resource Include="Pictures\Icon32\RemoveServer.png" />
+    <Resource Include="Pictures\Icon32\remove_item.png" />
+    <Resource Include="Pictures\Icon32\RenameLayer.png" />
+    <Resource Include="Pictures\Icon32\right_arrow.png" />
+    <Resource Include="Pictures\Icon32\rss_feed.png" />
+    <Resource Include="Pictures\Icon32\rss_feed2.png" />
+    <Resource Include="Pictures\Icon32\ruler.png" />
+    <Resource Include="Pictures\Icon32\Search.png" />
+    <Resource Include="Pictures\Icon32\searchXY.png" />
+    <Resource Include="Pictures\Icon32\search_magnifier.png" />
+    <Resource Include="Pictures\Icon32\search_metadata.png" />
+    <Resource Include="Pictures\Icon32\search_nearest.png" />
+    <Resource Include="Pictures\Icon32\search_nearest2.png" />
+    <Resource Include="Pictures\Icon32\Share.png" />
+    <Resource Include="Pictures\Icon32\ShowHideAllLabel.png" />
+    <Resource Include="Pictures\Icon32\ShowLabel.png" />
+    <Resource Include="Pictures\Icon32\StaticMap.png" />
+    <Resource Include="Pictures\Icon32\TIN.png" />
+    <Resource Include="Pictures\Icon32\UnitSetting.png" />
+    <Resource Include="Pictures\Icon32\users.png" />
+    <Resource Include="Pictures\Icon32\user_comment.png" />
+    <Resource Include="Pictures\Icon32\world_globe.png" />
+    <Resource Include="Pictures\Icon32\world_globe2.png" />
+    <Resource Include="Pictures\Icon32\YourLocation.png" />
+    <Resource Include="Pictures\Icon32\Zoom-To Feature.png" />
+    <Resource Include="Pictures\Icon32\ZoomToLayer.png" />
+    <Resource Include="Pictures\Icon32\zoomXY.png" />
+    <Resource Include="Pictures\Icon32\zoom_home.png" />
+    <Resource Include="Pictures\Icon32\zoom_in_magnifier.png" />
+    <Resource Include="Pictures\Icon32\zoom_out_magnifier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Icon32\fullscreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Icon32\Key.png" />
+    <Resource Include="Pictures\Icon32\Key2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Icon32\UserInfoManager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Icon32\searchname.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Icon32\clip.png" />
+    <Resource Include="Pictures\Icon32\searchbbox.png" />
+    <Resource Include="Pictures\Icon32\searchbyclick.png" />
+    <Resource Include="Pictures\Icon32\searchcoor.png" />
+    <Resource Include="Pictures\Icon32\searchgraphics.png" />
+    <Resource Include="Pictures\Icon32\searchnumber.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Icon32\index.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Icon\legend.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\logoedare.png" />
+    <Resource Include="Pictures\logosazman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Icon32\Peymankar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Icon32\PrjIdent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pictures\Icon32\GeoProccessing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WebMethodsService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebMethodsService\WebMethodsService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebMethodsService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebMethodsService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebMethodsService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

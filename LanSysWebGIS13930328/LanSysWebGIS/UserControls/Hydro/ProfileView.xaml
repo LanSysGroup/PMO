@@ -1,0 +1,111 @@
+﻿<UserControl x:Class="LanSysWebGIS.UserControls.Hydro.ProfileView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:esri="http://schemas.esri.com/arcgis/client/2009"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+    mc:Ignorable="d" FlowDirection="LeftToRight" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan" Unloaded="UserControl_Unloaded"
+    >
+    
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.Resources>
+            <Style TargetType="toolkit:LineDataPoint" x:Key="CustomLineDataPointStyle">
+                <Setter Property="Background" Value="Green" />
+                <Setter Property="BorderBrush" Value="Red"/>
+                <Setter Property="BorderThickness" Value="10"/>
+                <Setter Property="Width" Value="10" />
+                <Setter Property="Height" Value="10" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="toolkit:LineDataPoint">
+                            <Grid x:Name="Root" Opacity="0">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualStateGroup.Transitions>
+                                            <VisualTransition GeneratedDuration="0:0:0.1"/>
+                                        </VisualStateGroup.Transitions>
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="MouseOverHighlight" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                    <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.75"/>
+                                                </DoubleAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                    <VisualStateGroup x:Name="RevealStates">
+                                        <VisualStateGroup.Transitions>
+                                            <VisualTransition GeneratedDuration="0:0:0.5"/>
+                                        </VisualStateGroup.Transitions>
+                                        <VisualState x:Name="Shown">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity" To="1"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Hidden">
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="0" Storyboard.TargetName="Root" Storyboard.TargetProperty="Opacity" To="0"/>
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <ToolTipService.ToolTip>
+                                    <StackPanel Orientation="Vertical" FlowDirection="RightToLeft">
+                                        <StackPanel Orientation="Horizontal">
+                                            <ContentControl FlowDirection="LeftToRight" FontWeight="Bold" Content="{TemplateBinding FormattedDependentValue}"/>
+                                            <TextBlock Text=" متر ارتفاع " />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <ContentControl FontWeight="Bold" Content="{TemplateBinding FormattedIndependentValue}"/>
+                                            <TextBlock Text=" متر فاصله از مبدا " />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </ToolTipService.ToolTip>
+                                <Ellipse Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}" Opacity="0"/>
+                                <Ellipse x:Name="MouseOverHighlight" Fill="Red" Opacity="0" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+
+        <Border x:Name="ChartContainer" BorderBrush="Black" BorderThickness="1" Background="White" Width="650" MaxWidth="800" Height="375">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition MinHeight="330"/>
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+
+                <toolkit:Chart x:Name="ElevationChart" Title="پروفیل طولی" BorderThickness="0" Grid.Row="0" MouseMove="ElevationChart_MouseMove">
+                    <toolkit:Chart.Series>
+                        <toolkit:LineSeries DataPointStyle="{StaticResource CustomLineDataPointStyle}" IsSelectionEnabled="True"
+                                            IndependentValueBinding="{Binding M}"
+                                            DependentValueBinding="{Binding Z}"
+                                            ItemsSource="{Binding PointCollection, Mode=TwoWay}"/>
+                    </toolkit:Chart.Series>
+                    <toolkit:Chart.Axes>
+                        <toolkit:LinearAxis Title="(فاصله (متر" Orientation="X" />
+                        <toolkit:LinearAxis Title="(ارتفاع (متر" Orientation="Y" ShowGridLines="True" />
+                    </toolkit:Chart.Axes>
+                    <toolkit:Chart.LegendStyle>
+                        <Style TargetType="FrameworkElement">
+                            <Setter Property="Width" Value="0" />
+                        </Style>
+                    </toolkit:Chart.LegendStyle>
+                </toolkit:Chart>
+                
+                <TextBlock x:Name="lblDistance" Text="{Binding DistanceText, Mode=TwoWay}" HorizontalAlignment="Center" 
+                           Grid.Row="1" />
+                <!--<TextBlock x:Name="lblDistance" Text="Distance (km)" HorizontalAlignment="Center" 
+                           Grid.Row="1" />-->
+            </Grid>
+        </Border>
+
+
+    </Grid>
+</UserControl>

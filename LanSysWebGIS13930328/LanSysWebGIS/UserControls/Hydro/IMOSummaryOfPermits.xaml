@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="LanSysWebGIS.UserControls.Hydro.IMOSummaryOfPermits"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock FontWeight="Bold" Text="Year" VerticalAlignment="Center"/>
+                <TextBox Grid.Column="1" Text="{Binding Year, ValidatesOnExceptions=True, Mode=TwoWay}"/>
+            </Grid>
+            <TextBlock HorizontalAlignment="Left" FontWeight="Black" Text="Waste category"/>
+        </StackPanel>
+        <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" FontWeight="Black" Text="Dredged material"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" FontWeight="Black" Text="Inan material"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" FontWeight="Black" Text="Fish waste material"/>
+        <TextBlock Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" FontWeight="Black" Text="Vessels"/>
+        <TextBlock Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" FontWeight="Black" Text="Platforms"/>
+        <TextBlock Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" FontWeight="Black" Text="Sewage sludge"/>
+        <TextBlock Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left" FontWeight="Black" Text="Organic materials"/>
+        <TextBlock Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left" FontWeight="Black" Text="Bulky waste"/>
+        <TextBlock Grid.Row="9" Grid.Column="0" HorizontalAlignment="Left" FontWeight="Black" Text="Carbon Dioxide Streams"/>
+
+        <TextBlock TextWrapping="Wrap" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" FontWeight="Black" Text="Number of permits issued"/>
+        <TextBlock TextWrapping="Wrap" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" FontWeight="Black" Text="Number of operations &#13;regulated by other means"/>
+        <TextBlock TextWrapping="Wrap" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" FontWeight="Black" Text="Tonnes licensed&#13;(dray weight)"/>
+        <TextBlock TextWrapping="Wrap" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left" FontWeight="Black" Text="Notes"/>
+
+        <TextBox Margin="0" Grid.Row="1" Grid.Column="1" Text="{Binding DPermit, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="2" Grid.Column="1" Text="{Binding IPermit, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="3" Grid.Column="1" Text="{Binding FPermit, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="4" Grid.Column="1" Text="{Binding VPermit, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="5" Grid.Column="1" Text="{Binding PPermit, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="6" Grid.Column="1" Text="{Binding SPermit, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="7" Grid.Column="1" Text="{Binding OPermit, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="8" Grid.Column="1" Text="{Binding BPermit, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="9" Grid.Column="1" Text="{Binding CPermit, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+
+        <TextBox Margin="0" Grid.Row="1" Grid.Column="2" Text="{Binding DOperation, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="2" Grid.Column="2" Text="{Binding IOperation, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="3" Grid.Column="2" Text="{Binding FOperation, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="4" Grid.Column="2" Text="{Binding VOperation, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="5" Grid.Column="2" Text="{Binding POperation, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="6" Grid.Column="2" Text="{Binding SOperation, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="7" Grid.Column="2" Text="{Binding OOperation, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="8" Grid.Column="2" Text="{Binding BOperation, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="9" Grid.Column="2" Text="{Binding COperation, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+
+        <TextBox Margin="0" Grid.Row="1" Grid.Column="3" Text="{Binding DTonnes, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="2" Grid.Column="3" Text="{Binding ITonnes, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="3" Grid.Column="3" Text="{Binding FTonnes, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="4" Grid.Column="3" Text="{Binding VTonnes, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="5" Grid.Column="3" Text="{Binding PTonnes, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="6" Grid.Column="3" Text="{Binding STonnes, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="7" Grid.Column="3" Text="{Binding OTonnes, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="8" Grid.Column="3" Text="{Binding BTonnes, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="9" Grid.Column="3" Text="{Binding CTonnes, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+
+        <TextBox Margin="0" Grid.Row="1" Grid.Column="4" Text="{Binding DNote, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="2" Grid.Column="4" Text="{Binding INote, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="3" Grid.Column="4" Text="{Binding FNote, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="4" Grid.Column="4" Text="{Binding VNote, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="5" Grid.Column="4" Text="{Binding PNote, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="6" Grid.Column="4" Text="{Binding SNote, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="7" Grid.Column="4" Text="{Binding ONote, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="8" Grid.Column="4" Text="{Binding BNote, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        <TextBox Margin="0" Grid.Row="9" Grid.Column="4" Text="{Binding CNote, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+
+    </Grid>
+</UserControl>

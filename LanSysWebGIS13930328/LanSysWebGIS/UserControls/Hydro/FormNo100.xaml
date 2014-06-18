@@ -1,0 +1,121 @@
+﻿<UserControl x:Class="LanSysWebGIS.UserControls.Hydro.FormNo100"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:my="clr-namespace:SilverlightPersianDatePicker.Views;assembly=SilverlightPersianDatePicker"
+             FlowDirection="RightToLeft" >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition MinWidth="100" Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="نام کامل پیمانکار:" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
+        <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding NameKamelePeymankar, Mode=TwoWay}"/>
+        <TextBlock Grid.Row="0" Grid.Column="3" Text="تاریخ ارسال فرم:" Grid.ColumnSpan="1" HorizontalAlignment="Left"/>
+        <my:PDatePicker Name="tarikh" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1" SelectedDate="{Binding TarikhErsalForm, Mode=TwoWay}"/>
+        <TextBlock Grid.Row="0" Grid.Column="4" Text="شماره صفحه پرسش نامه"  HorizontalAlignment="Left"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="4" Orientation="Horizontal" Margin="4" HorizontalAlignment="Center">
+            <TextBox VerticalAlignment="Center" Width="23" MinWidth="10" Text="{Binding ShomareSafePorseshName, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+            <TextBlock Text="از" Margin="2,10" VerticalAlignment="Center"/>
+            <TextBox VerticalAlignment="Center" Width="23" MinWidth="10" Text="{Binding TedadSafehayePorseshName, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+        </StackPanel>
+        <TextBlock Grid.Row="0" Grid.Column="5" Text="کد شرکت:" Grid.ColumnSpan="1" HorizontalAlignment="Left"/>
+        <TextBox Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="1" Text="{Binding KodeSherkat, Mode=TwoWay}"/>
+        <TextBlock Grid.Row="2" Text="نام های قبلی پیمانکار:" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
+        <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock>1-</TextBlock>
+            <TextBox Grid.Column="1" Text="{Binding NameGabliPeymankar1, Mode=TwoWay}"/>
+            <TextBlock Grid.Column="2">2-</TextBlock>
+            <TextBox Grid.Column="3" Grid.ColumnSpan="2" Text="{Binding NameGabliPeymankar2, Mode=TwoWay}"/>
+        </Grid>
+        <TextBlock Grid.Row="2" Grid.Column="3" Text="شماره تلفن های دفتر مرکزی::" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
+        <TextBox Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" Text="{Binding ShomareTelefonDaftarMarkazi, Mode=TwoWay}"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="شماره ثبت:" Grid.ColumnSpan="1" HorizontalAlignment="Left"/>
+        <TextBox Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1" Text="{Binding ShomareSabt, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="محل ثبت (استان-شهر):" Grid.ColumnSpan="1" HorizontalAlignment="Left"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1" Text="{Binding MahaleSabt, Mode=TwoWay}"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="2" Text="تاریخ ثبت:" Grid.ColumnSpan="1" HorizontalAlignment="Left"/>
+        <!--<TextBox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="1" Text="{Binding TarikhSabt, Mode=TwoWay}"/>-->
+        <my:PDatePicker Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="1" SelectedDate="{Binding TarikhSabt, Mode=TwoWay}"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="4" Text="نوع ثبتی:" Grid.ColumnSpan="1" HorizontalAlignment="Left"/>
+
+        <ComboBox Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="1" SelectedValuePath="Content" SelectedValue="{Binding NoeSabt, Mode=TwoWay}"
+                  VerticalAlignment="Center">
+            <ComboBoxItem>تضامنی</ComboBoxItem>
+            <ComboBoxItem>نسبی</ComboBoxItem>
+            <ComboBoxItem>مختلط غیر سهامی</ComboBoxItem>
+            <ComboBoxItem>مختلط سهامی</ComboBoxItem>
+            <ComboBoxItem>با مسئولیت محدود</ComboBoxItem>
+            <ComboBoxItem>سهامی عام</ComboBoxItem>
+            <ComboBoxItem>سهامی خاص</ComboBoxItem>
+            <ComboBoxItem>تعاونی تولید</ComboBoxItem>
+            <ComboBoxItem>نامشخص</ComboBoxItem>
+        </ComboBox>
+
+        <TextBlock Grid.Row="4" Grid.Column="3" Text="تاریخ تاسیس:" Grid.ColumnSpan="1" HorizontalAlignment="Left"/>
+        <my:PDatePicker Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="1" SelectedDate="{Binding TarikhTasis, Mode=TwoWay}"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="5" Text="نشانی شرکت:" Grid.ColumnSpan="1" HorizontalAlignment="Left"/>
+        <TextBox Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="1" Text="{Binding NeshaniSherkat, Mode=TwoWay}"/>
+
+        <TextBlock Grid.Row="6" Grid.Column="0" Text="نوع مالکیت دفتر مرکزی:" Grid.ColumnSpan="1" HorizontalAlignment="Left"/>
+        <ComboBox Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="1" VerticalAlignment="Center"
+                  SelectedValuePath="Content" SelectedValue="{Binding NoeMalekiyatDaftarMarkazi, Mode=TwoWay}">
+            <ComboBoxItem>استیجاری</ComboBoxItem>
+            <ComboBoxItem>ملکی</ComboBoxItem>
+            <ComboBoxItem>سایر</ComboBoxItem>
+        </ComboBox>
+
+        <TextBlock Grid.Row="6" Grid.Column="1" Text="سطح زیربنای دفتر مرکزی (متر مربع):" Grid.ColumnSpan="2" HorizontalAlignment="Left"/>
+
+        <TextBox  Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding SatheZirbanayeDaftarMarkazi, Mode=TwoWay, ValidatesOnExceptions=True}"/>
+
+        <TextBlock Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="3" Text="تعداد کارکنان شرکت (نفر):" HorizontalAlignment="Left"/>
+        <StackPanel Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="4" Orientation="Horizontal">
+            <TextBlock Text="مدیران" VerticalAlignment="Center"/>
+            <TextBox MinHeight="20" Text="{Binding TedadKarkonanModir, Mode=TwoWay, ValidatesOnExceptions=True}" VerticalAlignment="Center"
+                     MinWidth="30"/>
+            <!--<TextBlock Text="نفر" VerticalAlignment="Center"/>-->
+        
+            <TextBlock Text="شرکاء" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <TextBox MinHeight="20" Text="{Binding TedadShoraka, Mode=TwoWay, ValidatesOnExceptions=True}" MinWidth="30"/>
+            <!--<TextBlock Text="نفر" VerticalAlignment="Center"/>-->
+
+            <TextBlock Text="فنی" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <TextBox MinHeight="20" Text="{Binding TedadKarkonanFani, Mode=TwoWay, ValidatesOnExceptions=True}" MinWidth="30"/>
+            <!--<TextBlock Text="نفر" VerticalAlignment="Center"/>-->
+
+            <TextBlock Text="خدماتی" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <TextBox MinHeight="20" Text="{Binding TedadKarkonanKhadamati, Mode=TwoWay, ValidatesOnExceptions=True}" MinWidth="30"/>
+            <!--<TextBlock Text="نفر" VerticalAlignment="Center"/>-->
+        </StackPanel>
+    </Grid>
+</UserControl>

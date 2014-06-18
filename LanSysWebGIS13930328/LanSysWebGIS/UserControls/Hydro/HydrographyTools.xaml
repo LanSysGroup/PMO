@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="LanSysWebGIS.UserControls.Banader.Hydrography.HydrographyTools"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    mc:Ignorable="d" Unloaded="UserControl_Unloaded">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" FlowDirection="RightToLeft">
+            <TextBlock Text="ناحیه" Margin="0"/>
+            <ComboBox x:Name="cmbNahie" Width="120" Margin="10,0,30,0" SelectionChanged="cmbNahie_SelectionChanged">
+                <!--<i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <ei:CallMethodAction TargetObject="{Binding}" MethodName="cmbNahieSelectionChanged" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>-->
+                <ComboBoxItem Content="بندر انزلی"/>
+            </ComboBox>
+            <TextBlock Text="نام تصویر"/>
+            <ComboBox x:Name="cmbRasterName" Width="120" Margin="10,0,0,0" SelectionChanged="cmbRasterName_SelectionChanged"
+                      IsEnabled="False">
+                <!--<i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <ei:CallMethodAction TargetObject="{Binding}" MethodName="cmbRasterNameSelectionChanged" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>-->
+                <!--<ComboBoxItem Content="raster_89052"/>-->
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" FlowDirection="RightToLeft" Margin="0,10,0,0">
+            <StackPanel Orientation="Vertical" Margin="0,0,10,0">
+                <Button x:Name="btnLayrubiMeasurement" Click="btnLayrubiMeasurement_Click"  Content="ابعاد محل های لایروبی"/>
+                <Button x:Name="btnProfile" Click="btnProfile_Click"  Content="ترسیم پروفیل" Margin="0,5"/>
+                <Button x:Name="btnContourMap" Click="btnContourMap_Click" Content="رسم منحنی میزان"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="10,0,0,0">
+                <Button x:Name="btnRasterComparison" Click="btnRasterComparison_Click"  Content="مقایسه سطوح رستری"/>
+                <Button x:Name="btnLayrubiVolume" Click="btnLayrubiVolume_Click"  Content="محاسبه حجم لایروبی" Margin="0,5"/>
+                <Button x:Name="btnBuffer" Click="btnBuffer_Click"  Content="تعیین حریم"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

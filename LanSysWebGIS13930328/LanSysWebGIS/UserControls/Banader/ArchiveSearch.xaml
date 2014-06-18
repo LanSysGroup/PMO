@@ -1,0 +1,212 @@
+﻿<UserControl xmlns:Controls="clr-namespace:LanSysWebGIS.Controls"  x:Class="LanSysWebGIS.UserControls.Banader.ArchiveSearch"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ui="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  
+             xmlns:PDate="clr-namespace:SilverlightPersianDatePicker.Views;assembly=SilverlightPersianDatePicker"
+             xmlns:riaControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.DomainServices"
+             xmlns:contextMenu="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+             xmlns:Service="clr-namespace:LanSysWebGIS.Web"
+             xmlns:Views="clr-namespace:SilverlightPersianDatePicker.Views;assembly=Silverlight5PersianDatePicker"
+             mc:Ignorable="d"
+    d:DesignHeight="380" d:DesignWidth="800"
+             FlowDirection="RightToLeft"
+             FontFamily="/LansysWebGIS;component/Font/BYekan.ttf#B Yekan" Height="380" KeyDown="UserControl_KeyDown">
+    <UserControl.Resources>
+        <Style TargetType="Border" x:Key="myBorders">
+            <!---->
+            <!--Margin="2" Background="LightBlue"-->
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Background" Value="LightBlue"/>
+            <Setter Property="Height" Value="28"/>
+        </Style>
+        <Style TargetType="ui:Label">
+            <Setter Property="Margin" Value="4,0"/>
+            <Setter Property="FontFamily" Value="../../Font/BYekan.ttf#B Yekan"/>
+            <!--<Setter Property="FontSize" Value="10"/>-->
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="FontFamily" Value="/LansysWebGIS;component/Font/BYekan.ttf#B Yekan"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="/LansysWebGIS;component/Font/BYekan.ttf#B Yekan"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="../../Font/BYekan.ttf#B Yekan"/>
+        </Style>
+
+    </UserControl.Resources>
+
+    <Controls:BusyIndicator x:Name="busyIndicator" BusyContent="لطفا شکیبا باشید...">
+        <Grid x:Name="LayoutRoot" Width="740">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+
+            
+
+            <Grid Grid.Column="3" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Border  Background="SkyBlue" Grid.Row="0" Style="{StaticResource myBorders}">
+                    <ui:Label Content="بر اساس موقعیت" FontSize="15" Foreground="White"/>
+                </Border>
+
+                <StackPanel Orientation="Vertical" Grid.Row="1">
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock Text="استان" Margin="10" Width="30"/>
+                        <ComboBox ItemsSource="{Binding }" x:Name="cmbOstan" Width="130" Height="20" Margin="0,0,8,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="بندر" Margin="10" Width="30"/>
+                        <ComboBox ItemsSource="{Binding }" x:Name="cmbPort" Width="130" Height="20"  Margin="0,0,8,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="حوزه" Margin="10" Width="30"/>
+                        <ComboBox ItemsSource="{Binding }" x:Name="cmbZone" Width="130" Height="20"  Margin="0,0,8,0" />
+                    </StackPanel>
+                </StackPanel>
+                <Border Grid.Row="2"  Background="SkyBlue" Style="{StaticResource myBorders}" Visibility="Collapsed">
+                    <ui:Label Content="بر اساس بازه زمانی" FontSize="15" Foreground="White"/>
+                </Border>
+                <StackPanel Orientation="Vertical" Grid.Row="3" Visibility="Collapsed">
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock Text="از" Margin="10" Width="30"/>
+                        <PDate:PDatePicker x:Name="fromDate" Width="130"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="تا" Margin="10" Width="30"/>
+                        <PDate:PDatePicker x:Name="toDate" Width="130"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border  Margin="2" Background="LightBlue" Style="{StaticResource myBorders}">
+                        <ui:Label Content="کلمات کلیدی" FontSize="10" Foreground="White"/>
+                    </Border>
+                    <TextBox HorizontalAlignment="Stretch" Height="25" x:Name="txtKeyWords"  Grid.Column="1" Margin="5,0,5,0" MaxWidth="180"/>
+                </Grid>
+                <StackPanel Grid.Row="5"  HorizontalAlignment="Right">
+                    <Button x:Name="btnSearch" Content="جستجو" Width="60" Margin="5" Click="btnSearch_Click"/>
+                </StackPanel>
+            </Grid>
+            
+            <Grid Grid.ColumnSpan="3" Grid.Row="0" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.ColumnSpan="3" Background="SkyBlue" Style="{StaticResource myBorders}">
+                    <ui:Label Content="جستجوی بر اساس پارامتر" FontSize="15" Margin="2" Foreground="White"/>
+                </Border>
+                <Grid Grid.Row="1" Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border  Grid.ColumnSpan="2" Margin="2" Background="LightBlue" Style="{StaticResource myBorders}">
+                        <ui:Label Content="نوع اطلاعات" FontSize="14"   Foreground="White"/>
+                    </Border>
+
+                    <ListBox Name="lstInfoType" ItemsSource="{Binding }" MaxHeight="150" Grid.Row="1">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding Name}" FontFamily="../../Font/BYekan.ttf#B Yekan" Checked="InfoTypesCheckBox_Checked" Unchecked="InfoTypesCheckBox_UnChecked"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="1" Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border  Grid.ColumnSpan="2" Margin="2" Background="LightBlue" Style="{StaticResource myBorders}">
+                        <ui:Label Content="نوع داده" FontSize="14"   Foreground="White"/>
+                    </Border>
+
+
+                    <ListBox Name="lstDataType" ItemsSource="{Binding }" MaxHeight="150" Grid.Row="1">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding Name}" FontFamily="../../Font/BYekan.ttf#B Yekan" Checked="DataTypesCheckBox_Checked" Unchecked="DataTypesCheckBox_UnChecked"/>
+
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="2" Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border  Grid.ColumnSpan="2" Margin="2" Background="LightBlue" Style="{StaticResource myBorders}">
+                        <ui:Label Content="فرمت فایل" FontSize="14" Foreground="White"/>
+                    </Border>
+
+                    <ListBox x:Name="lstFileFormat" Grid.Row="1" MaxHeight="150"/>
+                </Grid>
+
+            </Grid>
+
+            
+
+            <Grid Grid.Row="2" Grid.ColumnSpan="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Margin="2" Background="CadetBlue" Style="{StaticResource myBorders}">
+                    <ui:Label Content="نتایج جستجو" FontSize="14"   Foreground="White"/>
+                </Border>
+                <ui:DataGrid Name="dtgSearchResult"
+                         AutoGenerateColumns="True" Grid.Row="1" Margin="4" IsReadOnly="True" Height="120" MaxWidth="700" CanUserSortColumns="False"
+                                  HorizontalScrollBarVisibility="Auto" MouseLeftButtonUp="dtgSearchResult_MouseLeftButtonUp">
+
+                </ui:DataGrid>
+                <!--<ui:DataPager Height="25" HorizontalAlignment="Stretch" Margin="0,-2,0,0" Source="{Binding Path=Data, ElementName=resultDomainDataSource}"
+                           Name="ImageMetadataDataPager" PageSize="20" VerticalAlignment="Top" Width="Auto" DisplayMode="FirstLastPreviousNextNumeric"/>-->
+            </Grid>
+
+
+            <!--<riaControls:DomainDataSource AutoLoad="True" Name="resultDomainDataSource"
+                                              LoadedData="DomainDataSource_LoadedData" 
+                                              PageSize="100"
+                                              QueryName="GetVwLinkDocsQuery">
+                <riaControls:DomainDataSource.DomainContext>
+                    <Service:PMOContext/>
+                </riaControls:DomainDataSource.DomainContext>
+            </riaControls:DomainDataSource>-->
+        </Grid>
+    </Controls:BusyIndicator>
+</UserControl>

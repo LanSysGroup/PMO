@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutPageTitle" xml:space="preserve">
+    <value>درباره ما</value>
+  </data>
+  <data name="AlreadyRegisteredLabel" xml:space="preserve">
+    <value>Already registered?</value>
+  </data>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>نام برنامه</value>
+  </data>
+  <data name="AuthenticatingMessage" xml:space="preserve">
+    <value>authenticating...</value>
+  </data>
+  <data name="BackToLoginButton" xml:space="preserve">
+    <value>Back to Login</value>
+  </data>
+  <data name="BusyIndicatorCreatingUser" xml:space="preserve">
+    <value>در حال ساخت کاربر جدید...</value>
+  </data>
+  <data name="BusyIndicatorLoadingData" xml:space="preserve">
+    <value>در حال بارگذاری اطلاعات...</value>
+  </data>
+  <data name="BusyIndicatorLoadingUser" xml:space="preserve">
+    <value>لطفا کمی صبر کنید...</value>
+    <comment>Displayed while LoadUser() is taking progress during application initialization</comment>
+  </data>
+  <data name="BusyIndicatorLoggingIn" xml:space="preserve">
+    <value>در حال ورود...</value>
+    <comment>Displayed while a LoginOperation is taking progress</comment>
+  </data>
+  <data name="BusyIndicatorRegisteringUser" xml:space="preserve">
+    <value>لطفا کمی صبر کنید...</value>
+    <comment>Displayed while registration is being processed by the server</comment>
+  </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>انصراف</value>
+  </data>
+  <data name="ChangePasswordWindowTitle" xml:space="preserve">
+    <value>تغییر رمز عبور</value>
+  </data>
+  <data name="CreateNewUser" xml:space="preserve">
+    <value>ایجاد کاربر جدید</value>
+  </data>
+  <data name="CreateUserWindowTitle" xml:space="preserve">
+    <value>ایجاد کاربر جدید</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="DeleteUser" xml:space="preserve">
+    <value>آیا از حذف این کاربر اطمینان دارید؟</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>ویرایش</value>
+  </data>
+  <data name="EditUserWindowTitle" xml:space="preserve">
+    <value>ویرایش کاربر</value>
+  </data>
+  <data name="GuestButton" xml:space="preserve">
+    <value>کاربر میهمان</value>
+  </data>
+  <data name="HomePageTitle" xml:space="preserve">
+    <value>خانه</value>
+  </data>
+  <data name="LoginAgainMessage" xml:space="preserve">
+    <value>شما باید مجددا وارد سامانه شوید</value>
+  </data>
+  <data name="LoginButton" xml:space="preserve">
+    <value>ورود</value>
+  </data>
+  <data name="LoginWindowTitle" xml:space="preserve">
+    <value>ورود</value>
+  </data>
+  <data name="LogOffButton" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="ManageRoles" xml:space="preserve">
+    <value>مدیریت گروههای کاربری</value>
+  </data>
+  <data name="ManageUsers" xml:space="preserve">
+    <value>مدیریت کاربران</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>جدید</value>
+  </data>
+  <data name="NotRegisteredYetLabel" xml:space="preserve">
+    <value>هنوز ثبت نام نکرده اید؟</value>
+  </data>
+  <data name="OKButton" xml:space="preserve">
+    <value>تائید</value>
+  </data>
+  <data name="PasswordChangedSuccessfully" xml:space="preserve">
+    <value>رمز عبور با موفقیت تغییر یافت</value>
+  </data>
+  <data name="PasswordChangedUnSuccessfully" xml:space="preserve">
+    <value>تغییر رمز عبور با موفقیت انجام نشد. لطفا مجددا تلاش نمایید</value>
+  </data>
+  <data name="RegisterNowButton" xml:space="preserve">
+    <value>Register now</value>
+  </data>
+  <data name="RegistrationFormHeader" xml:space="preserve">
+    <value>لطفا تمام فیلدهای الزامی را برای ایجاد کاربر جدید پر کنید</value>
+  </data>
+  <data name="RegistrationWindowTitle" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="RememberMeLabel" xml:space="preserve">
+    <value>من را در حالت ورود نگه دار</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>گروه کاربری</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>گروههای کاربری</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>جستجو</value>
+  </data>
+  <data name="SearchBy" xml:space="preserve">
+    <value>جستجو بوسیله</value>
+  </data>
+  <data name="SearchForRoles" xml:space="preserve">
+    <value>جستجوی کاربران در گروه کاربری</value>
+  </data>
+  <data name="SearchForUsers" xml:space="preserve">
+    <value>جستجوی کاربران</value>
+  </data>
+  <data name="SearchOnlineUsersByRole" xml:space="preserve">
+    <value>جستجوی کاربران آنلاین بوسیله گروه کاربری</value>
+  </data>
+  <data name="ShowLog" xml:space="preserve">
+    <value>نمایش لاگ</value>
+  </data>
+  <data name="ShowOnlineUsers" xml:space="preserve">
+    <value>نمایش کاربران آنلاین</value>
+  </data>
+  <data name="SystemMessage" xml:space="preserve">
+    <value>پیغام سامانه</value>
+  </data>
+  <data name="UserManagement" xml:space="preserve">
+    <value>مدیریت کاربری</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>کاربران</value>
+  </data>
+  <data name="UsersStatusLabel" xml:space="preserve">
+    <value>وضعیت کاربران</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>هشدار</value>
+  </data>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>خوش‌آمدید {0}</value>
+    <comment>{0} = User.DisplayName property</comment>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>تنظیم مجدد رمز عبور</value>
+  </data>
+  <data name="ResetPasswordAsk" xml:space="preserve">
+    <value>آیا از تنظیم مجدد رمز عبور این کاربر اطمینان دارید؟</value>
+  </data>
+  <data name="msgAreYouSureToDeleteRecord" xml:space="preserve">
+    <value>آیا از پاک کردن این رکورد مطمئن هستید؟</value>
+  </data>
+  <data name="msgFileSaved" xml:space="preserve">
+    <value>فایل با موفقیت ذخیره شد</value>
+  </data>
+  <data name="msgMapInitFailed" xml:space="preserve">
+    <value>اجرای سرویس نقشه با خطا مواجه شد</value>
+  </data>
+  <data name="msgNotAvailable" xml:space="preserve">
+    <value>مهمان گرامی امکان استفاده از ابزار مورد نظر برای شما وجود ندارد</value>
+  </data>
+  <data name="msgNotProperAccessLevel" xml:space="preserve">
+    <value>شما مجوز لازم برای انجام عملیات مورد نظر را ندارید</value>
+  </data>
+  <data name="msgQueryBuilderNoFeatureFound" xml:space="preserve">
+    <value>عارضه ای با مشخصات مورد نظر یافت نشد</value>
+  </data>
+  <data name="msgQueryFailed" xml:space="preserve">
+    <value>جستجو با خطا مواجه شد</value>
+  </data>
+  <data name="msgQueryHasNoOutput" xml:space="preserve">
+    <value>جستجو نتیجه ای در برنداشت</value>
+  </data>
+  <data name="msgRecordStoredSuccessfully" xml:space="preserve">
+    <value>رکورد با موفقیت در پایگاه داده ذخیره شد</value>
+  </data>
+  <data name="msgSelectFeatureFailed" xml:space="preserve">
+    <value>انتخاب عارضه با خطا مواجه شد</value>
+  </data>
+  <data name="msgViewShp1" xml:space="preserve">
+    <value>کاربر محترم، متاسفانه فایل انتخاب شده از استاندارد یونیکد استفاده نمی کند</value>
+  </data>
+  <data name="msgViewShp2" xml:space="preserve">
+    <value>لطفا هر دو فایل مورد نیاز را وارد کنید\n(shp,dbf)</value>
+  </data>
+  <data name="msgViewShp3" xml:space="preserve">
+    <value>!داده ها با موفقیت به نقشه اضافه شد\nاگر داده ها در موقعیت صحیح قرار نگرفته اند، لطفا قبل از بارگذاری داده ها، ابتدا سیستم مختصات آنها را به سیستم مختصات زیر تغییر دهید\nWGS_1984_Web_Mercator_Auxiliary_Sphere (wkid:3857)</value>
+  </data>
+  <data name="ClearForms" xml:space="preserve">
+    <value>پاک کردن تمام فرم ها</value>
+  </data>
+  <data name="CreateForms" xml:space="preserve">
+    <value>تولید فرم ها</value>
+  </data>
+  <data name="FormsAndAccess" xml:space="preserve">
+    <value>فرم ها و سطح دسترسی</value>
+  </data>
+  <data name="msgSelectAtLeastOneLayer" xml:space="preserve">
+    <value>لطفا حداقل یکی از لایه ها را انتخاب کنید</value>
+  </data>
+  <data name="AreYouSureMessageForRemoveDocTitle" xml:space="preserve">
+    <value>دسته بندی کلان مورد نظر و تمامی زیر مجموعه آن حذف می شوند</value>
+  </data>
+  <data name="AreYouSureTitleForRemoveDocTitle" xml:space="preserve">
+    <value>حذف دسته بندی کلان</value>
+  </data>
+</root>

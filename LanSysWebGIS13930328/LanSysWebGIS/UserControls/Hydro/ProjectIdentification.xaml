@@ -1,0 +1,712 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" x:Class="LanSysWebGIS.UserControls.Hydro.ProjectIdentification"
+    xmlns:my="clr-namespace:SilverlightPersianDatePicker.Views;assembly=SilverlightPersianDatePicker"
+    mc:Ignorable="d" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan"
+    FlowDirection="RightToLeft" Width="800" Height="425">
+    <UserControl.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="MinWidth" Value="100"/>
+            <Setter Property="Height" Value="26"/>
+            <Setter Property="Margin" Value="0,5"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="5,10"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Foreground" Value="#FF050078"/>
+            <!--<Setter Property="FontWeight" Value="Bold"/>-->
+        </Style>
+
+        <Style TargetType="CheckBox">
+            <Setter Property="Margin" Value="3,10"/>
+        </Style>
+
+        <Style TargetType="RadioButton">
+            <Setter Property="Margin" Value="5,10"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.ColumnSpan="3" Background="SkyBlue" Margin="3">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="شناسنامۀ پروژه" FontWeight="Bold"  HorizontalAlignment="Center" FontSize="20" Margin="2" Foreground="White"/>
+                <ComboBox Style="{StaticResource flatComboboxStyle}" MinWidth="100" Height="30" VerticalAlignment="Stretch" Margin="15,0,0,0"
+                          SelectedIndex="0" Foreground="White" FontSize="17">
+                    <ComboBoxItem>تست 1</ComboBoxItem>
+                    <ComboBoxItem>تست 2</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            
+        </Border>
+        <sdk:TabControl Grid.Row="1" HorizontalAlignment="Stretch" Margin="2" VerticalAlignment="Stretch" 
+                    RenderTransformOrigin="0,0" TabStripPlacement="Left" Style="{StaticResource TabControlStyle1}">
+            <sdk:TabItem Header="مشخصات پروژه" Style="{StaticResource TabItemStyle1}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="نام پروژه"/>
+                    <TextBox Grid.Column="1" Grid.ColumnSpan="5" Text="{Binding CurrentItem.ProjectName, Mode=TwoWay}"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="پیمانکار"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding CurrentItem.PeymankarName, Mode=TwoWay}"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="3" Text="مشاور"/>
+                    <TextBox Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding CurrentItem.MoshaverName, Mode=TwoWay}"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="تاریخ شروع قرارداد"/>
+                    <my:PDatePicker Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" SelectedPersianDate="{Binding CurrentItem.ContractStartDate, Mode=TwoWay}"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="3" Text="تاریخ پایان قرارداد"/>
+                    <my:PDatePicker Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" SelectedPersianDate="{Binding CurrentItem.ContractFinishDate, Mode=TwoWay}"/>
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="مدت قرارداد(روز)"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding CurrentItem.ContractPeriod, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Grid.Row="3" Grid.Column="3" Text="مبلغ قرارداد(تومان)"/>
+                    <TextBox Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding CurrentItem.ContractCost, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="هدف از اجرای پروژه"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5" AcceptsReturn="True" Height="60" MaxHeight="60" Text="{Binding CurrentItem.ProjectPurpose, Mode=TwoWay}"/>
+
+                    <TextBlock Grid.Row="5" Grid.Column="0" Text="مشخصات فنی پروژه"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="5" AcceptsReturn="True" Height="60" MaxHeight="60" Text="{Binding CurrentItem.ProjectTechSpec, Mode=TwoWay}"/>
+                </Grid>
+            </sdk:TabItem>
+            
+            <sdk:TabItem Header="مشخصات کلی لایروبی" Style="{StaticResource TabItemStyle1}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="نوع لایروبی"/>
+                    <CheckBox Content="احداثی" Grid.Column="1" IsChecked="{Binding CurrentItem.IsEhdasi, Mode=TwoWay}"/>
+                    <CheckBox Content="نگهداری" Grid.Column="2" IsChecked="{Binding CurrentItem.IsNegahdari, Mode=TwoWay}"/>
+                    <CheckBox Content="تعمیقی" Grid.Column="3" IsChecked="{Binding CurrentItem.IsTamighi, Mode=TwoWay}"/>
+
+                    <TextBlock Grid.Row="1" Text="حجم لایروبی(متر مکعب)"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding CurrentItem.HajmeLayroobi, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Grid.Row="2" Text="محدودۀ لایروبی"/>
+                    <CheckBox Grid.Row="2" Grid.Column="1" Content="حوضچه آرامش"
+                                 IsChecked="{Binding CurrentItem.IsHozcheAramesh, Mode=TwoWay}"/>
+                    <CheckBox Grid.Row="2" Grid.Column="2" Content="کانال دسترسی"
+                                 IsChecked="{Binding CurrentItem.IsCanalDastrasi, Mode=TwoWay}"/>
+                    <CheckBox Grid.Row="2" Grid.Column="3" Content="پای اسکله"
+                                 IsChecked="{Binding CurrentItem.IsPayeEskele, Mode=TwoWay}"/>
+
+                    <TextBlock Grid.Row="3" Text="وسعت محدوده لایروبی(متر مربع)"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding CurrentItem.VosateMahdodeLayroobi, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Grid.Row="4" Text="نوع لایروب"/>
+                    <CheckBox Grid.Row="4" Grid.Column="1" Content="کاترساکشن"
+                                 IsChecked="{Binding CurrentItem.IsCutterSucktion, Mode=TwoWay}"/>
+                    <CheckBox Grid.Row="4" Grid.Column="2" Content="هایپرساکشن"
+                                 IsChecked="{Binding CurrentItem.IsHyperSucktion, Mode=TwoWay}"/>
+                    <CheckBox Grid.Row="4" Grid.Column="3" Content="بیل و باروج"
+                                 IsChecked="{Binding CurrentItem.IsBiloBarooj, Mode=TwoWay}"/>
+
+                    <TextBlock Grid.Row="5" Text="نوع تخلیه مصالح حاصل از لایروبی"/>
+                    <CheckBox Grid.Row="5" Grid.Column="1" Content="پمپ"
+                                 IsChecked="{Binding CurrentItem.IsPomp, Mode=TwoWay}"/>
+                    <CheckBox Grid.Row="5" Grid.Column="2" Content="در بارج جانبی"
+                                 IsChecked="{Binding CurrentItem.IsDarBarejJanebi, Mode=TwoWay}"/>
+                    <CheckBox Grid.Row="5" Grid.Column="3" Content="مخزن"
+                                 IsChecked="{Binding CurrentItem.IsMakhzan, Mode=TwoWay}"/>
+
+                    <TextBlock Grid.Row="6" Text="نوع شناور طرح"/>
+                    <CheckBox Grid.Row="6" Grid.Column="1" Content="کالای عمومی"
+                                 IsChecked="{Binding CurrentItem.IsKalayeOmomi, Mode=TwoWay}"/>
+                    <CheckBox Grid.Row="6" Grid.Column="2" Content="نفتی"
+                                 IsChecked="{Binding CurrentItem.IsNafti, Mode=TwoWay}"/>
+                    <CheckBox Grid.Row="6" Grid.Column="3" Content="کانتینری"
+                                 IsChecked="{Binding CurrentItem.IsContineri, Mode=TwoWay}"/>
+                    <CheckBox Grid.Row="6" Grid.Column="4" Content="فله بر"
+                                 IsChecked="{Binding CurrentItem.IsFallebar, Mode=TwoWay}"/>
+                    <CheckBox Grid.Row="6" Grid.Column="5" Content="مسافری"
+                                 IsChecked="{Binding CurrentItem.IsMosaferi, Mode=TwoWay}"/>
+                    <CheckBox Grid.Row="6" Grid.Column="6" Content="لنج"
+                                 IsChecked="{Binding CurrentItem.IsLenj, Mode=TwoWay}"/>
+
+                    <TextBlock Grid.Row="7" Text="ظرفیت شناور طرح(DWT)"/>
+                    <TextBox Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding CurrentItem.ZarfiateShenavareTarh, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="2" Text="عمق آبخور شناور طرح(متر)"/>
+                    <TextBox Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding CurrentItem.OmgheAbkhorShenavareTarh, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Grid.Row="8" Text="تراز بستر دریا پس از لایروبی نسبت به تراز C.D."/>
+                    <TextBox Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding CurrentItem.NesbateTarazeCD, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="2" Text="نسبت به تراز M.L.L.W."/>
+                    <TextBox Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="2" Text="{Binding CurrentItem.NesbateTarazBeMLLW, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                </Grid>
+            </sdk:TabItem>
+            
+            <sdk:TabItem Header="مشخصات لایروب کاترساکشن" Style="{StaticResource TabItemStyle1}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="نام لایروب"/>
+                    <TextBox Grid.Column="1" Grid.ColumnSpan="1" Text="{Binding CurrentItem.cutNameLayroob, Mode=TwoWay}"/>
+                    <TextBlock Text="تحت مالکیت" Grid.Column="2"/>
+                    <TextBox Grid.Column="3" Grid.ColumnSpan="1" Text="{Binding CurrentItem.cutLayroobMalek, Mode=TwoWay}"/>
+                    <TextBlock Text="آبخور لایروب" Grid.Column="4"/>
+                    <TextBox Grid.Column="5" Grid.ColumnSpan="1" Text="{Binding CurrentItem.cutAbkhorLayroob, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="حداکثر عمق لایروبی(متر)"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding CurrentItem.cutMaxOmgh, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="1" Grid.Column="3" Text="حداقل عمق لایروبی(متر)"/>
+                    <TextBox Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding CurrentItem.cutMinOmgh, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="قدرت کاتر(اسب بخار)"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding CurrentItem.cutGhodrateCutter, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="2" Grid.Column="3" Text="قدرت پمپ(اسب بخار)"/>
+                    <TextBox Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding CurrentItem.cutGhodratePomp, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Text="متوسط مصرف سوخت بازای انجام یک متر مکعب لای برداری(لیتر)"/>
+                    <TextBox Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1" Text="{Binding CurrentItem.cutMasrafSookht, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Text="مهار لایروب توسط چند اسپاد مهاربندی صورت می گیرد"/>
+                    <TextBox Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="1" Text="{Binding CurrentItem.cutMaharSpad, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Text="در صورت عدم وجود اسپاد مهار لایروب توسط "/>
+                    <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="3">
+                        <TextBox Text="{Binding CurrentItem.cutMaharLangarCount, Mode=TwoWay}" Width="70" MinWidth="70" TextChanged="TextBox_TextChanged_1"/>
+                        <TextBlock Text="لنگر "/>
+                        <TextBox Text="{Binding CurrentItem.cutMaharLangarWeight, Mode=TwoWay}" Width="70" MinWidth="70" TextChanged="TextBox_TextChanged_1"/>
+                        <TextBlock Text="تنی استقرار انجام می پذیرد "/>
+                    </StackPanel>
+                </Grid>
+            </sdk:TabItem>
+            
+            <sdk:TabItem Header="مشخصات لایروب هایپرساکشن" Style="{StaticResource TabItemStyle1}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="نام لایروب"/>
+                    <TextBox Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding CurrentItem.hypNameLayroob, Mode=TwoWay}"/>
+                    <TextBlock Text="تحت مالکیت" Grid.Column="3"/>
+                    <TextBox Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding CurrentItem.hypLayroobMalek, Mode=TwoWay}"/>
+                    
+                    <TextBlock Text="آبخور لایروب" Grid.Column="0" Grid.Row="1"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding CurrentItem.hypAbkhorLayroob, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="1" Grid.Column="3" Text="حداکثر عمق لایروبی(متر)"/>
+                    <TextBox Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding CurrentItem.hypMaxOmgh, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Text="حجم مخزن لایروب(مترمکعب)" Grid.Column="0" Grid.Row="2"/>
+                    <TextBox Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding CurrentItem.hypHajmeMakhzan, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="2" Grid.Column="3" Text="متوسط مصرف سوخت بازای 1 متر لای برداری(لیتر)"/>
+                    <TextBox Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding CurrentItem.hypMasrafSookht, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                </Grid>
+            </sdk:TabItem>
+            <sdk:TabItem Header="مشخصات لایروب بیل و بارج" Style="{StaticResource TabItemStyle1}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="نام لایروب"/>
+                    <TextBox Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding CurrentItem.bilNameLayroob, Mode=TwoWay}"/>
+                    <TextBlock Text="تحت مالکیت" Grid.Column="3"/>
+                    <TextBox Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding CurrentItem.bilLayroobMalek, Mode=TwoWay}"/>
+
+                    <TextBlock Text="آبخور لایروب" Grid.Column="0" Grid.Row="1"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding CurrentItem.bilAbkhorBarj, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="1" Grid.Column="3" Text="حجم باکت(مترمکعب)"/>
+                    <TextBox Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding CurrentItem.bilHajmeBucket, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    
+                    <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Text="متوسط حجم مصالح در باکت بازای هر بار لای برداری (مترمکعب)"/>
+                    <TextBox Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding CurrentItem.bilHajmeMasaleh, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Text="حداکثر عمق لایروبی(متر)" Grid.Column="0" Grid.Row="3"/>
+                    <TextBox Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Text="{Binding CurrentItem.bilMaxOmgh, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="3" Grid.Column="3" Text="با حجم باکت(مترمکعب)"/>
+                    <TextBox Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding CurrentItem.bilMaxHajmeBucket, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Text="متوسط مصرف سوخت بازای انجام یک متر لای برداری (لیتر)"/>
+                    <TextBox Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding CurrentItem.bilMaxHajmeBucket, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                </Grid>
+            </sdk:TabItem>
+
+            <sdk:TabItem Header="تجهیزات جانبی - یدک کش" Style="{StaticResource TabItemStyle1}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="کاربری"/>
+                    <CheckBox Content="یدک کشی" Grid.Column="1" IsChecked="{Binding CurrentItem.IsYadakKeshi, Mode=TwoWay}"/>
+                    <CheckBox Content="نقشه برداری" Grid.Column="2" IsChecked="{Binding CurrentItem.IsNaghshebardari, Mode=TwoWay}"/>
+                    <CheckBox Content="بارج کشی" Grid.Column="3" IsChecked="{Binding CurrentItem.IsBarjKeshi, Mode=TwoWay}"/>
+
+                    <TextBlock Text="قدرت موتور(اسب بخار)" Grid.Column="0" Grid.Row="1"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding CurrentItem.yadGhodratMotor, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="1" Grid.Column="3" Text="کشش مهاربند(تن)"/>
+                    <TextBox Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding CurrentItem.yadKesheshMaharband, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Text="طول یدک کش(متر)" Grid.Column="0" Grid.Row="2"/>
+                    <TextBox Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding CurrentItem.yadTool, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="2" Grid.Column="3" Text="عرض یدک کش(متر)"/>
+                    <TextBox Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding CurrentItem.yadArz, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="آبخور یدک کش(متر)"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding CurrentItem.yadAbkhor, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Text="حجم مخزن سوخت(مترمکعب)" Grid.Column="0" Grid.Row="4"/>
+                    <TextBox Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Text="{Binding CurrentItem.yadHajmeMakhzanSookht, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="4" Grid.Column="3" Text="حجم مخزن آب(مترمکعب)"/>
+                    <TextBox Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding CurrentItem.yadHajmeMakhzanAb, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                </Grid>
+            </sdk:TabItem>
+
+            <sdk:TabItem Header="تجهیزات جانبی - مولتی کت" Style="{StaticResource TabItemStyle1}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="جرثقیل هیدرولیکی کوچک(متر)" Grid.Column="0" Grid.Row="0"/>
+                    <TextBox Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding CurrentItem.mulJaresaghil, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="0" Grid.Column="3" Text="قدرت وینچ(تن)"/>
+                    <TextBox Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding CurrentItem.mulWinch, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Text="حجم مخزن سوخت(مترمکعب)" Grid.Column="0" Grid.Row="1"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding CurrentItem.mulHajmeMakhzanSookht, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="1" Grid.Column="3" Text="حجم مخزن آب(مترمکعب)"/>
+                    <TextBox Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Text="{Binding CurrentItem.mulHajmeMakhzanAb, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <CheckBox Content="توانایی جابجا کردن لنگر مهاربند لایروب کاترساکشن را دارد" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" IsChecked="{Binding CurrentItem.IsTavaneJabejaei, Mode=TwoWay}"/>
+
+                    <CheckBox Content="جهت اسمبل کردن خط لوله دریایی به کار گرفته می شود" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" IsChecked="{Binding CurrentItem.IsJahateAssemble, Mode=TwoWay}"/>
+
+                    <TextBlock Text="فضای خالی روی عرشه برای جابجایی نفرات و تجهیزات (مترمربع)" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Left"/>
+                    <TextBox Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2" Text="{Binding CurrentItem.mulFazayeKhali, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                </Grid>
+            </sdk:TabItem>
+
+            <sdk:TabItem Header="ماشین آلات و تجهیزات" Style="{StaticResource TabItemStyle1}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>   
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Margin" Value="5,5"/>
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                            <Setter Property="Foreground" Value="#FF050078"/>
+                        </Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="MinWidth" Value="100"/>
+                            <Setter Property="Height" Value="26"/>
+                            <Setter Property="Margin" Value="0,3"/>
+                            <Setter Property="FontSize" Value="12"/>
+                        </Style>
+                    </Grid.Resources>
+                    
+                    <TextBlock Text="تعداد به کار گرفته شده از هر یک از تجهیزات و ماشین آلات در پروژه" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Left" FontWeight="Bold"/>
+
+                    <TextBlock Text="بیل مکانیکی" Grid.Column="0" Grid.Row="1"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding CurrentItem.equCountBilMechanici, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="1" Grid.Column="2" Text="بولدوزر"/>
+                    <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding CurrentItem.equCountBouldoser, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Text="لودر" Grid.Row="2" Grid.Column="0"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding CurrentItem.equCountLoader, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="2" Grid.Column="2" Text="کامیون کمپرسی"/>
+                    <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding CurrentItem.equCountKamionCompressi, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="کامیون جرثقیل دار"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding CurrentItem.equCountKamionJaresaghildar, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="3" Grid.Column="2" Text="جرثقیل"/>
+                    <TextBox Grid.Row="3" Grid.Column="3" Text="{Binding CurrentItem.equCountJaresaghil, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="GPS با پردازشگر DGPS"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding CurrentItem.equCountDGPS, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="4" Grid.Column="2" Text="GPS با پردازشگر RTK"/>
+                    <TextBox Grid.Row="4" Grid.Column="3" Text="{Binding CurrentItem.equCountRTK, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Grid.Row="5" Grid.Column="0" Text="اکوساندر"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding CurrentItem.equCountEcosounder, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="5" Grid.Column="2" Text="تایدگیج"/>
+                    <TextBox Grid.Row="5" Grid.Column="3" Text="{Binding CurrentItem.equCountTideGuage, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Grid.Row="6" Grid.Column="0" Text="سرعت سنج الکترونیکی"/>
+                    <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding CurrentItem.equCountSpeedometer, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="6" Grid.Column="2" Text="دوربین توتال استیشن"/>
+                    <TextBox Grid.Row="6" Grid.Column="3" Text="{Binding CurrentItem.equCountTotalStation, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Grid.Row="7" Grid.Column="0" Text="دوربین نیو"/>
+                    <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding CurrentItem.equCountNivo, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="7" Grid.Column="2" Text="دیزل ژنراتور"/>
+                    <TextBox Grid.Row="7" Grid.Column="3" Text="{Binding CurrentItem.equCountDiesel, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Grid.Row="8" Grid.Column="0" Text="تانکر آب"/>
+                    <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding CurrentItem.equCountTankerAb, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="8" Grid.Column="2" Text="تانکر سوخت"/>
+                    <TextBox Grid.Row="8" Grid.Column="3" Text="{Binding CurrentItem.equCountTankerSookht, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Grid.Row="9" Grid.Column="0" Text="قابق موتوری و تدارکات"/>
+                    <TextBox Grid.Row="9" Grid.Column="1" Text="{Binding CurrentItem.equCountGhayegh, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="9" Grid.Column="2" Text="خط لوله (طول به کیلومتر)"/>
+                    <TextBox Grid.Row="9" Grid.Column="3" Text="{Binding CurrentItem.equCountKhateLoole, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                </Grid>
+            </sdk:TabItem>
+
+            <sdk:TabItem Header="مشخصات ژئوتکنیکی " Style="{StaticResource TabItemStyle1}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Margin" Value="5,10"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Foreground" Value="#FF050078"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                            <Setter Property="TextAlignment" Value="Center"/>
+                            <!--<Setter Property="FontWeight" Value="Bold"/>-->
+                        </Style>
+
+                        <Style TargetType="TextBox">
+                            <Setter Property="Height" Value="26"/>
+                            <Setter Property="Margin" Value="2,5"/>
+                            <Setter Property="FontSize" Value="12"/>
+                        </Style>
+                    </Grid.Resources>
+
+                    <TextBlock Text="مشخصات خاک بستر دریا در لایه هایی که قرار است لایروبی صورت گیرد" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="8" HorizontalAlignment="Left" FontWeight="Bold"/>
+
+                    <TextBlock Text="لایه های بستر" Grid.Column="0" Grid.Row="1"/>
+                    <TextBlock Text="جنس خاک" Grid.Column="1" Grid.Row="1"/>
+                    <TextBlock Text="تراز ابتدایی لایه نسبت به CD"  Grid.Column="2" Grid.Row="1"/>
+                    <TextBlock Text="تراز انتهایی لایه نسبت به CD" Grid.Column="3" Grid.Row="1"/>
+                    <TextBlock Text="ضخامت لایه (متر)" Grid.Column="4" Grid.Row="1"/>
+                    <TextBlock Text="SPT" Grid.Column="5" Grid.Row="1"/>
+                    <TextBlock Text="لایروب پیشنهادی" Grid.Column="6" Grid.Row="1"/>
+                    <TextBlock Text="لایروب به کار گرفته شده" Grid.Column="7" Grid.Row="1"/>
+                    <TextBlock Text="عملکرد لایروب (مناسب/نامناسب)" Grid.Column="8" Grid.Row="1"/>
+
+                    <TextBlock Text="لایه اول" Grid.Column="0" Grid.Row="2"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding CurrentItem.geoLayer1JenseKhak, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding CurrentItem.geoLayer1TarazeEbtedaei, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding CurrentItem.geoLayer1TarazeEntehaei, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBox Grid.Row="2" Grid.Column="4" Text="{Binding CurrentItem.geoLayer1ZekhamatLayer, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBox Grid.Row="2" Grid.Column="5" Text="{Binding CurrentItem.geoLayer1SPT, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="2" Grid.Column="6" Text="{Binding CurrentItem.geoLayer1LaroobPishnahadi, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="2" Grid.Column="7" Text="{Binding CurrentItem.geoLayer1LayroobeBekarGerefte, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="2" Grid.Column="8" Text="{Binding CurrentItem.geoLayer1AmalkardeLayroob, Mode=TwoWay}"/>
+
+                    <TextBlock Text="لایه دوم" Grid.Column="0" Grid.Row="3"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding CurrentItem.geoLayer2JenseKhak, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding CurrentItem.geoLayer2TarazeEbtedaei, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBox Grid.Row="3" Grid.Column="3" Text="{Binding CurrentItem.geoLayer2TarazeEntehaei, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBox Grid.Row="3" Grid.Column="4" Text="{Binding CurrentItem.geoLayer2ZekhamatLayer, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBox Grid.Row="3" Grid.Column="5" Text="{Binding CurrentItem.geoLayer2SPT, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="3" Grid.Column="6" Text="{Binding CurrentItem.geoLayer2LaroobPishnahadi, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="3" Grid.Column="7" Text="{Binding CurrentItem.geoLayer2LayroobeBekarGerefte, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="3" Grid.Column="8" Text="{Binding CurrentItem.geoLayer2AmalkardeLayroob, Mode=TwoWay}"/>
+
+                    <TextBlock Text="لایه سوم" Grid.Column="0" Grid.Row="4"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding CurrentItem.geoLayer3JenseKhak, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding CurrentItem.geoLayer3TarazeEbtedaei, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBox Grid.Row="4" Grid.Column="3" Text="{Binding CurrentItem.geoLayer3TarazeEntehaei, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBox Grid.Row="4" Grid.Column="4" Text="{Binding CurrentItem.geoLayer3ZekhamatLayer, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBox Grid.Row="4" Grid.Column="5" Text="{Binding CurrentItem.geoLayer3SPT, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="4" Grid.Column="6" Text="{Binding CurrentItem.geoLayer3LaroobPishnahadi, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="4" Grid.Column="7" Text="{Binding CurrentItem.geoLayer3LayroobeBekarGerefte, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="4" Grid.Column="8" Text="{Binding CurrentItem.geoLayer3AmalkardeLayroob, Mode=TwoWay}"/>
+
+                </Grid>
+            </sdk:TabItem>
+
+            <sdk:TabItem Header="محل تخلیه در خشکی " Style="{StaticResource TabItemStyle1}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Margin" Value="5,10"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Foreground" Value="#FF050078"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                            <Setter Property="TextAlignment" Value="Center"/>
+                            <!--<Setter Property="FontWeight" Value="Bold"/>-->
+                        </Style>
+
+                        <Style TargetType="TextBox">
+                            <Setter Property="Height" Value="26"/>
+                            <Setter Property="Margin" Value="2,5"/>
+                            <Setter Property="FontSize" Value="12"/>
+                        </Style>
+                    </Grid.Resources>
+
+                    <TextBlock Text="محدوده های در نظر گرفته شده در خشکی برای تخلیه مصالح حاصل از لایروبی در محدوده های زیر تعریف شده است" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="8" HorizontalAlignment="Left" FontWeight="Bold"/>
+
+                    <TextBlock Text="محدوده" Grid.Column="0" Grid.Row="1"/>
+                    <TextBlock Text="مساحت محدوده&#13;(متر مربع)" Grid.Column="1" Grid.Row="1"/>
+                    <TextBlock Text="حجم قابل تخلیه در محدوده&#13;(متر مکعب)"  Grid.Column="2" Grid.Row="1"/>
+                    <TextBlock Text="فاصله از محل لایروبی&#13;(متر)" Grid.Column="3" Grid.Row="1"/>
+                    <TextBlock Text="طول دایک (متر)&#13;(در صورت وجود)" Grid.Column="4" Grid.Row="1"/>
+
+                    <TextBlock Text="شماره یک" Grid.Column="0" Grid.Row="2"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding CurrentItem.disKhoshkiNo1Masahat, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding CurrentItem.disKhoshkiNo1Hajm, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding CurrentItem.disKhoshkiNo1Fasele, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBox Grid.Row="2" Grid.Column="4" Text="{Binding CurrentItem.disKhoshkiNo1Tool, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    
+
+                    <TextBlock Text="شماره دو" Grid.Column="0" Grid.Row="3"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding CurrentItem.disKhoshkiNo2Masahat, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBox Grid.Row="3" Grid.Column="2" Text="{Binding CurrentItem.disKhoshkiNo2Hajm, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBox Grid.Row="3" Grid.Column="3" Text="{Binding CurrentItem.disKhoshkiNo2Fasele, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBox Grid.Row="3" Grid.Column="4" Text="{Binding CurrentItem.disKhoshkiNo2Tool, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                   
+
+                    <TextBlock Text="شماره سه" Grid.Column="0" Grid.Row="4"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding CurrentItem.disKhoshkiNo3Masahat, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding CurrentItem.disKhoshkiNo3Hajm, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBox Grid.Row="4" Grid.Column="3" Text="{Binding CurrentItem.disKhoshkiNo3Fasele, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBox Grid.Row="4" Grid.Column="4" Text="{Binding CurrentItem.disKhoshkiNo3Tool, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <CheckBox Content="با توجه به نوع کاربری و بارگذاری محوطه استحصال شده در پشت دایک، خاک بستر نیاز به تثبیت دارد" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="4" IsChecked="{Binding CurrentItem.disKhoshkiNiazeTasbit, Mode=TwoWay}"/>
+                </Grid>
+            </sdk:TabItem>
+
+            <sdk:TabItem Header="محل تخلیه در دریا" Style="{StaticResource TabItemStyle1}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="در صورت تخلیه در دریا منطقه معین شده توسط سازمان محیط زیست مشخص گردد" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Left" FontWeight="Bold"/>
+
+                    <TextBlock Text="نام محدوده" Grid.Column="0" Grid.Row="1"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding CurrentItem.disDaryaNameMahdoode, Mode=TwoWay}"/>
+                    <TextBlock Grid.Row="1" Grid.Column="2" Text="عمق محدوده"/>
+                    <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding CurrentItem.disDaryaOmgheMahdoode, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Text="فاصله از محل لایروبی" Grid.Row="2" Grid.Column="0"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding CurrentItem.disDaryaFasele, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="2" Grid.Column="2" Text="متوسط زمان هر سفر(ساعت)"/>
+                    <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding CurrentItem.disDaryaZaman, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="طول جغرافیایی"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding CurrentItem.disDaryaLong, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                    <TextBlock Grid.Row="3" Grid.Column="2" Text="عرض جغرافیایی"/>
+                    <TextBox Grid.Row="3" Grid.Column="3" Text="{Binding CurrentItem.disDaryaLat, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+                </Grid>
+            </sdk:TabItem>
+
+            <sdk:TabItem Header="سوابق لایروبی های قبلی" Style="{StaticResource TabItemStyle1}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <CheckBox Name="chkSavLayroobiGhabli" Content="طی سال های گذشته در محدوده فعلی لایروبی انجام شده است" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" IsChecked="{Binding CurrentItem.savLayroobiGhabli, Mode=TwoWay}" Unchecked="chkSavLayroobiGhabli_Unchecked"/>
+                    <TextBlock Text="سال" Grid.Column="2" Grid.Row="1"/>
+                    <TextBox Name="txtSavSaleLayroobiGhabli" Grid.Column="3" Grid.Row="1" Text="{Binding CurrentItem.savSaleLayroobiGhabli, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1" IsEnabled="{Binding ElementName=chkSavLayroobiGhabli, Path=IsChecked}"/>
+
+                    <TextBlock Grid.Row="2" Text="نوع عملیات" HorizontalAlignment="Left"/>
+                    <CheckBox Grid.Row="2" Grid.Column="1" Content="احداثی"
+                                 IsChecked="{Binding CurrentItem.savIsEhdasi, Mode=TwoWay}"/>
+                    <CheckBox Grid.Row="2" Grid.Column="1" Content="نگهداری" HorizontalAlignment="Right" 
+                                 IsChecked="{Binding CurrentItem.savIsNegahdari, Mode=TwoWay}"/>
+
+                    <TextBlock Text="حجم عملیات(مترمکعب)" Grid.Column="2" Grid.Row="2"/>
+                    <TextBox Grid.Column="3" Grid.Row="2" Text="{Binding CurrentItem.savHajmeAmaliat, Mode=TwoWay}" TextChanged="TextBox_TextChanged_1"/>
+
+                    <TextBlock Text="مشاور پروژه" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left"/>
+                    <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding CurrentItem.savMoshaver, Mode=TwoWay}"/>
+
+                    <TextBlock Text="پیمانکار پروژه" Grid.Column="2" Grid.Row="3"/>
+                    <TextBox Grid.Column="3" Grid.Row="3" Text="{Binding CurrentItem.savPeymankar, Mode=TwoWay}"/>
+
+                    <TextBlock Text="مشخصات لایروب بکار گرفته شده" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" TextWrapping="Wrap"/>
+                    <TextBox Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" AcceptsReturn="True" Height="90" MaxHeight="90"  Text="{Binding CurrentItem.savMoshakhasateLayroob, Mode=TwoWay}"/>
+                </Grid>
+            </sdk:TabItem>
+        </sdk:TabControl>
+        
+        
+        <Border Grid.Row="2">
+            <StackPanel>
+                <Button Content="ذخیره فرم" HorizontalAlignment="Right" Margin="4" Width="120" Name="save" Click="save_Click" />
+               
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
+
+    

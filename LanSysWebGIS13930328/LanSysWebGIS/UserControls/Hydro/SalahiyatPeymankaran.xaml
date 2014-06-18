@@ -1,0 +1,156 @@
+﻿<UserControl xmlns:Hydro="clr-namespace:LanSysWebGIS.UserControls.Hydro"  
+    xmlns:myControls="clr-namespace:LanSysWebGIS.Controls"  
+    x:Class="LanSysWebGIS.UserControls.Hydro.SalahiyatPeymankaran"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:my="clr-namespace:SilverlightPersianDatePicker.Views;assembly=SilverlightPersianDatePicker"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan"
+    FlowDirection="RightToLeft" Width="950" Height="425">
+    <UserControl.Resources>
+        <Style TargetType="TextBox">
+            <!--<Setter Property="MinWidth" Value="100"/>-->
+            <Setter Property="Height" Value="26"/>
+            <Setter Property="Margin" Value="1,1,1,10"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="0,1,4,1"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Foreground" Value="#FF050078"/>
+            <!--<Setter Property="FontWeight" Value="Bold"/>-->
+        </Style>
+        <Style TargetType="CheckBox">
+            <Setter Property="Margin" Value="3,10"/>
+        </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="Margin" Value="5,10"/>
+        </Style>
+    </UserControl.Resources>
+    <myControls:BusyIndicator IsBusy="{Binding Path=IsBusy}" BusyContent="لطفا شکیبا باشید...">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Border Grid.ColumnSpan="3" Background="SkyBlue" Margin="3">
+                <TextBlock Text="فرم صلاحیت پیمانکار" FontWeight="Bold"  HorizontalAlignment="Center" FontSize="22" Margin="2" 
+                           Foreground="White" FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan"/>
+            </Border>
+            <sdk:TabControl Grid.Row="1" HorizontalAlignment="Stretch" Margin="2,3,2,1" VerticalAlignment="Stretch" 
+                    RenderTransformOrigin="0,0" TabStripPlacement="Left" Style="{StaticResource TabControlStyle1}"
+                            FontFamily="/LanSysWebGIS;component/Font/BYekan.ttf#B Yekan">
+                <sdk:TabItem Style="{StaticResource TabItemStyle1}" Header="فرم شماره 100&#13;مشخصات عمومی شرکت پیمانکار">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Border Margin="4" BorderBrush="LightBlue" BorderThickness="0,0,0,2" >
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="4" TextAlignment="Center" VerticalAlignment="Center">پیمانکار</TextBlock>
+                                <ComboBox Name="peymankarList" Width="200" Margin="4" BorderBrush="SkyBlue" ItemsSource="{Binding Peymankarha}" 
+                                      DisplayMemberPath="NameKamelePeymankar" SelectedValue="{Binding CurrentPeymankar, Mode=TwoWay}">
+                                </ComboBox>
+                                <Button Name="newPeymankar" Margin="4" Click="newPeymankar_Click" Width="80">جدید</Button>
+                                <Button Name="deletePeymankar" Margin="4" Click="deletePeymankar_Click" Width="80">حذف</Button>
+                            </StackPanel>
+                        </Border>
+                        <Hydro:FormNo100 x:Name="formNo100" Grid.Row="1" DataContext="{Binding ElementName=peymankarList, Path=SelectedValue}"/>
+                       
+                    </Grid>
+                </sdk:TabItem>
+                <sdk:TabItem Style="{StaticResource TabItemStyle1}" Header="فرم شماره 200&#13;فهرست افراد شاغل در شرکت">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Border Margin="4" BorderBrush="LightBlue" BorderThickness="0,0,0,2" >
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="4" TextAlignment="Center" VerticalAlignment="Center">پیمانکار</TextBlock>
+                                <ComboBox Width="200" Margin="4" ItemsSource="{Binding Peymankarha}" DisplayMemberPath="NameKamelePeymankar" 
+                                          SelectedValue="{Binding CurrentPeymankar, Mode=TwoWay}"/>
+                                <Button Content="جدید" HorizontalAlignment="Right" Margin="4" Width="80" Name="newPerson" Click="newPerson_Click"/>
+                                <Button Content="حذف" HorizontalAlignment="Right" Margin="4" Width="80" Name="deletePerson" Click="deletePerson_Click"/>
+                            </StackPanel>
+                        </Border>
+                        <Hydro:FormNo200 Name="formNo200" Grid.Row="1" DataContext="{Binding}"/>
+                        
+                    </Grid>
+                </sdk:TabItem>
+                <sdk:TabItem Style="{StaticResource TabItemStyle1}" Header="فرم شماره 300&#13;سوابق کاری مرتبط با لایروبی مدیران و کارکنان">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Border Margin="4" BorderBrush="LightBlue" BorderThickness="0,0,0,2" >
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="4" TextAlignment="Center" VerticalAlignment="Center">پیمانکار</TextBlock>
+                                <ComboBox Width="200" Margin="4" ItemsSource="{Binding Peymankarha}" Name="peymankar3"
+                                      DisplayMemberPath="NameKamelePeymankar" SelectedValue="{Binding CurrentPeymankar, Mode=TwoWay}"/>
+                                <TextBlock Text="مدیر/کارمند" VerticalAlignment="Center"/>
+                                <ComboBox Width="200" Margin="4" ItemsSource="{Binding ElementName=peymankar3, Path=SelectedValue.Persons}"
+                                          DisplayMemberPath="Nam" SelectedValue="{Binding CurrentPerson, Mode=TwoWay}"/>
+                                <Button Content="جدید" HorizontalAlignment="Right" Margin="4" Width="80" Name="newSavabeg" Click="newSavabeg_Click"/>
+                                <Button Content="حذف" HorizontalAlignment="Right" Margin="4" Width="80" Name="removeSavabeg" Click="removeSavabeg_Click"/>
+                                <!--<Button Content="حذف فرد" HorizontalAlignment="Right" Margin="4" Width="120" Name="deleteSavabeg" Click="deletePerson_Click"/>-->
+
+                            </StackPanel>
+                        </Border>
+                        <Hydro:FormNo300 Name="formNo300" Grid.Row="1" DataContext="{Binding}"/>
+                    </Grid>
+                </sdk:TabItem>
+                <sdk:TabItem Style="{StaticResource TabItemStyle1}" Header="فرم شماره 400&#13;اطلاعات پیمان های پیمانکاری">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Border Margin="4" BorderBrush="LightBlue" BorderThickness="0,0,0,2" >
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="4" TextAlignment="Center" VerticalAlignment="Center">پیمانکار</TextBlock>
+                                <ComboBox Width="200" Margin="4" ItemsSource="{Binding Peymankarha}" DisplayMemberPath="NameKamelePeymankar" 
+                                          SelectedValue="{Binding CurrentPeymankar, Mode=TwoWay}"/>
+                                <Button Content="جدید" HorizontalAlignment="Right" Margin="4" Width="80" Name="newPeyman" Click="newPeyman_Click"/>
+                                <Button Content="حذف" HorizontalAlignment="Right" Margin="4" Width="80" Name="removePeyman" Click="removePeyman_Click"/>
+
+                            </StackPanel>
+                        </Border>
+                        <Hydro:FormNo400 Name="formNo400" Grid.Row="1" DataContext="{Binding}"/>
+                    </Grid>
+                </sdk:TabItem>
+                <sdk:TabItem Style="{StaticResource TabItemStyle1}" Header="فرم شماره 500&#13;مشخصات ماشین آلات و تجهیزات شرکت پیمانکار">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Border Margin="4" BorderBrush="LightBlue" BorderThickness="0,0,0,2" >
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="4" TextAlignment="Center" VerticalAlignment="Center">پیمانکار</TextBlock>
+                                <ComboBox Width="200" Margin="4" ItemsSource="{Binding Peymankarha}" DisplayMemberPath="NameKamelePeymankar" 
+                                          SelectedValue="{Binding CurrentPeymankar, Mode=TwoWay}"/>
+                                <Button Content="جدید" HorizontalAlignment="Right" Margin="4" Width="80" Name="newMashin" Click="newMashin_Click"/>
+                                <Button Content="حذف" HorizontalAlignment="Right" Margin="4" Width="80" Name="removeMashin" Click="removeMashin_Click"/>
+
+                            </StackPanel>
+                        </Border>
+                        <Hydro:FormNo500 Name="formNo500" Grid.Row="1"  DataContext="{Binding}"/>
+                    </Grid>
+
+                </sdk:TabItem>
+                <!--<sdk:TabItem Style="{StaticResource TabItemStyle1}" Header="دستور العمل ارزیابی و تشخیص صلاحیت &#13; پیمانکار">
+                    --><!--<Hydro:DastooramalArzyabiVaTashkis Grid.Row="1"  DataContext="{Binding}"/>--><!--
+                </sdk:TabItem>-->
+            </sdk:TabControl>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="ذخیره فرم" HorizontalAlignment="Right" Margin="4" Width="120" Name="save" Click="savePaymankar_Click"/>
+            </StackPanel>
+        </Grid>
+    </myControls:BusyIndicator>
+</UserControl>
