@@ -1,0 +1,48 @@
+﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="LanSysWebGIS" EntryPointType="LanSysWebGIS.App" RuntimeVersion="5.0.61118.0">
+  <Deployment.Parts>
+    <AssemblyPart x:Name="LanSysWebGIS" Source="LanSysWebGIS.dll" />
+    <AssemblyPart x:Name="DevExpress.Data.v11.1" Source="DevExpress.Data.v11.1.dll" />
+    <AssemblyPart x:Name="DevExpress.Xpf.Core.v11.1" Source="DevExpress.Xpf.Core.v11.1.dll" />
+    <AssemblyPart x:Name="DevExpress.Xpf.Docking.v11.1" Source="DevExpress.Xpf.Docking.v11.1.dll" />
+    <AssemblyPart x:Name="DevExpress.Xpf.Layout.v11.1.Core" Source="DevExpress.Xpf.Layout.v11.1.Core.dll" />
+    <AssemblyPart x:Name="DevExpress.Xpf.Ribbon.v11.1" Source="DevExpress.Xpf.Ribbon.v11.1.dll" />
+    <AssemblyPart x:Name="DevExpress.Xpf.Themes.LightGray.v11.1" Source="DevExpress.Xpf.Themes.LightGray.v11.1.dll" />
+    <AssemblyPart x:Name="ESRI.ArcGIS.Client.Bing" Source="ESRI.ArcGIS.Client.Bing.dll" />
+    <AssemblyPart x:Name="ESRI.ArcGIS.Client" Source="ESRI.ArcGIS.Client.dll" />
+    <AssemblyPart x:Name="ESRI.ArcGIS.Client.Toolkit" Source="ESRI.ArcGIS.Client.Toolkit.dll" />
+    <AssemblyPart x:Name="FloatableWindow" Source="FloatableWindow.dll" />
+    <AssemblyPart x:Name="Liquid.Components" Source="Liquid.Components.dll" />
+    <AssemblyPart x:Name="Liquid" Source="Liquid.dll" />
+    <AssemblyPart x:Name="Liquid.Popup" Source="Liquid.Popup.dll" />
+    <AssemblyPart x:Name="Lite.ExcelLibrary" Source="Lite.ExcelLibrary.dll" />
+    <AssemblyPart x:Name="Lite.Library" Source="Lite.Library.dll" />
+    <AssemblyPart x:Name="MapPrintingControls" Source="MapPrintingControls.dll" />
+    <AssemblyPart x:Name="MDIWindow" Source="MDIWindow.dll" />
+    <AssemblyPart x:Name="Microsoft.Expression.Interactions" Source="Microsoft.Expression.Interactions.dll" />
+    <AssemblyPart x:Name="Microsoft.Windows.Data.DomainServices" Source="Microsoft.Windows.Data.DomainServices.dll" />
+    <AssemblyPart x:Name="Newtonsoft.Json" Source="Newtonsoft.Json.dll" />
+    <AssemblyPart x:Name="ProjNet.Silverlight" Source="ProjNet.Silverlight.dll" />
+    <AssemblyPart x:Name="SilverlightPersianDatePicker" Source="SilverlightPersianDatePicker.dll" />
+    <AssemblyPart x:Name="System.ComponentModel.DataAnnotations" Source="System.ComponentModel.DataAnnotations.dll" />
+    <AssemblyPart x:Name="System.Json" Source="System.Json.dll" />
+    <AssemblyPart x:Name="System.ServiceModel.DomainServices.Client" Source="System.ServiceModel.DomainServices.Client.dll" />
+    <AssemblyPart x:Name="System.ServiceModel.DomainServices.Client.Web" Source="System.ServiceModel.DomainServices.Client.Web.dll" />
+    <AssemblyPart x:Name="System.ServiceModel.Web.Extensions" Source="System.ServiceModel.Web.Extensions.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Data.DataForm.Toolkit" Source="System.Windows.Controls.Data.DataForm.Toolkit.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Data" Source="System.Windows.Controls.Data.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Data.Input" Source="System.Windows.Controls.Data.Input.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.DataVisualization.Toolkit" Source="System.Windows.Controls.DataVisualization.Toolkit.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls" Source="System.Windows.Controls.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.DomainServices" Source="System.Windows.Controls.DomainServices.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Input" Source="System.Windows.Controls.Input.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Input.Toolkit" Source="System.Windows.Controls.Input.Toolkit.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Navigation" Source="System.Windows.Controls.Navigation.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Toolkit" Source="System.Windows.Controls.Toolkit.dll" />
+    <AssemblyPart x:Name="System.Windows.Data" Source="System.Windows.Data.dll" />
+    <AssemblyPart x:Name="System.Windows.Interactivity" Source="System.Windows.Interactivity.dll" />
+    <AssemblyPart x:Name="System.Xml.Linq" Source="System.Xml.Linq.dll" />
+    <AssemblyPart x:Name="System.Xml.Serialization" Source="System.Xml.Serialization.dll" />
+    <AssemblyPart x:Name="Vishcious.ArcGIS.SLContrib" Source="Vishcious.ArcGIS.SLContrib.dll" />
+    <AssemblyPart x:Name="System.Windows.Controls.Toolkit.Internals" Source="System.Windows.Controls.Toolkit.Internals.dll" />
+  </Deployment.Parts>
+</Deployment>
